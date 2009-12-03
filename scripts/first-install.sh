@@ -8,7 +8,8 @@ fi
 # get my repo of config files
 sudo aptitude update && sudo aptitude install git-core
 cd ~
-git clone
+git clone git://github.com/sethwoodworth/dotfiles.git
+git remote add origin git@github.com:sethwoodworth/dotfiles.git
 
 # install my standard apps
 sudo aptitude install audacity build-essential git-core gnome-do gpw gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly inkscape markdown mplayer mplayer-nogui screen-profiles signing-party subversion synergy w32codecs
