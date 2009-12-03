@@ -1,0 +1,39 @@
+# Could just force-add these files and leave this as '*', but this way I have a
+# nice explicit list for documentation's sake.
+ 
+# Ignore everything by default.
+*
+ 
+# Bash stuff (profile just sources bashrc, since it's the only thing sourced
+# when a shell is a login shell).
+!.bashrc
+!.profile
+ 
+# Git aliases, identification info
+!.gitconfig
+# The gitignore of this repository itself (!)
+!.gitignore
+ 
+# IRb config
+!.irbrc
+ 
+# Vim plugins, ftplugins, syntax etc etc
+!.vim
+!.vim/*
+!.vim/autoload/*
+!.vim/doc/*
+!.vim/ftplugin/*
+!.vim/plugin/*
+!.vim/syntax/*
+# Vim settings
+!.vimrc
+ 
+# Aptitude config
+!.aptitude
+!.aptitude/*
+ 
+# Screen RCfile
+!.screenrc
+ 
+# Gem config
+!.gemrc
