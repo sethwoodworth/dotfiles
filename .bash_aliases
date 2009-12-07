@@ -3,7 +3,6 @@ alias apt='sudo apt-get install'
 alias search='apt-cache search'
 
 # ssh
-alias sethtest='ssh-add;ssh -A seth@seth.test.laptop.org'
 alias media='ssh -X seth@media.laptop.org'
 alias pedal='ssh sethapprox@pedal.laptop.org'
 alias hornet='ssh sethapprox@hornet.dreamhost.com'
