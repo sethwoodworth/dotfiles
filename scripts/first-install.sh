@@ -25,6 +25,9 @@ if [ -f /usr/lib/git-core/git-clone ];
     else
         echo "I need to install git before we can proceed."
         sudo aptitude update && yes | sudo aptitude install git-core
+        echo "configuring git ..."
+        git config --global user.name "Seth Woodworth"
+        git config --global user.email "seth@isforinsects.com"
 fi
 
 if [ ! -d ~/.git ]; 
