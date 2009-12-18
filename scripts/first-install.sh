@@ -10,7 +10,20 @@ fi
 
 ## Config files
 # setup ~/ first
+echo "Lets set up your home directory with directories"
 cd ~
+
+if [ ! -d ~/code ]; then
+    echo "didn't have a code directory you should run 'repo-rake'"
+    mkdir ~/code
+fi
+
+if [ ! -d ~/Documents ]; then
+    echo "didn't find a Documents folder, that is unusual"
+    echo "you may want to 'fetch-notes'"
+    mkdir ~/Documents
+fi
+
 if [ ! -d ~/.backup ]; then
     mkdir ~/.backup
 fi
@@ -60,9 +73,11 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ##########   Split into two scripts here   #########
 ####################################################
 
+##### installing packages #####
+
 ## install my standard apps
-# TODO: Add more pkgs to install for default configs, this can't be everything I use.
-# TODO: Split this into media / prog tools / sys-tools
+# TODO: Add more pkgs to install for default configs, this isn't everything
+# TODO: Split this into media / prog tools / sys-tools as options/flags
 sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy
 
 # media tools
@@ -77,6 +92,21 @@ sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto pyt
 echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
+
+# set up my code folder with some common projects and example code
+echo "fetching some of your code repos to ~/code"
+cd ~/code
+
+echo "'mbta-boston-pub' repository from github"
+if [ ! -d mbta-boston-pub ]; 
+    then
+        git clone git@github.com:sethwoodworth/mbta-boston-pub.git
+    else
+        echo "you already have this repo, I'll update it while I'm here"
+        cd mbta-boston-pub
+        git-pull origin master
+fi
+        
 
 # TODO: Setup ssh configs
 # TODO: Add more program config files
