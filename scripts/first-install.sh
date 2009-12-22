@@ -78,7 +78,7 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ## install my standard apps
 # TODO: Add more pkgs to install for default configs, this isn't everything
 # TODO: Split this into media / prog tools / sys-tools as options/flags
-sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy
+sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy xclip
 
 # media tools
 sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui 
@@ -103,6 +103,13 @@ echo "and use the gen_rsa.pub to authenticate this machine:"
 cat ~/.ssh/gen_rsa.pub
 # TODO: add a pause here for user response
 
+echo "adding some github specific config to git config"
+git config --global github.user sethwoodworth
+
+#echo "then get your api key from the account page and paste it here"
+#TODO: take user input and set it as $TOKEN
+#git config --global github.token $TOKEN
+
 echo "fetching some of your code repos to ~/code"
 cd ~/code
 
@@ -114,8 +121,19 @@ if [ ! -d mbta-boston-pub ];
         echo "you already have this repo, I'll update it while I'm here"
         cd mbta-boston-pub
         git-pull origin master
+        cd ~/code
 fi
-        
+
+echo "'collect-phil-cdc' repository from github"
+if [ ! -d collect-phil-cdc ]; 
+    then
+        git clone git@github.com:sethwoodworth/collect-phil-cdc.git
+    else
+        echo "you already have this repo, I'll update it while I'm here"
+        cd collect-phil-cdc
+        git-pull origin master
+        cd ~/code
+fi
 
 # TODO: Setup ssh configs
 # TODO: Add more program config files
