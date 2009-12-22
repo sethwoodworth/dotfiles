@@ -94,6 +94,15 @@ sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
 
 # set up my code folder with some common projects and example code
+echo "Setting up a lot of local git repos"
+echo "First let's make you able to pull from github &etc"
+echo "you're going to want to log in to github and paste the following into the ssh keys"
+firefox https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Faccount
+echo "use the hostname as the ssh key title:" $HOSTNAME
+echo "and use the gen_rsa.pub to authenticate this machine:"
+cat ~/.ssh/gen_rsa.pub
+# TODO: add a pause here for user response
+
 echo "fetching some of your code repos to ~/code"
 cd ~/code
 
@@ -110,6 +119,5 @@ fi
 
 # TODO: Setup ssh configs
 # TODO: Add more program config files
-# TODO: Add common git repos to my ~/code folder
-# ?TODO: add more standard folders?
+# TODO: add more standard folders?
 # TODO: Start checking daily notes into git repo on private machine and pull {shallow?} copies to all machines
