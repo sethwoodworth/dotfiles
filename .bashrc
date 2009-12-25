@@ -185,5 +185,3 @@ function set_prompt() {
     export PS1="${host}:${path}${venv}${branch} ${end}"
 }
 export PROMPT_COMMAND=set_prompt
-
-
