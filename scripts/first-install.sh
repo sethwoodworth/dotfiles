@@ -78,7 +78,7 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ## install my standard apps
 # TODO: Add more pkgs to install for default configs, this isn't everything
 # TODO: Split this into media / prog tools / sys-tools as options/flags
-sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy xclip
+sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy unp xclip
 
 # media tools
 sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui 
