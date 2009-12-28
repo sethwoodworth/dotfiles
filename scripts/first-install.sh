@@ -93,6 +93,11 @@ echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
 
+############################################################
+################   auth for code repos   ###################
+############################################################
+#TODO: authenticate with launchpad's bzr
+
 # set up my code folder with some common projects and example code
 echo "Setting up a lot of local git repos"
 echo "First let's make you able to pull from github &etc"
@@ -135,7 +140,6 @@ if [ ! -d collect-phil-cdc ];
         cd ~/code
 fi
 
-# TODO: Setup ssh configs
-# TODO: Add more program config files
-# TODO: add more standard folders?
-# TODO: Start checking daily notes into git repo on private machine and pull {shallow?} copies to all machines
+# TODO: Setup ssh keysharing
+# TODO: Add (after sanitizing) program config files (.irssi, etc)
+# TODO: check notes into git on private and pull (shallow?) copies to all machines
