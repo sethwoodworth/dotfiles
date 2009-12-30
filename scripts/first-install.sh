@@ -78,10 +78,13 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ## install my standard apps
 # TODO: Add more pkgs to install for default configs, this isn't everything
 # TODO: Split this into media / prog tools / sys-tools as options/flags
-sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy unp xclip
+sudo aptitude install build-essential bzr git-core gnome-do gpw markdown signing-party subversion unp vim-nox xclip
 
 # media tools
-sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui 
+sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui sox
+
+# if gnome / X.org
+sudo aptitude install audacity gconf-editor inkscape synergy 
 
 ## set up my python env
 echo "You want to play with the python? Mkay, let's get you stuff you'll need for that."
@@ -139,6 +142,18 @@ if [ ! -d collect-phil-cdc ];
         git-pull origin master
         cd ~/code
 fi
+
+for repo in list of repos-on-github
+    echo $repo + " repository from github"
+    if [ ! -d $repo ]; 
+        then
+            git clone git@github.com:sethwoodworth/$repo.git
+        else
+            echo "you already have this repo, I'll update it while I'm here"
+            cd $repo
+            git-pull origin master
+            cd ~/code
+    fi
 
 # TODO: Setup ssh keysharing
 # TODO: Add (after sanitizing) program config files (.irssi, etc)
