@@ -11,7 +11,7 @@ set shiftwidth=4
 set expandtab 
 set smarttab
 
-set hlsearch    "search stuff
+"set hlsearch    "I don't actually like highlight search
 set incsearch
 set wildmode=longest,list
 
@@ -21,3 +21,7 @@ augroup mkd     "read my markdown syntax
 augroup END
 
 let $PAGER=''   "clear the variable in vim
+
+" Key remappings
+imap ii <esc>
+map ; :
