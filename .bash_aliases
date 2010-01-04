@@ -1,15 +1,6 @@
 # apt aliases
-alias apt='sudo apt-get install'
-alias search='apt-cache search'
-
-# ssh
-alias media='ssh -X seth@media.laptop.org'
-alias pedal='ssh sethapprox@pedal.laptop.org'
-alias hornet='ssh sethapprox@hornet.dreamhost.com'
-alias jubilee='ssh onelaptop@jubilee.dreamhost.com'
-alias yawner='ssh yawner@hornet.dreamhost.com'
-alias lulz='ssh -A seth@lulz.hellosilo.com'
-alias toast='ssh -A seth@128.103.147.183'
+alias apt='sudo aptitude install'
+alias search='aptitude search'
 
 # lists
 alias l='ls -lnh'

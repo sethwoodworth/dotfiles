@@ -8,13 +8,16 @@
 # when a shell is a login shell).
 !.bashrc
 !.bash_aliases
-!.profile
  
 # Git aliases, identification info
 !.gitconfig
 # The gitignore of this repository itself (!)
 !.gitignore
+
+!.ssh/config
  
+# Vim settings
+!.vimrc
 # Vim plugins, ftplugins, syntax etc etc
 !.vim
 !.vim/*
@@ -23,8 +26,6 @@
 !.vim/ftplugin/*
 !.vim/plugin/*
 !.vim/syntax/*
-# Vim settings
-!.vimrc
  
 # Aptitude config
 !.aptitude
