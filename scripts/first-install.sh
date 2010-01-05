@@ -86,15 +86,39 @@ sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.
 # if gnome / X.org
 sudo aptitude install audacity gconf-editor inkscape synergy 
 
-## set up my python env
+####################################################
+##########  setup dev environment + repos  #########
+####################################################
+
+## setup my python env
 echo "You want to play with the python? Mkay, let's get you stuff you'll need for that."
 sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto python-feedparser python-matplotlib python-networkx python-markdown python-pygraphviz python-rsvg python-sqlalchemy python-yaml 
 
-## set up ruby env
+## setup ruby env
 # TODO: add commands here to install the rubygems I use.
 echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
+
+## setup perl
+# TODO: what is a good default perl setup?
+cpan
+# App::CLI              ...loaded. (0.08 >= 0.08)
+# Archive::Any          ...missing.
+# DateTime              ...loaded. (0.53)
+# Exporter::Lite        ...loaded. (0.02)
+# File::Copy::Recursive ...missing. (would need 0.38)
+# File::Path            ...too old. (2.04 < 2.07)
+# File::Spec            ...loaded. (3.2501)
+# File::Type            ...missing.
+# Getopt::Long          ...loaded. (2.37)
+# LWP::Simple           ...loaded. (5.810)
+# LWP::UserAgent        ...loaded. (5.819)
+# Test::More            ...loaded. (0.72)
+# URI                   ...loaded. (1.37 >= 1.37)
+# YAML
+
+
 
 ############################################################
 ################   auth for code repos   ###################

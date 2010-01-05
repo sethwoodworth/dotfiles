@@ -15,11 +15,6 @@ set smarttab
 set incsearch
 set wildmode=longest,list
 
-
-augroup mkd     "read my markdown syntax
- autocmd BufRead *.mkd  set ai formatoptions=tcroqn2 comments=n:>
-augroup END
-
 let $PAGER=''   "clear the variable in vim
 
 " Key remappings
