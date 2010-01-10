@@ -12,11 +12,17 @@ set expandtab
 set smarttab
 
 "set hlsearch    "I don't actually like highlight search
-set incsearch
+set incsearch    "search as I type
 set wildmode=longest,list
 
-let $PAGER=''   "clear the variable in vim
+" plugins
+filetype plugin on
+" pydiction
+let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 
 " Key remappings
 imap ii <esc>
 map ; :
+
+" &etc
+"let $PAGER=''   "clear the variable in vim
