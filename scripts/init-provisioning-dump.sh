@@ -100,6 +100,12 @@ echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
 
+## Setup Scheme, expecially for the WIZARD (purple) book)
+# http://mitpress.mit.edu/sicp/
+Echo "Setting up Scheme binaries"
+sudo aptitude install mit-scheme mit-scheme-doc
+
+
 ## setup perl
 # TODO: what is a good default perl setup?
 cpan
