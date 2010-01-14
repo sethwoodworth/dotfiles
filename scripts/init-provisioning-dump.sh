@@ -78,7 +78,7 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ## install my standard apps
 # TODO: Add more pkgs to install for default configs, this isn't everything
 # TODO: Split this into media / prog tools / sys-tools as options/flags
-sudo aptitude install build-essential bzr git-core gnome-do gpw markdown signing-party subversion unp vim-nox xclip
+sudo aptitude install build-essential bzr cvs git-core gnome-do gpw markdown signing-party subversion unp vim-nox xclip
 
 # media tools
 sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui sox
@@ -108,7 +108,7 @@ sudo aptitude install mit-scheme mit-scheme-doc
 
 ## setup perl
 # TODO: what is a good default perl setup?
-cpan
+#cpan
 # App::CLI              ...loaded. (0.08 >= 0.08)
 # Archive::Any          ...missing.
 # DateTime              ...loaded. (0.53)
