@@ -23,6 +23,7 @@ let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 " Key remappings
 imap ii <esc>
 map ; :
+" todo: map CTRL+/ to toggle hls <> nohls (highlight search)
 
 " &etc
 "let $PAGER=''   "clear the variable in vim
