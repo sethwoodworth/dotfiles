@@ -13,15 +13,17 @@ $db_host = 'localhost';
 $db_db = 'cdc_phil_data';
 $db_user = 'pyrak';
 $db_pass = 'toast';
+$path_to_data = "/ROD/wordpress/wp-content/themes/cleanr-deriv/collect-phil-cdc/";
 }
 
 else if($dreamhost){
 
 // we connect to example.com and port 3307
-$db_host = 'mysql.hellosillo.com';
+$db_host = 'mysql.hellosilo.com';
 $db_db = 'phil_cdc_scrape_data';
 $db_user = 'yarg';
 $db_pass = 'bargleblat';
+$path_to_data = "/data/";
 }
 
 $id = $post->ID; 
@@ -115,7 +117,6 @@ $data['categories'] = parse_categories($data['categories']);
 
 
 $data['copyright'] = cleanup_html($data['copyright']);
-$path_to_data = "/ROD/wordpress/wp-content/themes/cleanr-deriv/collect-phil-cdc/";
 $data['path_to_lores_img'] = $path_to_data . "lores/" . gen_data_dir($id) . "/" . add_nulls($id, 5) . ".jpg";
 
 
