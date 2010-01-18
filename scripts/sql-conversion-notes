@@ -1,4 +1,14 @@
-run the shell script
+run the shell script to convert the sqlite into an sql import statement
 create the database in mysql
 then do this:
 mysql -p -u root cdc_phil_data < dump.sql
+now our data is in sql so that php can understand it.
+
+next, make the wordpress database.  then run this on it:
+TRUNCATE TABLE wp_posts;
+then use some python or shell (i'll probably write a script) to do this:
+INSERT INTO wp_posts (post_type) VALUES ("page", "page");
+where you have one "page" for every image id in our scraped database
+that should do it!
+
+

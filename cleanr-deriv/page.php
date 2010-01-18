@@ -99,7 +99,7 @@ $data['categories'] = parse_categories($data['categories']);
 
 
 $data['copyright'] = cleanup_html($data['copyright']);
-$path_to_data = "/ROD/wordpress/wp-content/themes/cleanr-deriv/collect-phil-cdc/";
+$path_to_data = "/ROD/wordpress/wp-content/themes/publish-phil-cdc/cleanr-deriv/collect-phil-cdc/";
 $data['path_to_lores_img'] = $path_to_data . "lores/" . gen_data_dir($id) . "/" . add_nulls($id, 5) . ".jpg";
 
 
