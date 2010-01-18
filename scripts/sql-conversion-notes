@@ -1,0 +1,4 @@
+run the shell script
+create the database in mysql
+then do this:
+mysql -p -u root cdc_phil_data < dump.sql
