@@ -3,11 +3,27 @@
  * Template Name: Image-View
  * */
 
+$parker_machine = False;
+$dreamhost	 = True;
+
+if($parker_machine){
+
 // we connect to example.com and port 3307
 $db_host = 'localhost';
 $db_db = 'cdc_phil_data';
 $db_user = 'pyrak';
 $db_pass = 'toast';
+}
+
+else if($dreamhost){
+
+// we connect to example.com and port 3307
+$db_host = 'mysql.hellosillo.com';
+$db_db = 'phil_cdc_scrape_data';
+$db_user = 'yarg';
+$db_pass = 'bargleblat';
+}
+
 $id = $post->ID; 
 $db_get_all_data_by_id_query = "SELECT * from phil WHERE id = " . $id;
 
