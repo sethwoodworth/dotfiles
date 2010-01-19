@@ -3,39 +3,65 @@
  * Template Name: Image-View
  * */
 
-$parker_machine = False;
-$dreamhost	 = True;
+$parker_machine = True;
+$dreamhost	 = False;
 
-if($parker_machine){
+if(!$wp_outofbounds){
+    if($parker_machine){
 
-// we connect to example.com and port 3307
-$db_host = 'localhost';
-$db_db = 'cdc_phil_data';
-$db_user = 'pyrak';
-$db_pass = 'toast';
-$path_to_data = "/ROD/wordpress/wp-content/themes/cleanr-deriv/collect-phil-cdc/";
+        // we connect to example.com and port 3307
+        $db_host = 'localhost';
+        $db_db = 'cdc_phil_data';
+        $db_user = 'pyrak';
+        $db_pass = 'toast';
+        $path_to_data = "/ROD/collect-phil-cdc/";
+    }
+
+    else if($dreamhost){
+
+        // we connect to example.com and port 3307
+        $db_host = 'mysql.hellosilo.com';
+        $db_db = 'phil_cdc_scrape_data';
+        $db_user = 'yarg';
+        $db_pass = 'bargleblat';
+        $path_to_data = "/data/";
+    }
+
+    $id = $post->ID; 
+    $db_get_all_data_by_id_query = "SELECT * from phil WHERE id = " . $id;
+
+    $db_connection = mysql_connect($db_host, $db_user, $db_pass);
+    if (!$db_connection) {
+            die('Could not connect: ' . mysql_error());
+    }
+    mysql_select_db($db_db);
+    $db_result = mysql_query($db_get_all_data_by_id_query);
+    $data = mysql_fetch_assoc($db_result);
+
+    //getting next and previous id's
+    //next:
+    $nextid = False;
+    $query = "SELECT id, url_to_lores_img from phil WHERE id > " . $id;
+    $db_result = mysql_query($query);
+    while($possibility = mysql_fetch_assoc($db_result)){
+        if($possibility['url_to_lores_img']){
+            $nextid = $possibility['id'];
+            break;
+        }
+    }
+    //prev:
+    $previd = False;
+    $query = "SELECT id, url_to_lores_img from phil WHERE id < " . $id;
+    $db_result = mysql_query($query);
+    while($possibility = mysql_fetch_assoc($db_result)){
+        if($possibility['url_to_lores_img']){
+            $previd = $possibility['id'];
+            break;
+        }
+
+    }
+    
 }
-
-else if($dreamhost){
-
-// we connect to example.com and port 3307
-$db_host = 'mysql.hellosilo.com';
-$db_db = 'phil_cdc_scrape_data';
-$db_user = 'yarg';
-$db_pass = 'bargleblat';
-$path_to_data = "/data/";
-}
-
-$id = $post->ID; 
-$db_get_all_data_by_id_query = "SELECT * from phil WHERE id = " . $id;
-
-$db_connection = mysql_connect($db_host, $db_user, $db_pass);
-if (!$db_connection) {
-        die('Could not connect: ' . mysql_error());
-}
-mysql_select_db($db_db);
-$db_result = mysql_query($db_get_all_data_by_id_query);
-$data = mysql_fetch_assoc($db_result);
 
 function cleanup_html($html){
     $html = str_replace('<td>', '</td>', $html);
@@ -45,6 +71,9 @@ function cleanup_html($html){
 
 function parse_links($python_list){
     $trimmed = trim(cleanup_html($python_list), '[]');
+    if(!$trimmed){
+        return False;
+    }
     $pairs = explode("), ", $trimmed);
     //in another dimension! (wolfmother)
     foreach ($pairs as $key => $pair){
@@ -75,6 +104,9 @@ function this_many_spaces($n){
 function parse_categories($python_list){
     $trimmed = str_replace("u'", "", $python_list);
     $trimmed = trim($trimmed, "'\n");
+    if(!$trimmed){
+        return False;
+    }
     $leaves = explode("\n", $trimmed);
     foreach($leaves as $key => $leaf){
         $leaf_explosion = explode(" ", $leaf);
@@ -118,6 +150,8 @@ $data['categories'] = parse_categories($data['categories']);
 
 $data['copyright'] = cleanup_html($data['copyright']);
 $data['path_to_lores_img'] = $path_to_data . "lores/" . gen_data_dir($id) . "/" . add_nulls($id, 5) . ".jpg";
+$data['path_to_thumb_img'] = $path_to_data . "thumbs/" . gen_data_dir($id) . "/" . add_nulls($id, 5) . ".jpg";
+$data['path_to_hires_img'] = $path_to_data . "hires/" . gen_data_dir($id) . "/" . add_nulls($id, 5) . ".tif";
 
 
 /* deprecated: we gave up on sqlite
@@ -149,24 +183,52 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 				<div class="entry">
 					<?php the_content('<em>Continue reading &rarr;</em>'); ?>
 
+    <?php if($previd) { ?>
+    <a href="<?php bloginfo('wpurl'); echo "?p=" . ($id-1) . "&dir=b" ?>">Prev</a>
+    <?php } ?>
+    <?php if($nextid) { ?>
+    <a style="float: right;" href="<?php bloginfo('wpurl'); echo "?p=" . ($id+1) . "&dir=f" ?>">Next</a>
+    <?php } ?>
+
+
 <div style="text-align: center; width: 100%; display: block;">
     <img style="display: inline-block" src="<?php echo $data['path_to_lores_img'] ?>"  />
 </div>
     <p>
+<div id="desc">
 <?php echo $data['desc'] ?>
-</p>
+</div>
 
 <?php if($data['source']){ ?>
 <h4>Source</h4>
 <div>
 <?php echo $data['source'] ?>
 </div>
-
 <?php } ?>
 
+<h6>Downloads:</h6>
+<div class="block_datapt">
+<ul>
+<?php if($data['url_to_lores_img']) {?>
+<li><a href="<?php echo $data['path_to_lores_img'] ?>">Low Resolution -- Our Server</a></li>
+<li><a href="<?php echo $data['url_to_lores_img'] ?>">Low Resolution -- CDC Server</a></li>
+<?php } ?>
+<?php if($data['url_to_hires_img']) {?>
+<li><a href="<?php echo $data['path_to_hires_img'] ?>">High Resolution -- Our Server</a></li>
+<li><a href="<?php echo $data['url_to_hires_img'] ?>">High Resolution -- CDC Server</a></li>
+<?php } ?>
+<?php if($data['url_to_thumb_img']) {?>
+<li><a href="<?php echo $data['path_to_thumb_img'] ?>">Thumbnail -- Our Server</a></li>
+<li><a href="<?php echo $data['url_to_thumb_img'] ?>">Thumbnail -- CDC Server</a></li>
+<?php } ?>
+<li></li>
+</ul>
+</div>
+
+
 <?php if($data['links']){ ?>
-<div class="copyright">
 <h6>Copyright Status</h6>
+<div class="block_datapt">
 <p>
 <?php echo $data['copyright'] ?>
 </p>
@@ -175,39 +237,40 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 <?php if($data['links']){ ?>
 <h6>Related Links:</h6>
+<div class="block_datapt">
 <?php echo $data['links'] ?>
+</div>
 <?php } ?>
+
+
+<p class="datapoint">
+    Image Id:
+    <?php echo $data['id'] ?>
+</p>
+<?php if($data['creation']){ ?>
+<p class="datapoint">
+    Creation Date:
+    <?php echo $data['creation'] ?>
+</p>
+<?php } ?>
+<?php if($data['credit']){ ?>
+<p class="datapoint">
+    Photo Credit:
+    <?php echo $data['credit'] ?>
+</p>
+<?php } ?>
+<?php if($data['provider']){ ?>
+<p class="datapoint">
+    Content Providers(s):
+    <?php echo $data['provider'] ?>
+</p>
+<?php } ?>
+
 
 <?php if($data['categories']){ ?>
 <h6>Categories:</h6>
 <?php echo $data['categories'] ?>
 <?php } ?>
-
-<table>
-<tr>
-    <td>id:</td>
-    <td><?php echo $data['id'] ?></td>
-</tr>
-<?php if($data['creation']){ ?>
-<tr>
-    <td>Creation Date:</td>
-    <td><?php echo $data['creation'] ?></td>
-</tr>
-<?php } ?>
-<?php if($data['credit']){ ?>
-<tr>
-    <td>Photo Credit:</td>
-    <td><?php echo $data['credit'] ?></td>
-</tr>
-<?php } ?>
-<?php if($data['provider']){ ?>
-<tr>
-    <td>Content Providers(s):<td>
-    <td><?php echo $data['provider'] ?></td>
-</tr>
-<?php } ?>
-</table>
-<?php //TODO: CATEGORIES ?>
 
 
 <!--
@@ -237,13 +300,6 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 		<?php endwhile; ?>
 
-	<?php else : ?>
-
-		<h2 class="center">Not Found</h2>
-		<p class="center">Sorry, but you are looking for something that isn't here.</p>
-		<?php //get_search_form(); ?>
-
-	<?php endif; ?>
 		
 	<?php comments_template(); ?>
 
@@ -271,6 +327,17 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 					</small>
 				</p>
+	<?php else : ?>
+
+		<h2 class="center">Not Found</h2>
+		<p class="center">Sorry, but you are looking for something that isn't here.</p>
+        <p style="text-align: right">
+        <a href="<?php bloginfo('wpurl') ?>?p=1">Back to the Beginning &raquo;</a>
+        </p>
+<p>&nbsp;</p>
+		<?php //get_search_form(); ?>
+
+	<?php endif; ?>
 
 	</div>
 	
