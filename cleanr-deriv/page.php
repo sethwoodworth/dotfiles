@@ -6,28 +6,18 @@
 $parker_machine = True;
 $dreamhost	 = False;
 
+$max_id = 3;
+//$max_id = 11850;
+
 if(!$wp_outofbounds){
-    if($parker_machine){
-
-        // we connect to example.com and port 3307
-        $db_host = 'localhost';
-        $db_db = 'cdc_phil_data';
-        $db_user = 'pyrak';
-        $db_pass = 'toast';
-        $path_to_data = "/ROD/collect-phil-cdc/";
+    require_once("sql.php");
+    //random?!
+    if(!rand){
+        $id = $post->ID; 
     }
-
-    else if($dreamhost){
-
-        // we connect to example.com and port 3307
-        $db_host = 'mysql.hellosilo.com';
-        $db_db = 'phil_cdc_scrape_data';
-        $db_user = 'yarg';
-        $db_pass = 'bargleblat';
-        $path_to_data = "/data/";
+    else{
+        $id = rand(1, $max_id);
     }
-
-    $id = $post->ID; 
     $db_get_all_data_by_id_query = "SELECT * from phil WHERE id = " . $id;
 
     $db_connection = mysql_connect($db_host, $db_user, $db_pass);
@@ -167,11 +157,11 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 <?php get_header(); ?>
 
-	<div id="content-imglibrary">
+	<div id="content-onecol">
 
-	<?php if (have_posts()) : ?>
+	<?php if (have_posts() || $rand) : ?>
 
-		<?php while (have_posts()) : the_post(); ?>
+		<?php //while (have_posts()) : the_post(); ?>
 
 			<div <?php post_class() ?> id="post-<?php the_ID(); ?>">
 <!--
@@ -183,12 +173,15 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 				<div class="entry">
 					<?php the_content('<em>Continue reading &rarr;</em>'); ?>
 
+<div id="navlinks">
     <?php if($previd) { ?>
     <a href="<?php bloginfo('wpurl'); echo "?p=" . ($id-1) . "&dir=b" ?>">Prev</a>
     <?php } ?>
+    &nbsp;
     <?php if($nextid) { ?>
     <a style="float: right;" href="<?php bloginfo('wpurl'); echo "?p=" . ($id+1) . "&dir=f" ?>">Next</a>
     <?php } ?>
+    </div>
 
 
 <div style="text-align: center; width: 100%; display: block;">
@@ -199,6 +192,7 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 <?php echo $data['desc'] ?>
 </div>
 
+<div id="not_desc">
 <?php if($data['source']){ ?>
 <h4>Source</h4>
 <div>
@@ -210,16 +204,13 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 <div class="block_datapt">
 <ul>
 <?php if($data['url_to_lores_img']) {?>
-<li><a href="<?php echo $data['path_to_lores_img'] ?>">Low Resolution -- Our Server</a></li>
-<li><a href="<?php echo $data['url_to_lores_img'] ?>">Low Resolution -- CDC Server</a></li>
+<li>Low Resolution: <a href="<?php echo $data['path_to_lores_img'] ?>">ROD server</a>,<a href="<?php echo $data['url_to_lores_img'] ?>">CDC server</a></li>
 <?php } ?>
 <?php if($data['url_to_hires_img']) {?>
-<li><a href="<?php echo $data['path_to_hires_img'] ?>">High Resolution -- Our Server</a></li>
-<li><a href="<?php echo $data['url_to_hires_img'] ?>">High Resolution -- CDC Server</a></li>
+<li>High Resolution: <a href="<?php echo $data['path_to_hires_img'] ?>">ROD server</a>, <a href="<?php echo $data['url_to_hires_img'] ?>">CDC server</a></li>
 <?php } ?>
 <?php if($data['url_to_thumb_img']) {?>
-<li><a href="<?php echo $data['path_to_thumb_img'] ?>">Thumbnail -- Our Server</a></li>
-<li><a href="<?php echo $data['url_to_thumb_img'] ?>">Thumbnail -- CDC Server</a></li>
+<li>Thumbnail: <a href="<?php echo $data['path_to_thumb_img'] ?>">Rod server</a>, <a href="<?php echo $data['url_to_thumb_img'] ?>">CDC Server</a></li>
 <?php } ?>
 <li></li>
 </ul>
@@ -244,24 +235,24 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 
 <p class="datapoint">
-    Image Id:
+    <strong class="label">Image Id:</strong>
     <?php echo $data['id'] ?>
 </p>
 <?php if($data['creation']){ ?>
 <p class="datapoint">
-    Creation Date:
+    <strong class="label">Creation Date:</strong>
     <?php echo $data['creation'] ?>
 </p>
 <?php } ?>
 <?php if($data['credit']){ ?>
 <p class="datapoint">
-    Photo Credit:
+    <strong class="label">Photo Credit:</strong>
     <?php echo $data['credit'] ?>
 </p>
 <?php } ?>
 <?php if($data['provider']){ ?>
 <p class="datapoint">
-    Content Providers(s):
+    <strong class="label">Content Providers(s):</strong>
     <?php echo $data['provider'] ?>
 </p>
 <?php } ?>
@@ -269,7 +260,9 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 <?php if($data['categories']){ ?>
 <h6>Categories:</h6>
+<div class="block_datapt">
 <?php echo $data['categories'] ?>
+</div>
 <?php } ?>
 
 
@@ -289,6 +282,7 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 <?php //Content Providers(s): echo  $data['source'] ?>
 
 -->
+</div>
 				<?php wp_link_pages(array('before' => '<p><strong>Pages:</strong> ', 'after' => '</p>', 'next_or_number' => 'number')); ?>
 				<?php the_tags( '<p class="small">Tags: ', ', ', '</p>'); ?>
 
@@ -298,7 +292,7 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 			</div>
 
-		<?php endwhile; ?>
+		<?php //endwhile; ?>
 
 		
 	<?php comments_template(); ?>

@@ -1,3 +1,13 @@
+<?php
+
+if($_GET['rand'] == 1){
+    $rand = True;
+    require_once("page.php");
+    exit;
+
+}
+
+?>
 <?php get_header(); ?>
 
 	<div id="content-onecol">

@@ -190,12 +190,35 @@ ol.commentlist li.thread-odd {}
 
 
 
-#content-onecol {margin-bottom:0;padding-bottom: 20px;}
-#content-onecol .post {padding-top:30px;clear:both}
-#content-onecol .page {padding-top:30px;clear:both}
+#content-onecol {
+    margin-bottom:0;padding-bottom: 20px;
+    font-size: .8em;
+}
+#content-onecol .post {clear:both}
+#content-onecol .page {clear:both}
 #content-onecol {text-align: justify;}
-#content-onecol div.copyright {
-    margin-top: 10px;
-    font-size: .7em;
+#content-onecol .block_datapt {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+#content-onecol #desc{
+    margin: 0 0px 10px 0px;
+    font-size: 1.2em;
+}
+#content-onecol #not_desc{
+    margin: 0 20px 0 20px;
+    /*border-left: 1px grey solid;
+    padding-left: 5px;*/
 
+}
+#content-onecol .datapoint {
+    margin-bottom: 5px;
+}
+#content-onecol h6{
+}
+#content-onecol #navlinks{
+    font-size: 1.3em;
+}
+#content-onecol .datapoint .label{
+    color: black;
 }
