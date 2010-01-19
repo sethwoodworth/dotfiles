@@ -34,14 +34,14 @@ hr {margin:0; clear:both}
 #header span {font:13px Georgia; font-style: italic; color: #aaa; margin-left:20px;position:relative;top:-7px;letter-spacing: 0}
 
 /* jQUery Dropdown menu */
-#nav { list-style: none; padding-top:45px; margin: 0; float:right;} 
-#nav li { float: left; margin: 0px 0px 0px 10px;padding:0px 15px 0px 0px;position:relative;font-size:14px;line-height: 1.8;zoom: 1} 
+#nav { list-style: none; padding-top:35px; margin: 0; float:right;} 
+#nav li { float: left; margin: 0px 0px 0px 10px;padding:0px 15px 0px 0px;position:relative;font-size:1.2em;line-height: 1.8;zoom: 1} 
 #nav li:last-child {padding:0;}
 #nav .current-cat a, #nav .current_page_item a {color: #aaa}
 #nav .current-cat li a, #nav .current_page_item li a {color: #000}
 #nav .current-cat li a:hover, #nav .current_page_item li a:hover {color: #c00}
 
-#nav li a { text-transform: uppercase; font-weight: bold; text-decoration: none; color: #000;border:none; text-decoration: none; float: left} 
+#nav li a { font-weight: bold; text-decoration: none; color: #666;border:none; text-decoration: none; float: left} 
 #nav li a:hover {color:#c00;}
 #nav li span { width: 12px; height:20px; background: url(images/arrow-down.gif) no-repeat left 7px;margin:0;padding:0;position: absolute;right:0;top:0} 
 #nav ul {display:none}
@@ -191,7 +191,8 @@ ol.commentlist li.thread-odd {}
 
 
 #content-onecol {
-    margin-bottom:0;padding-bottom: 20px;
+    margin: 10px 10px 0 10px;
+    padding-bottom: 20px;
     font-size: .8em;
 }
 #content-onecol .post {clear:both}
@@ -203,10 +204,10 @@ ol.commentlist li.thread-odd {}
 }
 #content-onecol #desc{
     margin: 0 0px 10px 0px;
-    font-size: 1.2em;
+    font-size: 1.3em;
 }
 #content-onecol #not_desc{
-    margin: 0 20px 0 20px;
+    margin: 20px 30px 0 30px;
     /*border-left: 1px grey solid;
     padding-left: 5px;*/
 

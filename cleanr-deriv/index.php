@@ -1,6 +1,6 @@
 <?php
 
-if($_GET['rand'] == 1){
+if($_GET['rand']){
     $rand = True;
     require_once("page.php");
     exit;
@@ -16,7 +16,10 @@ if($_GET['rand'] == 1){
 		<?php //get_search_form(); ?>
 
 <p style="text-align: right">
-<a href="<?php bloginfo('wpurl') ?>?p=1">Browse the Database &raquo;</a>
+<a href="<?php bloginfo('wpurl') ?>?rand=1">View a random image &raquo;</a>
+</p>
+<p style="text-align: right">
+<a href="<?php bloginfo('wpurl') ?>?p=1">Browse the database from the beginning &raquo;</a>
 </p>
 
 	</div>

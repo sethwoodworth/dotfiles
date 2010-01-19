@@ -12,11 +12,11 @@ $max_id = 3;
 if(!$wp_outofbounds){
     require_once("sql.php");
     //random?!
-    if(!rand){
-        $id = $post->ID; 
+    if($rand){
+        $id = rand(1, $max_id);
     }
     else{
-        $id = rand(1, $max_id);
+        $id = $post->ID; 
     }
     $db_get_all_data_by_id_query = "SELECT * from phil WHERE id = " . $id;
 
@@ -156,6 +156,15 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 
 
 <?php get_header(); ?>
+<div id="navlinks">
+    <?php if($previd) { ?>
+    <a href="<?php bloginfo('wpurl'); echo "?p=" . ($id-1) ?>">Prev</a>
+    <?php } ?>
+    &nbsp;
+    <?php if($nextid) { ?>
+    <a style="float: right;" href="<?php bloginfo('wpurl'); echo "?p=" . ($id+1) ?>">Next</a>
+    <?php } ?>
+    </div>
 
 	<div id="content-onecol">
 
@@ -173,15 +182,6 @@ sqlite_unbuffered_query($db_handle, $db_select_by_id_query);
 				<div class="entry">
 					<?php the_content('<em>Continue reading &rarr;</em>'); ?>
 
-<div id="navlinks">
-    <?php if($previd) { ?>
-    <a href="<?php bloginfo('wpurl'); echo "?p=" . ($id-1) . "&dir=b" ?>">Prev</a>
-    <?php } ?>
-    &nbsp;
-    <?php if($nextid) { ?>
-    <a style="float: right;" href="<?php bloginfo('wpurl'); echo "?p=" . ($id+1) . "&dir=f" ?>">Next</a>
-    <?php } ?>
-    </div>
 
 
 <div style="text-align: center; width: 100%; display: block;">
