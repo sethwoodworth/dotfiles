@@ -81,10 +81,13 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 sudo aptitude install build-essential bzr cvs git-core gnome-do gpw markdown signing-party subversion unp vim-nox xclip
 
 # media tools
-sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui sox
+sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui sox speex speex-doc
+
 
 # if gnome / X.org
 sudo aptitude install audacity gconf-editor inkscape synergy 
+
+#lighttpd
 
 ####################################################
 ##########  setup dev environment + repos  #########
@@ -92,7 +95,7 @@ sudo aptitude install audacity gconf-editor inkscape synergy
 
 ## setup my python env
 echo "You want to play with the python? Mkay, let's get you stuff you'll need for that."
-sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto python-feedparser python-matplotlib python-networkx python-markdown python-pygraphviz python-rsvg python-sqlalchemy python-yaml 
+sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto python-feedparser python-matplotlib python-networkx python-markdown python-pygraphviz python-rsvg python-speex python-sqlalchemy python-yaml 
 
 ## setup ruby env
 # TODO: add commands here to install the rubygems I use.
