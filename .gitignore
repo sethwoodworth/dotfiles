@@ -7,16 +7,17 @@
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
 !.bashrc
-!.profile
+!.bash_aliases
  
 # Git aliases, identification info
 !.gitconfig
 # The gitignore of this repository itself (!)
 !.gitignore
+
+!.ssh/config
  
-# IRb config
-!.irbrc
- 
+# Vim settings
+!.vimrc
 # Vim plugins, ftplugins, syntax etc etc
 !.vim
 !.vim/*
@@ -25,8 +26,6 @@
 !.vim/ftplugin/*
 !.vim/plugin/*
 !.vim/syntax/*
-# Vim settings
-!.vimrc
  
 # Aptitude config
 !.aptitude
@@ -35,5 +34,5 @@
 # Screen RCfile
 !.screenrc
  
-# Gem config
-!.gemrc
+# My init &etc scripts
+!scripts/*

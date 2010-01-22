@@ -1,0 +1,32 @@
+Vim configs notes
+=================
+
+#TODO: Find drawit plugin and link here
+
+Surround.vim v 1.34
+ -  http://www.vim.org/scripts/script.php?script_id=1697
+
+Pydiction v 1.2
+ -  http://www.vim.org/scripts/script.php?script_id=850
+
+python.vim v 2.6.5 
+ -  enhanced syntax highlighting
+ -  http://www.vim.org/scripts/script.php?script_id=790
+ -  TODO: add a keymapping for run python script 'map <F6> :!python %<CR>'
+ -      .vim/after/ftplugin/python_pydiction.vim
+
+pyflakes-vim v 1.58
+ -  python error checking
+ -  http://github.com/kevinw/pyflakes-vim
+ -  http://www.vim.org/scripts/script.php?script_id=2441
+
+repeat.vim v 1.0
+ -  http://www.vim.org/scripts/script.php?script_id=2136
+
+matchit v 1.13.2
+ -  make % grok html tags
+ -  http://www.vim.org/scripts/script.php?script_id=39
+
+python_matchit v 0.5
+ -  same as above, but for python
+ -  http://www.vim.org/scripts/script.php?script_id=386

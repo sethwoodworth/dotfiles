@@ -11,6 +11,8 @@ export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 # histsize should be biiiiiig
 export HISTSIZE=10240
+# HOLY CRAP I CAN STORE HISTORY TIMESTAMPS !!!!!
+export HISTTIMEFORMAT='%F %T'
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -185,5 +187,3 @@ function set_prompt() {
     export PS1="${host}:${path}${venv}${branch} ${end}"
 }
 export PROMPT_COMMAND=set_prompt
-
-
