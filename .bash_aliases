@@ -37,3 +37,7 @@ alias ga='git add'
 alias gcm='git commit -m'
 alias gp='git push origin master'
 alias g?='git status'
+
+# ssh tunneling
+# TODO: add firefox socks proxy hacks here
+alias sshtun="ssh -D 1080 toast"
