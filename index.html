@@ -86,131 +86,7 @@
 					</div>
 	    </div>
 
-	    <div class="span-24 section">
-					<div class="args">
-						<span class="lang work">work</span>
-						<span class="lang play">play</span>
-						<span class="lang hack">hack</span>
-						<span class="lang libre">libre</span>
-					</div>
-
-	        <h2>
-          <a name="cheap-local-branching" href="#cheap-local-branching">Cheap Local Branching</a>
-	        </h2>
-					<div class="contents">
-						
-						<div class="text">
-							Probably Git's most compelling feature that really makes it stand
-							apart from nearly every other SCM out there is its branching
-							model.  It is completely different from all of the models I'm 
-							comparing it to here, most of which recommend that the best branch
-							is basically a clone of the repository in a new directory.
-						</div>
-						
-						<div class="text">
-							Git does not work like that.  Git will allow you to have multiple
-							local branches that can be entirely independent of each other and
-							the creation, merging and deletion of those lines of development
-							take seconds.
-						</div>
-						
-						
-						<div class="text">
-							This means that you can do things like:
-							<ul>
-								<li>Create a branch to try out an idea, commit
-									a few times, switch back to where you branched from, apply a patch, 
-									switch back to where you are experimenting, then merge it in.
-								</li>
-								<li>Have a branch that always contains only what goes to production,
-									another that you merge work into for testing and several smaller
-									ones for day to day work
-								</li>
-								<li>Create new branches for each new feature you're working on, so
-									you can seamlessly switch back and forth between them, then delete
-									each branch when that feature gets merged into your main line.
-								</li>
-								<li>Create a branch to experiment in, realize it's not going to
-									work and just delete it, abandoning the work&mdash;with nobody else
-									ever seeing it (even if you've pushed other branches in the meantime)
-								</li>
-							</ul>
-						</div>
-						
-						<img src="images/branches.png" alt="branches flowchart"/>
-						
-						<div class="text">
-							Importantly, when you push to a remote repository, you do <em>not</em>
-							have to push all of your branches.  You can only share one of your
-							branches and not all of them.  This tends to free people to try
-							new ideas without worrying about having to plan how and when they
-							are going to merge it in or share it with others.
-						</div>
-						
-						<div class="text">
-							You <em>can</em> find ways to do some of this with other systems, but the work
-							involved is much more difficult and error-prone.  Git makes this
-							process incredibly easy and it changes the way most developers
-							work when they learn it.
-						</div>
-						
-						<!-- TODO : (short screencast showing the awesomeness of git branches) -->
-						<!-- TODO : (show tweets somehow) -->
-
-						<div class="tweets">
-							<img alt='jamis twitter' width="300" src="http://twictur.es/i/1022811017.gif" />
-							<img alt='trevorturk twitter' width="300" src="http://twictur.es/i/1022886570.gif" />
-							<img alt='thillerson twitter' width="300" src="http://twictur.es/i/1022842917.gif" />
-							<img alt='boblmartens twitter' width="300" src="http://twictur.es/i/1022818467.gif" />
-							<img alt='mathie twitter' width="300" src="http://twictur.es/i/1022816942.gif" />
-						</div>
-					</div>
-	    </div>
 				
-	    <div class="span-24 section">
-					<div class="args">
-						<span class="lang hack">hack</span>
-						<span class="lang libre">libre</span>
-					</div>
-	        <h2>
-          <a name="everything-is-local" href="#everything-is-local">Everything is Local</a>
-	        </h2>
-					<div class="contents">	
-
-						<div class="text">
-							This is basically true of all the distributed SCMs, but in my
-							experience even more so with Git.  There is very little outside
-							of 'fetch', 'pull' and 'push' that communicates in any way with 
-							anything other than your hard disk.
-						</div>
-
-						<div class="text">
-							This not only makes most operations much faster than you may
-              be used to, but it also allows you to work on stuff offline.
-              That may not sound like a big deal, but I'm always amazed at
-              how often I actually do work offline.  Being able to branch,
-              merge, commit and browse history of your project while on 
-              the plane or train is very productive.
-						</div>
-						
-						<div class="center"><img style="width: 500px" src="images/local-remote.png" alt="local repo to remote repo flowchart" /></div>
-
-						<div class="text">
-							Even in Mercurial, common commands like 'incoming' and 'outgoing' hit 
-							the server, whereas with Git you can 'fetch' all the servers data
-							before going offline and do comparisons, merges and logs of data
-							that is on the server but not in your local branches yet.
-						</div>
-												
-						<div class="text">
-							This means that it's very easy to have copies of not only your
-							branches, but also of everyone's branches that are working with
-							you in your Git repository without having to mess your own stuff
-							up.
-						</div>
-						
-					</div>
-	    </div>
 		
 		  <div class="span-24 section">
 					<div class="args">
@@ -220,28 +96,10 @@
 					</div>
 			
 	        <h2>
-          <a name="git-is-fast" href="#git-is-fast">Git is Fast</a>
+          <a name="google-graph-example" href="#google-graph-example">google graph example</a>
 	        </h2>
 	
 					<div class="contents">
-						<div class="text">
-							Git is fast.  Everyone&mdash;even most of the hard core users of these
-							other systems&mdash;generally give Git this title.  With Git, all
-							operations are performed locally giving it a bit of a leg up on
-							SVN and Perforce, both of which require network access for certain operations.
-							However, even compared to the other DSCMs that also perform operations
-							locally, Git is pretty fast. 
-						</div>
-					
-						<div class="text">
-							Part of this is likely because it was built to work on the Linux 
-							kernel, which means that it has had to deal effectively with large
-							repositories from day one.  Additionally, Git is written in C, reducing the
-							overhead of runtimes associated with higher-level languages.
-							Another reason that Git is so fast is that the primary developers
-							have made this a design goal of the application.
-						</div>
-
 						<div class="text">
 							The following are a number of benchmarks that I performed on three
 							copies of the Django source code repository in 3 different SCMs:
@@ -355,19 +213,10 @@
 							a branch with a hot disk cache.
 						</div>
 
-						<div class="text">
-							It should be noted that although the 'add' numbers are much slower,
-              this was for a massive add operation&mdash;over 2000 files.  For the
-              majority of what most people do on a daily basis, add ops in any
-              of these systems will only take a fraction of a second. All of the
-              other ops tested here (except for the large commit, possibly) are
-              more indicative of things you might actually do day to day.
-						</div>
-					
 					
 					<div class="text">
-						These numbers are really not difficult to recreate, simply clone the Django
-						project in each of the systems and try out the same commands in each.
+						This example shows off a pretty sexy version of bullet points.
+						Additionally, this shows off monospace font in this theme.
 						<ul>
 							<li><code>git clone git://github.com/brosner/django.git dj-git</code></li>
 							<li><code>hg clone http://hg.dpaste.com/django/trunk dj-hg</code></li>
@@ -387,20 +236,20 @@
 					</div>
 			
 	        <h2>
-          <a name="git-is-small" href="#git-is-small">Git is Small</a>
+          <a name="small-table-example" href="#small-table-example">small table example</a>
 	        </h2>
 	
 					<div class="contents">
 						<div class="text">
-							Git is really good at conserving disk space.  Your Git directory will 
-							(in general) barely be larger than an SVN checkout&mdash;in some cases
-							actually smaller (apparently a lot can go in those .svn dirs).
+							This theme / template is really good at showing tabular data/content. 
+                            This is an example that leaves a bit of data in a table in case you would 
+                            like to display something similar.
 						</div>
 					
 						<div class="text">
-							The following numbers were taken from clones of the Django project
+							"The following numbers were taken from clones of the Django project
 							in each of its semi-official Git mirrors at the same point in 
-							its history.
+							its history."
 						</div>
 					
 						<table>
@@ -439,101 +288,34 @@
 					</div>
 		
 	        <h2>
-          <a name="the-staging-area" href="#the-staging-area">The Staging Area</a>
+          <a name="centered-image-example" href="#centered-image-example">centered image example</a>
 	        </h2>
 					<div class="contents">
 						<div class="text">
-							Unlike the other systems, Git has what it calls the "staging area"
-							or "index".  This is an intermediate area that you can setup what
-							you want your commit to look like before you commit it.
-						</div>
-						<div class="text">
-							The cool thing about the staging area, and what sets Git apart 
-							from all these other tools, is that you can easily stage some of
-							your files as you finish them and then commit them without committing
-							all the modified files in your working directory, or having to list
-							them on the command line during the commit
-						</div>
-						<div class="center"><img src="images/index1.png" alt="add commit workflow diagram" /></div>
-						
-						<div class="text">
-						  This also allows you to stage only portions of a modified file.  Gone are
-						  the days of making two logically unrelated modifications to a file before
-						  you realized that you forgot to commit one of them.  Now you can just stage
-						  the change you need for the current commit and stage the other change for
-						  the next commit.  This feature scales up to as many different changes to
-						  your file as you need.
+							This is a paragraph of text above a wide image or illustrative diagram, 
+                            I imagine this would be useful for blogpost style content.
+							This is pretty much just filler text now, I don't have anything else to say,
+							I just want to make sure that this is /roughly/ the same length of the 
+                            previous version of this section.
 						</div>
 
-						<div class="text">
-							Of course, Git also makes it pretty easy to ignore this feature
-							if you don't want that kind of control&mdash;just slap a '-a' to your
-							commit command in order to add all changes to all files to the staging area.
-						</div>
+                        <div class="center">
+                            <a href="http://www.flickr.com/photos/sethwoodworth/3314253928/" 
+                                title="alxjrvs misses opportunity to name by isforinsects, on Flickr">
+                                <img src="http://farm4.static.flickr.com/3366/3314253928_a42ea3e896.jpg" 
+                                    width="500" height="375" alt="alxjrvs misses opportunity to name" />
+                            </a>
+                        </div>
 						
-						<div class="center"><img src="images/index2.png" alt="commit only workflow diagram" /></div>
-					</div>
+						<div class="text">
+							This is a paragraph of text above a wide image or illustrative diagram, 
+                            I imagine this would be useful for blogpost style content.
+							This is pretty much just filler text now, I don't have anything else to say,
+							I just want to make sure that this is /roughly/ the same length of the 
+                            previous version of this section.
+						</div>
 	    </div>
 
-	    <div class="span-24 section">
-					<div class="args">
-						<span class="lang hack">hack</span>
-						<span class="lang libre">libre</span>
-					</div>
-
-	        <h2>
-          <a name="distributed" href="#distributed">Distributed</a>
-	        </h2>
-
-					<div class="contents">
-
-					  <div class="text">
-              One of the coolest features of any of the Distributed SCMs, Git included, is that it's
-              distributed.  This means that instead of doing a "checkout" of the current tip of 
-              the source code, you do a "clone" of the entire repository.
-            </div>
-            <div class="text">
-              This means that even 
-              if you're using a centralized workflow, every user has what is essentially a full
-              backup of the main server, each of which could be pushed up to replace the main server
-              in the event of a crash or corruption.  There is basically no single point of failure
-              with Git unless there is only a single point.
-            </div>
-
-            <div class="text">
-              This does not slow things down much, either.  On average, an SVN checkout is only marginally
-              faster than any of the DSCMs. Of the DSCMs I tested, Git was the fastest.
-					  </div>
-
-						<table>
-							<tr><td>
-								<img src="http://chart.apis.google.com/chart?cht=bvs&amp;chs=200x150&amp;chd=t:120,144,311,64&amp;chds=0,320&amp;chco=4d89f9&amp;chl=git|hg|bzr|svn&amp;chtt=Clone" alt="cloning benchmarks" />
-							</td><td style="width: 80%">
-								<table>
-									<tr>
-										<th>Git</th>
-										<td class="sweet">1m 59s</td>
-									</tr>
-									<tr>
-										<th>Hg</th>
-										<td>2m 24s</td>
-									</tr>
-									<tr>
-										<th>Bzr</th>
-										<td>5m 11s</td>
-									</tr>
-									<tr>
-										<th>SVN</th>
-										<td>1m 4s</td>
-									</tr>
-								</table>
-							</td></tr>
-						</table>
-						
-					</div>
-	    </div>
-	
-	
 	
 	    <div class="span-24 section">
 				<div class="args">
