@@ -88,10 +88,10 @@
 
 	    <div class="span-24 section">
 					<div class="args">
-						<span class="lang hg">hg</span>
-						<span class="lang bzr">bzr</span>
-						<span class="lang svn">svn</span>
-						<span class="lang perforce">perforce</span>
+						<span class="lang work">work</span>
+						<span class="lang play">play</span>
+						<span class="lang hack">hack</span>
+						<span class="lang libre">libre</span>
 					</div>
 
 	        <h2>
@@ -169,8 +169,8 @@
 				
 	    <div class="span-24 section">
 					<div class="args">
-						<span class="lang svn">svn</span>
-						<span class="lang perforce">perforce</span>
+						<span class="lang hack">hack</span>
+						<span class="lang libre">libre</span>
 					</div>
 	        <h2>
           <a name="everything-is-local" href="#everything-is-local">Everything is Local</a>
@@ -214,9 +214,9 @@
 		
 		  <div class="span-24 section">
 					<div class="args">
-						<span class="lang bzr">bzr</span>
-						<span class="lang svn">svn</span>
-						<span class="lang perforce">perforce</span>
+						<span class="lang play">play</span>
+						<span class="lang hack">hack</span>
+						<span class="lang libre">libre</span>
 					</div>
 			
 	        <h2>
@@ -383,7 +383,7 @@
 	
 		  <div class="span-24 section">
 					<div class="args">
-						<span class="lang svn">svn</span>
+						<span class="lang hack">hack</span>
 					</div>
 			
 	        <h2>
@@ -432,10 +432,10 @@
 
 	    <div class="span-24 section">
 					<div class="args">
-						<span class="lang hg">hg</span>
-						<span class="lang bzr">bzr</span>
-						<span class="lang svn">svn</span>
-						<span class="lang perforce">perforce</span>
+						<span class="lang work">work</span>
+						<span class="lang play">play</span>
+						<span class="lang hack">hack</span>
+						<span class="lang libre">libre</span>
 					</div>
 		
 	        <h2>
@@ -477,8 +477,8 @@
 
 	    <div class="span-24 section">
 					<div class="args">
-						<span class="lang svn">svn</span>
-						<span class="lang perforce">perforce</span>
+						<span class="lang hack">hack</span>
+						<span class="lang libre">libre</span>
 					</div>
 
 	        <h2>
@@ -534,130 +534,44 @@
 	    </div>
 	
 	
-	    <div class="span-24 section">
-				<div class="args">
-					<span class="lang svn">svn</span>
-					<span class="lang perforce">perforce</span>
-				</div>
-		
-       	<h2>
-        <a name="any-workflow" href="#any-workflow">Any Workflow</a>
-       	</h2>
-
-				<div class="contents">
-					
-					<div class="text">
-						One of the amazing things about Git is that because of its distributed
-						nature and super branching system, you can easily implement pretty
-						much any workflow you can think of relatively easily.
-					</div>
-					
-					<h3>Subversion-Style Workflow</h3>
-					
-
-					<div class="text">
-						A very common Git workflow, especially from people transitioning
-						from a centralized system, is a centralized workflow.  Git will 
-						not allow you to push if someone has pushed since the last time
-						you fetched, so a centralized model where all developers push to
-						the same server works just fine.
-					</div>
-					
-					<div class="center"><img src="images/workflow-a.png" alt="subversion-style workflow" /></div><br/>
-					
-					<h3>Integration Manager Workflow</h3>
-
-					<div class="text">
-						Another common Git workflow is where there is an integration 
-						manager&mdash;a single person who commits to the 'blessed' repository,
-						and then a number of developers who clone from that repository, 
-						push to their own independent repositories and ask the integrator
-						to pull in their changes.  This is the type of development model 
-						you often see with open source or GitHub repositories.
-					</div>
-
-					<div class="center"><img src="images/workflow-b.png" alt="integration manager workflow" /></div><br/>
-
-					<h3>Dictator and Lieutenants Workflow</h3>
-
-					<div class="text">
-						For more massive projects, you can setup your developers similar to
-						the way the Linux kernel is run, where people are in charge of a
-						specific subsystem of the project ('lieutenants') and merge in all
-						changes that have to do with that subsystem.  Then another integrator
-						(the 'dictator') can pull changes from only his/her lieutenants and
-						push those to the 'blessed' repository that everyone then clones from
-						again.
-					</div>
-
-					<div class="center"><img src="images/workflow-c.png" alt="dictator and lieutenants workflow" /></div><br/>
-					
-					<div class="text">
-						Again, Git is entirely flexible about this, so you can mix and 
-						match and choose the workflow that is right for you. 
-          </div>
-					
-				</div>
-	    </div>
-	
 	
 	    <div class="span-24 section">
 				<div class="args">
-					<span class="lang hg">hg</span>
-					<span class="lang svn">svn</span>
-					<span class="lang perforce">perforce</span>
+					<span class="lang work">work</span>
+					<span class="lang hack">hack</span>
+					<span class="lang libre">libre</span>
 				</div>
 
         <h2>
-        <a name="github" href="#github">GitHub</a>
+        <a name="img_example" href="#img_example">img_example</a>
         </h2>
 				
 				<div class="contents">
 
-          <img style="float:right; padding:10px" src="images/octocat.png" alt="octocat" />
+          <a href="http://www.flickr.com/photos/sethwoodworth/2304487820/" 
+            title="Missile Silo Tours by isforinsects, on Flickr">
+          <img style="float:right; padding: 10px" src="http://farm3.static.flickr.com/2281/2304487820_8cd92a77ca_m.jpg" width="240" height="160" alt="Missile Silo Tours" />
+          </a>
 
 					<div class="text">
-						I <em>may</em> be biased here, given that I work for 
-						<a href="http://github.com">GitHub</a>, 
-						but I added this section anyway because so many people say that
-						GitHub itself was specifically why they chose Git.
+						This is <em>example</em> text, given so this image will wrap text
+                        correctly. <a href="http://sethish.com">Sethish.com</a>, 
+						is a pretty cool guy and aren't afraid of anything.
 					</div>
 
 					<div class="text">					
-						GitHub is a reason to use Git for many people because it is more 
-						like a social network for code than a simple hosting site.  People
-						find other developers or projects that are similar to the things
-						they are doing, and can easily fork and contribute, creating a very
-						vibrant community around Git and the projects that people use it
-						for.
+                        Similar to the paragraph above, this is also an example paragraph, 
+                        but repeated multiple times. Ya know, as an example of something 
+                        that you could repeat multiple times. Over and over if you will.
 					</div>
 					
 					<div class="text">					
-						There exist other services, both for Git and for the other SCMs,
-						but few are user-oriented or socially
-						targeted, and none have anywhere near the user-base.  
-						This social aspect of GitHub is killer, and this in combination of the above features
-						make working with Git and GitHub a great combination for rapidly 
-						developing open source projects.
-					</div>
-
-					<div class="text">					
-            This type of community is simply not available with any of the other SCMs.
-          </div>
+                        I'm not trollin', I'm boXXy! See?
+                    </div>
 
 				</div>
 	    </div>
 	
-	
-			<!-- 
-				OTHER IDEAS:
-				* easy merging
-				* easy server setup
-				* non destructive
-			-->
-
-	
-			<!-- GIT MYTHS -->
 	
 
     <div class="span-24">					
