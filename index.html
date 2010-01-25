@@ -5,7 +5,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-	<title>Why Git is Better Than X</title>
+	<title>Seth'ish' - Home (Seth Woodworht)</title>
 	
 	<link rel="stylesheet" href="blueprint/screen.css" type="text/css" media="screen, projection" />
 	<link rel="stylesheet" href="blueprint/print.css" type="text/css" media="print" />
@@ -31,10 +31,10 @@
 		.args { float:right; }
 		.lang { padding: 3px; font-weight: bold;}
 		.section .lang { font-size: 0.8em; padding: 2px; font-weight: normal;}
-		.svn { color: hsl(260,57%,24%); background: hsl(260,57%,83%) }
-		.perforce { color: hsl(0,57%,24%); background: hsl(0,57%,83%) }
-		.bzr { color: hsl(60,57%,24%); background: hsl(60,57%,83%) }
-		.hg { color: hsl(190,57%,24%); background: hsl(190,57%,83%) }
+		.work { color: hsl(60,57%,24%); background: hsl(60,57%,83%) }
+		.play { color: hsl(190,57%,24%); background: hsl(190,57%,83%) }
+		.hack { color: hsl(0,57%,24%); background: hsl(0,57%,83%) }
+		.libre { color: hsl(260,57%,24%); background: hsl(260,57%,83%) }
 		.nowrap { white-space: nowrap; }
 		.sweet { color: #363; background: #beb; }
 		.compare { color: #663; background: #eeb; }
@@ -59,13 +59,13 @@
 	    <div class="span-24 header">
 				<table width="100%">
 					<tr><td>
-        		<h1>Why Git is Better than X</h1>
+        		<h1>Seth(ish) <br/>- Seth Woodworth</h1>
 					</td><td align="right">
 						<div id="menu">
-							<span class="lang hg">hg</span>
-							<span class="lang bzr">bzr</span>
-							<span class="lang svn">svn</span>
-							<span class="lang perforce">perforce</span>
+							<span class="lang work">work</span>
+							<span class="lang play">play</span>
+							<span class="lang hack">hack</span>
+							<span class="lang libre">libre</span>
 						</div>
 						<img style="float: right" alt="where &quot;x&quot; is one of" src="images/wherex.gif" />
 					</td></tr>
@@ -74,11 +74,10 @@
 
 	    <div class="span-24">
 					<div class="text intro">
-		        This site is here because I seem to
-						be spending a lot of time lately defending Gitsters against 
-						charges of fanboyism, bandwagonism
-						and koolaid-thirst.  So, here is why people are switching to Git from
-						X, and why you should too.  Just click on a reason to view it.
+                        I am a quantitative memeticist and digital freedom adocate.  I am passionate about 
+                        expanding Open Education initiatives used in computer mediated education.  I've been 
+                        employed by and volunteer for the One Laptop per Child project.  My most recent projects
+                        involve opening state government data, and freeing public domain resources for education.
 					</div>
 					
 					<div class="expand_collapse_links">
@@ -660,108 +659,6 @@
 	
 			<!-- GIT MYTHS -->
 	
-	    <div class="span-24 section">
-				<div class="args">
-					<span class="lang perforce">perforce</span>
-				</div>
-				
-        <h2>
-        <a name="easy-to-learn" href="#easy-to-learn">Easy to Learn</a>
-        </h2>
-        
-				<div class="contents">
-					<div class="text">										
-						This did not used to be true&mdash;early in Git's life, it was not really 
-						an SCM so much as a bunch of tools that let you do versioned filesystem 
-						work in a distributed manner.  However, today, the command set and 
-						learning curve of Git are pretty similar to any other SCM, and even 
-						better than some.
-					</div>
-
-					<div class="text">										
-						Since this is difficult to prove objectively without some sort of 
-						study, I'll just show the difference between the default 'help' menu for the
-						Mercurial and Git commands.  I've highlighted the commands that are
-						identical (or nearly) between the two systems.  (In Hg, if you type 'hg help', you 
-						get a list of 40-some commands.)
-					</div>
-				
-					<table class="help">
-						<tr><td valign="top">
-							
-<h3>Mercurial Help</h3>
-<pre>
-<span class="compare">add</span>        add the specified files ...
-<span class="compare">annotate</span>   show changeset informati...
-<span class="compare">clone</span>      make a copy of an existi...
-<span class="compare">commit</span>     commit the specified fil...
-<span class="compare">diff</span>       diff repository (or sele...
-export     dump the header and diff...
-<span class="compare">init</span>       create a new repository ...
-<span class="compare">log</span>        show revision history of...
-<span class="compare">merge</span>      merge working directory ...
-parents    show the parents of the ...
-<span class="compare">pull</span>       pull changes from the sp...
-<span class="compare">push</span>       push changes to the spec...
-<span class="compare">remove</span>     remove the specified fil...
-serve      export the repository vi...
-<span class="compare">status</span>     show changed files in th...
-update     update working directory
-</pre>
-
-					</td><td valign="top">
-						
-<h3>Git Help</h3>
-<pre>
-<span class="compare">add</span>        Add file contents to the index
-<span class="compare">bisect</span>     Find the change that introduce...
-<span class="compare">branch</span>     List, create, or delete branches
-checkout   Checkout a branch or paths to ...
-<span class="compare">clone</span>      Clone a repository into a new ...
-<span class="compare">commit</span>     Record changes to the repository
-<span class="compare">diff</span>       Show changes between commits, ...
-fetch      Download objects and refs from...
-grep       Print lines matching a pattern
-<span class="compare">init</span>       Create an empty git repository
-<span class="compare">log</span>        Show commit logs
-<span class="compare">merge</span>      Join two or more development h...
-mv         Move or rename a file, a direc...
-<span class="compare">pull</span>       Fetch from and merge with anot...
-<span class="compare">push</span>       Update remote refs along with ...
-rebase     Forward-port local commits to ...
-reset      Reset current HEAD to the spec...
-<span class="compare">rm</span>         Remove files from the working ...
-show       Show various types of objects
-<span class="compare">status</span>     Show the working tree status
-<span class="compare">tag</span>        Create, list, delete or verify...
-</pre>	
-				</td></tr>
-				</table>
-				
-				<div class="text">										
-					Prior to Git 1.6, all of the Git commands used to be in the executable
-					path, which was very confusing to people.  Although Git still recognizes
-					all of those commands, the only command in the path is now 'git'.
-					So, if you look at Mercurial and Git, Git has a nearly identical 
-					command set and help system&mdash;there is very little difference from 
-					a beginning UI perspective today.
-				</div>
-				
-				<div class="text">										
-					These days it's pretty hard to argue that Mercurial or Bazaar is any
-					easier to learn than Git is.
-				</div>
-				
-				</div>
-				
-	    </div>
-	
-	
-		<!-- 
-			THINGS GIT IS STILL NOT GOOD AT 
-			* windows (all)
-			* large files (svn)
-		-->
 
     <div class="span-24">					
 				<div class="expand_collapse_links">
