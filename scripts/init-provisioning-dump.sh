@@ -81,7 +81,7 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 sudo aptitude install build-essential bzr cvs git-core gnome-do gpw markdown signing-party subversion unp vim-nox xclip
 
 # media tools
-sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui sox speex speex-doc
+sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly lame mpc mpd mplayer mplayer-nogui sox speex speex-doc
 
 
 # if gnome / X.org
