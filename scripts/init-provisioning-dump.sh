@@ -101,7 +101,7 @@ sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto pyt
 # TODO: add commands here to install the rubygems I use.
 echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
-sudo gem install activerecord yaml
+sudo gem install activerecord rails yaml
 
 ## Setup Scheme, expecially for the WIZARD (purple) book)
 # http://mitpress.mit.edu/sicp/
