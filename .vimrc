@@ -1,3 +1,8 @@
+" Colorscheme config
+let g:molokai_original = 0
+colorscheme molokai
+
+
 syn on
 set nocompatible "don't need to keep compatibility with Vi
 set ruler
@@ -11,6 +16,9 @@ set shiftwidth=4
 set expandtab 
 set smarttab
 
+set smartcase
+set cursorline
+
 "set hlsearch    "I don't actually like highlight search
 set incsearch    "search as I type
 set wildmode=longest,list
@@ -23,6 +31,16 @@ let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 " Key remappings
 imap ii <esc>
 map ; :
+"
+" tab navigation like firefox
+nmap <C-S-tab> :tabprevious<cr>
+nmap <C-tab> :tabnext<cr>
+map <C-S-tab> :tabprevious<cr>
+map <C-tab> :tabnext<cr>
+imap <C-S-tab> <ESC>:tabprevious<cr>i
+imap <C-tab> <ESC>:tabnext<cr>i
+nmap <C-t> :tabnew<cr>
+imap <C-t> <ESC>:tabnew<cr>
 " todo: map CTRL+/ to toggle hls <> nohls (highlight search)
 
 " &etc
