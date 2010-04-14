@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# TODO: Setup ssh configs
+# TODO: Add more program config files
+# TODO: Add common git repos to my ~/code folder
+# ?TODO: add more standard folders?
+# TODO: Start checking daily notes into git repo on private machine and pull {shallow?} copies to all machines
 # ssh setup and publication
 if [ ! -f ~/.ssh/gen_rsa ]; then
     ssh-keygen -b 2525 -f ~/.ssh/gen_rsa
