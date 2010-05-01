@@ -63,7 +63,7 @@ echo \n\n\n\n  There, those are the basic configs to make things more comfortabl
 ## install my standard apps
 # TODO: Add more pkgs to install for default configs, this can't be everything I use.
 # TODO: Split this into media / prog tools / sys-tools
-sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy
+sudo aptitude install audacity build-essential git-core gnome-do gpw inkscape markdown screen-profiles signing-party subversion synergy ntp
 
 # media tools
 sudo aptitude install gstreamer0.10-ffmpeg gstreamer0.10-plugins-bad gstreamer0.10-plugins-ugly mpc mpd mplayer mplayer-nogui 
@@ -77,6 +77,11 @@ sudo aptitude install python2.5 python2.6 python-beautifulsoup python-crypto pyt
 echo "I don't need a lot of Ruby tools, but here are what I *absolutely* need."
 sudo aptitude install ruby1.8 rubygems rubygems1.8
 sudo gem install activerecord yaml
+
+## setup web dev
+# TODO: everything
+echo "setting up web dev tools"
+sudo aptitude install php5-cli
 
 # TODO: Setup ssh configs
 # TODO: Add more program config files

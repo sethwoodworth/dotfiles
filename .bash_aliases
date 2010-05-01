@@ -41,3 +41,6 @@ alias g?='git status'
 # ssh tunneling
 # TODO: add firefox socks proxy hacks here
 alias sshtun="ssh -D 1080 toast"
+
+# commands to call from vim
+alias adate="date +'%Y-%m-%d %H:%M:%S %z'"
