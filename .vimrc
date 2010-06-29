@@ -23,15 +23,34 @@ set cursorline
 set incsearch    "search as I type
 set wildmode=longest,list
 
+" Bind Ctrl-Left and Ctrl-Right to switch buffers
+noremap <silent> <C-left> :bprev<cr>
+noremap <silent> <C-right> :bnext<cr>
+
+" Easy indentation in visual mode
+" This keeps the visual selection active after indenting.
+" Usually the visual selection is lost after you indent it.
+vmap > >gv
+vmap < <gv
+
+
 " plugins
 filetype plugin on
 " pydiction
 let g:pydiction_location = '~/.vim/after/ftplugin/pydiction/complete-dict'
 
+" :Q and :W write and quit just like their lower counterparts
+cabbrev Q quit
+cabbrev W write
+
 " Key remappings
 imap ii <esc>
 map ; :
 "
+" Nicer pager keys in normal mode http://stripey.com/vim/vimrc.html
+noremap <Space> <PageDown>
+noremap <BS> <PageUp>
+
 " tab navigation like firefox
 nmap <C-S-tab> :tabprevious<cr>
 nmap <C-tab> :tabnext<cr>
