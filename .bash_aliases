@@ -10,7 +10,9 @@ alias la='ls -lnhA'
 
 # spelling errors
 alias cim='vim'
+alias vi='vim'
 alias sl='ls'
+alias shh='ssh'
 
 # music
 alias m.='mplayer ./*'
