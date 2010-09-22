@@ -5,8 +5,8 @@ alias update='sudo aptitude update'
 alias upgrade='sudo aptitude safe-upgrade'
 
 # lists
-alias l='ls -lnh'
-alias la='ls -lnhA'
+alias l='ls'
+alias ll='ls -lhA'
 
 # spelling errors
 alias cim='vim'
@@ -15,6 +15,9 @@ alias sl='ls'
 # music
 alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
+
+# grep
+alias ack='ack-grep'
 
 # screen
 alias sx='screen -x'
@@ -32,6 +35,7 @@ alias dotawesome='killall metacity; awesome-start &'
 # Directory changing shortcuts
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
+alias ....="cd ../../.."
 alias _='cd -'
 
 # Git
@@ -41,10 +45,13 @@ alias gp='git push origin master'
 alias g?='git status'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
+alias gd='git diff '
 
 # ssh tunneling
 # TODO: add firefox socks proxy hacks here
 alias sshtun="ssh -D 1080 toast"
 
+# # Vim
+alias v="vim"
 # commands to call from vim
 alias adate="date +'%Y-%m-%d %H:%M:%S %z'"
