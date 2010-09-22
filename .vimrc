@@ -78,7 +78,3 @@ nnoremap <leader>a :Ack " Use Ack!
 nnoremap <leader>v V`] " reselect text I just pasted
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> " edit vimrc in a virtical split
 nnoremap <leader>w <C-w>v<C-w>l " open new v split and switch to it
-
-
-
-
