@@ -1,8 +1,3 @@
-" Colorscheme config
-let g:molokai_original = 0
-colorscheme molokai
-
-
 syn on
 set nocompatible "don't need to keep compatibility with Vi
 set ruler
@@ -10,11 +5,13 @@ set wrap
 set hidden      "improve history and buffer
 set history=1000
 
-set tabstop=4 "tabs settings
+" Tab settings
+set tabstop=4
 set softtabstop=4 
 set shiftwidth=4 
 set expandtab 
 set smarttab
+
 
 set smartcase
 set cursorline
