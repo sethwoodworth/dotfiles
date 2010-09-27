@@ -2,6 +2,7 @@ syn on
 
 "Pathogen Plugin manager's configs
 filetype off
+call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
@@ -11,6 +12,7 @@ set nocompatible "Unset because no one needs vi compatiblity
 au FocusLost * :wa " tabing away from Vim = save file
 set hidden
 set history=1000
+set title "rewrite the teriminal title
 
 
 " Tab settings
@@ -43,7 +45,8 @@ set backspace=indent,eol,start " erase autoindents, join lines, and make backspa
 
 
 " Search
-nnoremap / /\v " Use Python compatible regex in search by default
+" " Use Python compatible regex in search by default
+nnoremap / /\v
 vnoremap / /\v
 set ignorecase
 set smartcase "Cumulatively makes it so Vim handles case of searching intelligently
@@ -71,10 +74,38 @@ nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
 " Leader key behavior and settings
-let mapleader = "<space>"
+let mapleader = " "
 " Leader key maps
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> " <space>+W kills extra whitespace
-nnoremap <leader>a :Ack " Use Ack!
-nnoremap <leader>v V`] " reselect text I just pasted
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> " edit vimrc in a virtical split
-nnoremap <leader>w <C-w>v<C-w>l " open new v split and switch to it
+" " <space>+W kills extra whitespace
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> 
+" " Use Ack!
+nnoremap <leader>a :Ack 
+" " reselect text I just pasted
+nnoremap <leader>v V`] 
+" " edit vimrc in a virtical split
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> 
+" " open new v split and switch to it
+nnoremap <leader>w <C-w>v<C-w>l 
+" rainbows!
+nmap <leader>r :rainbowparenthesestoggle<cr>
+
+" Spell Check
+
+nnoremap <leader>s :setlocal spell!<cr>
+nnoremap <leader>sn ]s
+nnoremap <leader>sp [s
+nnoremap <leader>sa zg
+nnoremap <leader>s? z=
+
+" C-TAB and C-SHIFT-TAB cycle tabs forward and backward
+nmap <C-tab> :tabnext<CR>
+imap <C-tab> <C-o>:tabnext<CR>
+vmap <C-tab> <C-o>:tabnext<CR>
+nmap <C-S-tab> :tabprevious<CR>
+imap <C-S-tab> <C-o>:tabprevious<CR>
+vmap <C-S-tab> <C-o>:tabprevious<CR>
+
+
+" Plugin setup
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+

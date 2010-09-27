@@ -19,7 +19,7 @@ alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
 
 # grep
-alias ack='ack-grep'
+alias ack='ack-grep -H'
 
 # screen
 alias sx='screen -x'

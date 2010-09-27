@@ -1,6 +1,23 @@
 Vim configs notes
 =================
 
+http://github.com/tpope/vim-surround.git
+http://github.com/tpope/vim-repeat.git
+git://github.com/tpope/vim-markdown.git
+
+
+Rainbow Brackets v 4.0
+ -  http://www.vim.org/scripts/script.php?script_id=1561
+
+ColorSamplerPack v 8.03(2010-01-25)
+ -  http://vim.sourceforge.net/scripts/script.php?script_id=625
+
+Ack.vim v HEAD
+ -  http://github.com/mileszs/ack.vim.git
+
+NERDcommenter v HEAD
+ -  http://github.com/scrooloose/nerdcommenter.git
+
 #TODO: Find drawit plugin and link here
 
 Surround.vim v 1.34
@@ -9,7 +26,7 @@ Surround.vim v 1.34
 Pydiction v 1.2
  -  http://www.vim.org/scripts/script.php?script_id=850
 
-python.vim v 2.6.5 
+python.vim v 2.6.5
  -  enhanced syntax highlighting
  -  http://www.vim.org/scripts/script.php?script_id=790
  -  TODO: add a keymapping for run python script 'map <F6> :!python %<CR>'
@@ -30,3 +47,6 @@ matchit v 1.13.2
 python_matchit v 0.5
  -  same as above, but for python
  -  http://www.vim.org/scripts/script.php?script_id=386
+
+
+
