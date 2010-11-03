@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/django"]
+	path = .vim/bundle/django
+	url = http://github.com/vim-scripts/django.vim.git
