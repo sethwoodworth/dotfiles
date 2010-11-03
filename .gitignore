@@ -2,7 +2,7 @@
 # nice explicit list for documentation's sake.
  
 # Ignore everything by default.
-*
+#* #turned off
  
 # Bash stuff (profile just sources bashrc, since it's the only thing sourced
 # when a shell is a login shell).
