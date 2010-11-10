@@ -182,5 +182,5 @@ function set_prompt() {
     export PS1="${host}:${path}${venv}${branch} ${end}"
 }
 export PROMPT_COMMAND=set_prompt
-export PATH=$PATH:~/code/android/
-
+PAGER="vim -"
+MANPAGER="vim -c '%!col -b' -c 'set ft=man nomod nolist' -c 'set nomodifiable' -"

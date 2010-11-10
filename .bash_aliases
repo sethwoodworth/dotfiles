@@ -6,7 +6,7 @@ alias ll='ls -lhA'
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 alias ....="cd ../../.."
-alias -='cd -'
+alias _='cd -'
 # GOTO dir(s)
 alias code='cd ~/code'
 alias music='cd ~/music'

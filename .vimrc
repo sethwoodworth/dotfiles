@@ -1,4 +1,6 @@
 syn on
+set t_Co=256
+colorscheme zenburn
 
 "Pathogen Plugin manager's configs
 filetype off
@@ -61,6 +63,13 @@ set textwidth=79
 "set colorcolumn=85 " Sounds cool, but vim y7.3 only
 set formatoptions=qn2 "format comments gq, reconize numbered lists , Don't break a line after a one-letter word
 
+" Vim 7.3 goodies
+if v:version >= 703
+    au WinEnter * setlocal relativenumber
+    au WinLeave * setlocal norelativenumber
+endif
+
+
 
 " Rebind keys
 nnoremap <tab> % " use <tab> to move the cursor between matching brackets
@@ -72,6 +81,15 @@ imap ii <esc> " ii escapes insertmode
 inoremap <F1> <ESC> "who uses the F1 help, srsly?
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
+
+" Function to check syntax group for colorscheme editing
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " Leader key behavior and settings
 let mapleader = " "
@@ -89,8 +107,8 @@ nnoremap <leader>w <C-w>v<C-w>l
 " rainbows!
 nmap <leader>r :rainbowparenthesestoggle<cr>
 
-" Spell Check
 
+" Spell Check
 nnoremap <leader>s :setlocal spell!<cr>
 nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
