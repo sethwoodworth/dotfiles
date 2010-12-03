@@ -10,6 +10,10 @@ filetype plugin indent on
 
 set nocompatible "Unset because no one needs vi compatiblity
 
+" Gvim settings
+set guioptions+=LlRrb
+set guioptions-=LlRrb
+
 " Auto-settings
 au FocusLost * :wa " tabing away from Vim = save file
 set hidden
@@ -127,3 +131,6 @@ vmap <C-S-tab> <C-o>:tabprevious<CR>
 " Plugin setup
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+augroup markdown
+    au! BufRead,BufNewFile *.mkd   setfiletype mkd
+augroup END
