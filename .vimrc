@@ -28,6 +28,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent " smart auto indenting!
+set paste " srsly, don't indent what I copypasta
 
 
 " Other recommended options
@@ -66,14 +67,6 @@ set wrap
 set textwidth=79
 "set colorcolumn=85 " Sounds cool, but vim y7.3 only
 set formatoptions=qn2 "format comments gq, reconize numbered lists , Don't break a line after a one-letter word
-
-" Vim 7.3 goodies
-if v:version >= 703
-    au WinEnter * setlocal relativenumber
-    au WinLeave * setlocal norelativenumber
-endif
-
-
 
 " Rebind keys
 nnoremap <tab> % " use <tab> to move the cursor between matching brackets
@@ -131,6 +124,7 @@ vmap <C-S-tab> <C-o>:tabprevious<CR>
 " Plugin setup
 let g:ackprg="ack-grep -H --nocolor --nogroup --column"
 
+" Load filetype if markdown
 augroup markdown
     au! BufRead,BufNewFile *.mkd   setfiletype mkd
 augroup END

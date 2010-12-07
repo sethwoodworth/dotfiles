@@ -2,6 +2,8 @@
 # lists
 alias l='ls'
 alias ll='ls -lhA'
+# Extended listing
+alias dush='du -sh'
 # General directory changing shortcuts
 alias ..='cd ..'
 alias ...='cd .. ; cd ..'
