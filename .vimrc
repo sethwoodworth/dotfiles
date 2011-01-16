@@ -92,15 +92,15 @@ endfunc
 let mapleader = " "
 " Leader key maps
 " " <space>+W kills extra whitespace
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> 
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 " " Use Ack!
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
 " " reselect text I just pasted
-nnoremap <leader>v V`] 
+nnoremap <leader>v V`]
 " " edit vimrc in a virtical split
-nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> 
+nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " " open new v split and switch to it
-nnoremap <leader>w <C-w>v<C-w>l 
+nnoremap <leader>w <C-w>v<C-w>l
 " rainbows!
 nmap <leader>r :rainbowparenthesestoggle<cr>
 

@@ -184,3 +184,5 @@ function set_prompt() {
 export PROMPT_COMMAND=set_prompt
 PAGER="vim -"
 MANPAGER="vim -c '%!col -b' -c 'set ft=man nomod nolist' -c 'set nomodifiable' -"
+PATH=$PATH:/var/lib/gems/1.9.1/gems/vmail-0.1.3/bin/
+export PATH
