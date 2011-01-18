@@ -1,7 +1,47 @@
+## My Gitignores
+# Wildcards
 *.pyc
 *.swp
-Music/
+
+# Folders
+code/
+Desktop/
 Documents/
+Downloads/
+Music/
+Pictures/
+Templates/
+Videos/
+
+# Private things
+.ssh/id_rsa
+.ssh/id_rsa.pub
+.ssh/known_hosts
+.ssh/authorized_keys
+keep.kdb
+!.ssh/config
+
+# Misc
+.ICEauthority
+.Xauthority
+.bash_history
+.bash_logout
+.dmrc
+.esd_auth
+.gksu.lock
+.gmrun_history
+.gtk-bookmarks
+.htoprc
+.lesshst
+.nvidia-settings-rc
+.pulse-cookie
+.recently-used.xbel
+.sudo_as_admin_successful
+.xsession-errors
+.xsession-errors.old
+
+.*/
+
 
 
 # Could just force-add these files and leave this as '*', but this way I have a
@@ -20,7 +60,6 @@ Documents/
 # The gitignore of this repository itself (!)
 !.gitignore
 
-!.ssh/config
  
 # Vim settings
 !.vimrc
