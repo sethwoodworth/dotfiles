@@ -1,7 +1,10 @@
 [user]
 	name = Seth Woodworth
-	email = seth@isforinsects.com
+	email = seth@sethish.com
 [color]
 	diff = auto
 	status = auto
 	branch = auto
+    ui = true
+[apply]
+  whitespace = fix
