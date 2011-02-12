@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 
 
-{% block title %} Voicemail Triage {% endblock title %}
+{% block title %} Voicemail Triage {{MEDIA_URLA}} {% endblock title %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="{{MEDIA_URL}}css/triage.css" >
@@ -38,6 +38,10 @@
     </div>
     
 <form>
+    {% csrf_token %}
+          {{form.as_p}}
+
+    
     
     <div class="grid_4 triage_video">
       <h2>Message</h2>
@@ -46,9 +50,12 @@
     
         
     <div class="grid_8 triage_trans">
-      <h2>Transcription</h2>
-      <textarea></textarea>
-      <span>Call Summary</span><input type="text" />
+    	
+    	
+      <h2>{{form.transcription.label}}</h2>
+	  {{form.transcription}}
+	  
+      <span>{{form.call_summary.label}}</span>{{form.call_summary}}
     </div>  {# end .triage_content #}
 
 

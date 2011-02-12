@@ -18,11 +18,11 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     
-    (r'^$', direct_to_template, {
-                                'template': 'triage/triage_detail.html'
-                               },
-    ),
+    ('^$', 'triage.views.triage_voicemail', {}, 'triage-detail'),
+
     
+    ('^triage/', include('triage.urls'))
+
     (r'^accounts/register/$',
             'registration.views.register',
             {'form_class':RegistrationFormUniqueEmail},

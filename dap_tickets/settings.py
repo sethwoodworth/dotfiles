@@ -77,6 +77,21 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'dap_tickets.urls'
 
+
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth', 
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.contrib.messages.context_processors.messages',
+    'util.context_processors.common',
+)
+
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
