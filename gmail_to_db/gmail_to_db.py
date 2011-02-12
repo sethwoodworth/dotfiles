@@ -36,7 +36,8 @@ try:
     # Download the email ids
     ok_response, item_string = gmail.search(None, "ALL")
     if (ok_response != 'OK'):
-        logging.error('gmail.search returned error: {err}'. format(err=ok_response))
+        logging.error('gmail.search returned error: {err}'.format(
+            err=ok_response))
         sys.exit()
     email_ids = map(int, item_string[0].split())
 
@@ -70,7 +71,8 @@ try:
                 logging.info("We've found the message body from phonepeople!")
                 message_body = part.get_payload(decode=True)
         if (wav_file == None):
-            logging.error("We had a email from phonepeople, but never found a .wav")
+            logging.error("We had a email from phonepeople, but never found ",
+                          "a .wav")
             sys.exit()
         if (message_body == None):
             logging.error("We had a email from phonepeople, but never found ",
