@@ -9,6 +9,7 @@ from triage.models import Voicemail
 urlpatterns = patterns('',
 
     
+    ('^$', 'triage.views.triage_voicemail', {}, 'triage-detail')
     ('^create$', 'triage.views.triage_submission', {}, 'triage-create')
 
     

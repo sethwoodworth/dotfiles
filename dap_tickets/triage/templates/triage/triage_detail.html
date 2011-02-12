@@ -38,6 +38,10 @@
     </div>
     
 <form>
+    {% csrf_token %}
+          {{form.as_p}}
+
+    
     
     <div class="grid_4 triage_video">
       <h2>Message</h2>
