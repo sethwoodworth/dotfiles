@@ -11,6 +11,8 @@
   {% endif %}
 
   <form method="post" action="">
+  	{% csrf_token %}
+  	
     <dl>
       <dt>
         <label for="id_username">Username:</label>

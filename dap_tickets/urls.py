@@ -24,10 +24,6 @@ urlpatterns = patterns('',
     
     ('^triage/', include('triage.urls')),
 
-    (r'^accounts/register/$',
-            'registration.views.register',
-            {'form_class':RegistrationFormUniqueEmail},
-    ),
 
     (r'accounts/', include('registration.urls')), 
 
