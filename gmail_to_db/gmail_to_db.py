@@ -49,19 +49,17 @@ for email_id in email_ids[-1:]:
         logging.debug("The email isn't from phonepeople.com- skipping")
         sys.exit()
 
-    # Check each part of the email to find (and save) the .wav file
+    # Check each part of the email to retrieve the .wav file
+    wav_file = None
     for part in mail.walk():
         if re.match('audio/wav', part.get('Content-Type')):
             logging.info("We've found a .wav from phonepeople!")
-            abs_filename = os.path.join(save_directory, part.get_filename())
+            wav_file = part.get_payload(decode=True)
+    if (wav_file == None):
+        logging.error("We had a email from phonepeople, but never found a .wav")
 
-            # Make sure it isn't already a file
-            if os.path.isfile(abs_filename):
-                logging.error("The file {filename} already exists".
-                              format(filename=abs_filename))
-                continue
-
-            # Save the file
-            # TODO(topher): make this add to database instead of disk
-            with open(abs_filename, 'wb') as file:
-                file.write(part.get_payload(decode=True))
+    # Save the file
+    # TODO(topher): make this add to database instead of disk
+    abs_filename = os.path.join(save_directory, part.get_filename())
+    with open(abs_filename, 'wb') as file:
+        file.write(part.get_payload(decode=True))
