@@ -48,7 +48,7 @@
         </div>
         <div class="grid_3 prefix_2 center login_box">
           {% if user.is_authenticated %}
-              <p>Hey, {{user.first_name}} - <a href="{# url social_logout #}">Logout</a></p>
+              <p>Hey, {{user}}! - <a href="{# url social_logout #}">Logout</a></p>
           {% else %}
               <p>Don't be a stranger, login/signup</p>
           {% endif %}

@@ -14,7 +14,7 @@ class Voicemail(models.Model):
         ('S', 'Spam'),
     )
 
-    user            = models.OneToOneField(User, blank=True)
+    user            = models.ForeignKey(User, blank=True)
 
     audio_file      = models.URLField()
     phone_number    = models.CharField( max_length= 15 )

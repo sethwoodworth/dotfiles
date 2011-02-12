@@ -12,7 +12,18 @@
   display:none
   }
 
-.logo_box{padding-top:10px;}
+.logo_box{padding-top:10px; }
+
+
+.login_box{text-align:right;}
+.login_box p{
+    font-size: 14pt;
+    margin-top: 10px;
+    text-align:right;
+}
+
+.login_box p a{    font-size: 10pt;	}    
+    
 #main{margin-top:20px;}
 
 body {

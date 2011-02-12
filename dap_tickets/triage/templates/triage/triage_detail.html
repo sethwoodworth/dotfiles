@@ -32,12 +32,13 @@
 
 
 {% block main %}
+{% if form %}
     <div class="grid_12 " id="title_box">
         <h1 class="center">Voicemail from {{voicemail.phone}}</h1>
         <h6>{{voicemail.date|date:'F d, Y'}}</h6>
     </div>
     
-<form action="{% url triage-create %}" method="POST">
+<form action="{% url triage-create voicemail.id %}" method="POST">
     {% csrf_token %}
     
     <div class="grid_4 triage_video">
@@ -97,4 +98,9 @@
 
 </form>
 
+{% else %}
+    <div class="grid_12 " id="title_box">
+        <h1 class="center">No voicemails left for review. Thanks!</h1>
+    </div>
+{% endif %}
 {% endblock main %}
