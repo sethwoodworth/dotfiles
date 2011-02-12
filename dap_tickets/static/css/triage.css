@@ -34,12 +34,12 @@ form input[type="text"], select, textarea{
 	background-color:#DCECFC; 
 	border:1px #0088de solid; 
 	text-align:center;
-	padding: 18px 10px;
+	padding: 30px 10px;
 	-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
 }
 
 .triage_trans{margin-bottom:30px;}
-	.triage_trans textarea{margin-bottom:10px;}
+	.triage_trans textarea{margin-bottom:10px; height:73px;}
 	.triage_trans span{font-size:1.5em; margin-right: 5px; font-weight:bold; color:#0088de; }
 	.triage_trans input[type="text"]{width:493px;}
 	

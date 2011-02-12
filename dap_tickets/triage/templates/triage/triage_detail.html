@@ -37,11 +37,8 @@
         <h6>January 14th, 2011</h6>
     </div>
     
-<form>
+<form action="{% url triage-create %}" method="POST">
     {% csrf_token %}
-          {{form.as_p}}
-
-    
     
     <div class="grid_4 triage_video">
       <h2>Message</h2>
@@ -62,24 +59,18 @@
 
     <div class="grid_8 triage_extra_info">
 	    <div class="grid_2 suffix_1">
-	      <h2>Location</h2>
-	      <input type="text" />      
+	      <h2>{{form.location.label}}</h2>
+			  {{form.location}}
 	    </div> 
 	    
 	    <div class="grid_2 suffix_1">
-	      <h2>Event</h2>
-	      <select>
-	      	<option>Hurricane</option>
-	      	<option>Earthquake</option>
-	      </select>
+	      <h2>{{form.event.label}}</h2>
+	      {{form.event}}
 	    </div> 
 	    
 	    <div class="grid_2">
-	      <h2>Urgency</h2>
-	      <select>
-	      	<option>Critical</option>
-	      	<option>High</option>
-	      </select>
+	      <h2>{{form.urgency.label}}</h2>
+	      {{form.urgency}}
   	    </div> 
 	     
 	    
@@ -88,15 +79,15 @@
 
 
     <div class="grid_4 triage_tags">
-		<h2>Tags</h2>
-		<input type="text" /> 
+		<h2>{{form.tags.label}}</h2>
+		{{form.tags}}
     </div>  {# end .triage_tags #}
 
 
 
 	<div class="grid_8 triage_needs">
       <h2>What is the need?</h2>
-      <textarea></textarea>
+      {{form.need}}
 	</div>  {# end .triage_needs #}
     
     

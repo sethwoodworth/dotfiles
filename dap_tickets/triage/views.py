@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from forms import VoicemailForm
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 # Need to make this pull a form for a yet to be done call
@@ -22,7 +23,9 @@ def triage_submission(request):
         form = VoicemailForm(request.POST)
   
         if form.is_valid():
-            o = form.save(commit=True) 
+            o = form.save(commit=False)
+            o.user = request.user
+            o.save()
             # o.last_saved = 
 
     return HttpResponseRedirect('/')
