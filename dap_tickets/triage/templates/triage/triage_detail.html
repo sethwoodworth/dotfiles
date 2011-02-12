@@ -1,0 +1,99 @@
+{% extends "base/base.html" %}
+
+
+{% block title %} Voicemail Triage {% endblock title %}
+
+{% block extra_css %}
+
+<style>
+	.triage_video{background-color:#FAAF12;}
+	.triage_trans{background-color:#FFEFEA;}
+		.triage_trans textarea{width:100%;}
+	.triage_extra_info div {margin:0;}
+	
+	.triage_extra_info{background-color:#A01FEA;}
+	.triage_tags{ background-color:#EABFEA; }
+	
+	
+	.triage_needs {background-color:#F21FEA;}
+		.triage_needs textarea{ width:100%;}
+</style>
+
+{% endblock extra_css %}
+
+
+
+
+{% block extra_js %}
+
+<script type="text/javascript">
+/*
+  $(function(){
+    
+  });
+*/
+</script>
+{% endblock extra_js %}
+
+
+
+{% block main %}
+    <div class="grid_12 center" id="title_box">
+        <h4>Voicemail from (617) 297-1249 <span>- January 14th, 2011</span></h4>
+    </div>
+    
+<form>
+    
+    <div class="grid_4 triage_video">
+      video here
+    </div>  {# end .wish_content #}
+    
+        
+    <div class="grid_8 triage_trans">
+      <h2>Transcription</h2>
+      <textarea></textarea>
+    </div>  {# end .triage_content #}
+
+
+
+    <div class="grid_8 triage_extra_info">
+	    <div class="grid_2 suffix_1">
+	      <h2>Location</h2>
+	      <input type="text" />      
+	    </div> 
+	    
+	    <div class="grid_2 suffix_1">
+	      <h2>Event</h2>
+	      <input type="text" />      
+	    </div> 
+	    
+	    <div class="grid_2">
+	      <h2>Urgency</h2>
+	      <input type="text" />      
+	    </div> 
+	     
+	    
+	    
+    </div>  {# end .triage_extra_info #}
+
+
+    <div class="grid_4 triage_tags">
+		<h2>Tags</h2>
+		<input type="text" /> 
+    </div>  {# end .triage_tags #}
+
+
+
+	<div class="grid_8 triage_needs">
+      <h2>What is the need?</h2>
+      <textarea></textarea>
+	</div>  {# end .triage_needs #}
+    
+    
+    <div class="grid_4">
+      <input type="submit" value="Save Report" />
+    </div>  {# end .triage_needs #}
+
+</form>
+
+{% endblock main %}
