@@ -27,4 +27,3 @@ class Voicemail(models.Model):
     tags            = models.CharField( max_length = 255 )
     need            = models.TextField()
     last_saved      = models.DateTimeField(auto_now = True)
-
