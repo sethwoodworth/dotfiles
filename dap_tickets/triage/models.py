@@ -1,5 +1,5 @@
 from django.db import models
-from django.models import User
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -14,17 +14,17 @@ class Voicemail(models.Model):
         ('S', 'Spam'),
     )
 
-    user            = OneToOneField(User)
+    user            = models.OneToOneField(User)
 
-    audio_file      = URLField()
-    phone_number    = CharField()
-    date            = DateTimeField(auto_now=True)
-    transcription   = TextField()
-    call_summary    = CharField( max_length = 255)
-    location        = CharField( max_length = 255)
-    event           = CharField( choices=EVENT_CHOICES )
-    urgency         = CharField( choices=URGENCY_CHOICES )
-    tags            = CharField( max_length = 255 )
-    need            = TextField()
-    last_saved      = DateTimeField(auto_now = True)
+    audio_file      = models.URLField()
+    phone_number    = models.CharField( max_length= 15 )
+    date            = models.DateTimeField(auto_now=True)
+    transcription   = models.TextField()
+    call_summary    = models.CharField( max_length = 255)
+    location        = models.CharField( max_length = 255)
+    event           = models.CharField( max_length = 10, choices=EVENT_CHOICES )
+    urgency         = models.CharField( max_length = 10, choices=URGENCY_CHOICES )
+    tags            = models.CharField( max_length = 255 )
+    need            = models.TextField()
+    last_saved      = models.DateTimeField(auto_now = True)
 
