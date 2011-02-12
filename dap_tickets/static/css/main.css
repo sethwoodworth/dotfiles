@@ -1,6 +1,5 @@
-// general classes
-// ----------------------------------------------- */
-.center{
+
+.centerMe{
   text-align:center;
   }
 .rounded{
@@ -32,7 +31,6 @@ a:hover {
 }
 
 h1 {
-	font-family: Georgia, serif;
 	font-weight: normal;
 	text-align: center;
 }
@@ -43,10 +41,10 @@ h2 {
 }
 
 p {
-	border: 1px solid #666;
+	border: none;
 	overflow: hidden;
-	padding: 10px 0;
-	text-align: center;
+	padding: 5px 0;
+	text-align: left;
 }
 
 .container_12 {

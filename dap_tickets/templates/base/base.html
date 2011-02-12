@@ -17,7 +17,7 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   {% endblock meta %}
   
-  <title>UserWish - {% block title %}{% endblock title %}</title>
+  <title>DAP - {% block title %}{% endblock title %}</title>
 
 {% block css %}
 
@@ -37,16 +37,16 @@
 
 <body>
 {% block body %}
-  <div id="container" class="container_12">
+  <div id="container" class="container_12 rounded">
 
     
     {% block container %}
     <header>
       {% block header %}
-        <div class="grid_6">
-          <a href="#">Disaster Accountability Project</a>
+        <div class="grid_7 logo_box">
+          <a href="#"><img src="{{MEDIA_URL}}img/logo.png" /></a>
         </div>
-        <div class="grid_3 prefix_3 center login_box">
+        <div class="grid_3 prefix_2 center login_box">
           {% if user.is_authenticated %}
               <p>Hey, {{user.first_name}} - <a href="{% url social_logout %}">Logout</a></p>
           {% else %}
