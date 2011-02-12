@@ -14,19 +14,22 @@ class Voicemail(models.Model):
         ('S', 'Spam'),
     )
 
-    user            = models.OneToOneField(User)
+    user            = models.OneToOneField(User, blank=True)
 
     audio_file      = models.URLField()
     phone_number    = models.CharField( max_length= 15 )
     date            = models.DateTimeField(auto_now=True)
-    transcription   = models.TextField()
-    call_summary    = models.CharField( max_length = 255)
-    location        = models.CharField( max_length = 255)
-    event           = models.CharField( max_length = 10, choices=EVENT_CHOICES )
-    urgency         = models.CharField( max_length = 10, choices=URGENCY_CHOICES )
-    tags            = models.CharField( max_length = 255 )
-    need            = models.TextField()
-    last_saved      = models.DateTimeField(auto_now = True)
+    transcription   = models.TextField( blank=True )
+    call_summary    = models.CharField( max_length = 255, blank=True)
+    location        = models.CharField( max_length = 255, blank=True)
+    event           = models.CharField( max_length = 10, choices=EVENT_CHOICES , blank=True)
+    urgency         = models.CharField( max_length = 10,
+choices=URGENCY_CHOICES, blank=True)
+    tags            = models.CharField( max_length = 255, blank=True)
+    need            = models.TextField(blank=True)
+    last_saved      = models.DateTimeField(auto_now = True, blank=True)
+    reviewed        = models.BooleanField(blank=True)
 
     def __str__(self):
         return self.phone_number + " on " + self.date.isoformat()
+

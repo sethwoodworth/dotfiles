@@ -4,13 +4,19 @@ from django.shortcuts import render_to_response
 from django.template import RequestContext
 
 from forms import VoicemailForm
+from models import Voicemail
 from django.http import HttpResponse, HttpResponseRedirect
 
 @login_required
 # Need to make this pull a form for a yet to be done call
 def triage_voicemail(request):
+    os = Voicemail.objects.filter(reviewed=False)
+    form = VoicemailForm()
+    if len(os):
+        o = os[0]
+        form = VoicemailForm(o)
     dict = {
-    'form': VoicemailForm()
+    'form': form
     }
 
     
@@ -26,6 +32,7 @@ def triage_submission(request):
         if form.is_valid():
             o = form.save(commit=False)
             o.user = request.user
+            o.reviewed = True
             o.save()
             # o.last_saved = 
 
