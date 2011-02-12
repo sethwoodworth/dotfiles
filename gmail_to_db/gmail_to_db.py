@@ -115,6 +115,8 @@ try:
         # Record that we now have sucessfully processed this ID
         config_file['last_id'] = email_id
         config_file.write()
+        logging.info('Finished processing phonepeople email #{email}'.format(
+            email=email_id))
 finally:
     # Don't forget to release our lock file
     os.rmdir(lock_dir)
