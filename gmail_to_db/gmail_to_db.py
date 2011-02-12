@@ -67,6 +67,17 @@ for email_id in email_ids[-1:]:
                       "a message body")
         sys.exit()
 
+    # Parse out relevent info from the message body
+    message = {}
+    message['time_received'] = re.search(
+      'Received: *(.*)\n', message_body).group(1).strip()
+    message['length'] = re.search(
+      'Length: *(.*)\n', message_body).group(1).strip()
+    message['phone_number'] = re.search(
+      '.*Phone Number: *(.*)\n', message_body).group(1).strip()
+    message['phone_company_location'] = re.search(
+      'Phone Company Location: *(.*)\n', message_body).group(1).strip()
+
     # Save the file
     # TODO(topher): make this add to database instead of disk
     abs_filename = os.path.join(save_directory, part.get_filename())
