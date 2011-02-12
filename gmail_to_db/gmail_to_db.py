@@ -81,10 +81,12 @@ try:
         message = {}
         message['time_received'] = re.search(
           'Received: *(.*)\n', message_body).group(1).strip()
-        message['length'] = re.search(
+        message['call_length'] = re.search(
           'Length: *(.*)\n', message_body).group(1).strip()
         message['phone_number'] = re.search(
           '.*Phone Number: *(.*)\n', message_body).group(1).strip()
+        message['phone_company'] = re.search(
+          '.*Phone Company: *(.*)\n', message_body).group(1).strip()
         message['phone_company_location'] = re.search(
           'Phone Company Location: *(.*)\n', message_body).group(1).strip()
 
