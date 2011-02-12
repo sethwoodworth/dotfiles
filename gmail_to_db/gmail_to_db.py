@@ -108,8 +108,8 @@ try:
 
         # Save the file
         # TODO(topher): make this add to database instead of disk
-        abs_filename = os.path.join(save_directory, part.get_filename())
-        with open(abs_filename, 'wb') as file:
+        wav_filename = os.path.join(save_directory, part.get_filename())
+        with open(wav_filename, 'wb') as file:
             file.write(part.get_payload(decode=True))
 
         # Record that we now have sucessfully processed this ID
