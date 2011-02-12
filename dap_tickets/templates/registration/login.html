@@ -3,6 +3,7 @@
 {% block title %}Log in{% endblock %}
 
 {% block content %}
+<center>
 
 <h1>{% trans "Log in" %}</h1>
 
@@ -26,12 +27,19 @@
 <p>{% trans "Don&#8217;t have an account yet?" %} <a href="/accounts/register/">{% trans "Register for free!" %}</a></p>
 <p>{% trans "Forgot your password?" %}
   <a href="{% url auth_password_reset %}?next={{ next|default:"/"|escape }}">{% trans "Reset it here." %}</a></p>
+</center>
+
 {% endblock %}
 
 {% block content-related %}
+<center>
+
 <p>
   {% trans "If you don't have an account, you can" %}
   <a href="/accounts/register/">{% trans "sign up" %}</a>
   {% trans "for one." %}
 </p>
+</center>
+
 {% endblock %}
+

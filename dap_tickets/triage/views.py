@@ -14,7 +14,7 @@ def triage_voicemail(request):
     form = VoicemailForm()
     if len(os):
         o = os[0]
-        form = VoicemailForm(o)
+        form = VoicemailForm(instance=o)
     dict = {
     'form': form
     }

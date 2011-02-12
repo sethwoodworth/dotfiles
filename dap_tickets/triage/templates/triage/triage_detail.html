@@ -1,7 +1,7 @@
 {% extends "base/base.html" %}
 
 
-{% block title %} Voicemail Triage {{MEDIA_URLA}} {% endblock title %}
+{% block title %} Voicemail Triage {% endblock title %}
 
 {% block extra_css %}
   <link rel="stylesheet" href="{{MEDIA_URL}}css/triage.css" >
@@ -33,8 +33,8 @@
 
 {% block main %}
     <div class="grid_12 " id="title_box">
-        <h1 class="center">Voicemail from (617) 297-1249</h1>
-        <h6>January 14th, 2011</h6>
+        <h1 class="center">Voicemail from {{voicemail.phone}}</h1>
+        <h6>{{voicemail.date|date:'F d, Y'}}</h6>
     </div>
     
 <form action="{% url triage-create %}" method="POST">
