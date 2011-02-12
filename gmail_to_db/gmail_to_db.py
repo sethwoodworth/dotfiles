@@ -51,12 +51,21 @@ for email_id in email_ids[-1:]:
 
     # Check each part of the email to retrieve the .wav file
     wav_file = None
+    message_body = None
     for part in mail.walk():
         if re.match('audio/wav', part.get('Content-Type')):
             logging.info("We've found a .wav from phonepeople!")
             wav_file = part.get_payload(decode=True)
+        if re.match('text/plain', part.get('Content-Type')):
+            logging.info("We've found the message body from phonepeople!")
+            message_body = part.get_payload(decode=True)
     if (wav_file == None):
         logging.error("We had a email from phonepeople, but never found a .wav")
+        sys.exit()
+    if (message_body == None):
+        logging.error("We had a email from phonepeople, but never found ",
+                      "a message body")
+        sys.exit()
 
     # Save the file
     # TODO(topher): make this add to database instead of disk
