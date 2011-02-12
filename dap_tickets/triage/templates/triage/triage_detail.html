@@ -50,9 +50,12 @@
     
         
     <div class="grid_8 triage_trans">
-      <h2>Transcription</h2>
-      <textarea></textarea>
-      <span>Call Summary</span><input type="text" />
+    	
+    	
+      <h2>{{form.transcription.label}}</h2>
+	  {{form.transcription}}
+	  
+      <span>{{form.call_summary.label}}</span>{{form.call_summary}}
     </div>  {# end .triage_content #}
 
 
