@@ -27,3 +27,6 @@ class Voicemail(models.Model):
     tags            = models.CharField( max_length = 255 )
     need            = models.TextField()
     last_saved      = models.DateTimeField(auto_now = True)
+
+    def __str__(self):
+        return self.phone_number + " on " + self.date.isoformat()
