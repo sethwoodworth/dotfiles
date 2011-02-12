@@ -56,7 +56,7 @@ try:
         email_count=email_ids[-1], last_id=last_id))
 
     # Check each email after our last id to see if it's a message we want
-    for email_id in email_ids[last_id+1:]:
+    for email_id in email_ids[last_id:]:
         logging.debug("processing email_id: {id}".format(id=email_id))
         # fetching the mail, "`(RFC822)`" means "get the whole stuff"
         ok_response, data = gmail.fetch(email_id, "(RFC822)") 
