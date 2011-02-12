@@ -21,6 +21,7 @@ urlpatterns = patterns('',
     ('^$', direct_to_template, {
         'template': 'triage/triage_detail.html'
     })
+
 )
 
 
