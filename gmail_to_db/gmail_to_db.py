@@ -20,9 +20,7 @@ ok_response, item_string = gmail.search(None, "ALL")
 assert(ok_response == 'OK')  # TODO(topher): do something on error response
 email_ids = map(int, item_string[0].split())
 
-print email_ids
-print email_ids[-1]
-for email_id in email_ids[-1:]:
+for email_id in email_ids:
     print email_id
 
     # fetching the mail, "`(RFC822)`" means "get the whole stuff", but you can
