@@ -1,9 +1,11 @@
 # Create your views here.
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.views import RequestContext
 
 from forms import VoicemailForm
 
+@login_required
 def triage_voicemail(request):
     render_to_response('triage/triage_detail.html',
                        {},
