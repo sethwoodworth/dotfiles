@@ -112,6 +112,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'registration',
     'triage',
+    'tastypie',
 )
 
 ACCOUNT_ACTIVATION_DAYS = 7

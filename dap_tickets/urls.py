@@ -5,9 +5,17 @@ import settings
 
 from registration.forms import RegistrationFormUniqueEmail
 
+from tastypie.api import Api
+from triage.api.resources import VoicemailResource
+
+v1_api = Api(api_name='v1')
+v1_api.register(VoicemailResource())
+
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
+
+voicemail_resource = VoicemailResource()
 
 urlpatterns = patterns('',
     # Example:
@@ -26,6 +34,8 @@ urlpatterns = patterns('',
 
 
     (r'accounts/', include('registration.urls')), 
+
+    (r'api/', include(v1_api.urls)),
 
 )
 

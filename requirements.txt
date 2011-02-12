@@ -1,2 +1,4 @@
-Django==1.2.4
+# Django==1.2.4
 django-registration
+-e git+https://github.com/toastdriven/django-tastypie.git#egg=django-tastypie
+-r dev-env/src/django-tastypie/requirements.txt
