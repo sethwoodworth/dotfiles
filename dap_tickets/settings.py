@@ -113,6 +113,7 @@ INSTALLED_APPS = (
     'triage',
 )
 
+ACCOUNT_ACTIVATION_DAYS = 7
 
 
 # Finally, grab local settings from your local settings
