@@ -5,7 +5,7 @@
 {% block content %}
 
   <h1>Create an account</h1>
-  
+  <center>
   {% if form.errors %}
   <p class="error">Please correct the errors below:</p>
   {% endif %}
@@ -57,16 +57,19 @@
       <dt><input type="submit" value="Register" /></dt>
     </dl>
   </form>
-  
+  </center>
 {% endblock %}
 
 {% block content-related %}
+  <center>
+
 <p>Fill out the form to the left (all fields are required), and your
 account will be created; you'll be sent an email with instructions on how
 to finish your registration.</p>
 
 <p>We'll only use your email to send you signup instructions. We hate spam
 as much as you do.</p>
+  </center>
 
 
 {% endblock %}
