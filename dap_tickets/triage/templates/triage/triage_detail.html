@@ -4,21 +4,7 @@
 {% block title %} Voicemail Triage {% endblock title %}
 
 {% block extra_css %}
-
-<style>
-	.triage_video{background-color:#FAAF12;}
-	.triage_trans{background-color:#FFEFEA;}
-		.triage_trans textarea{width:100%;}
-	.triage_extra_info div {margin:0;}
-	
-	.triage_extra_info{background-color:#A01FEA;}
-	.triage_tags{ background-color:#EABFEA; }
-	
-	
-	.triage_needs {background-color:#F21FEA;}
-		.triage_needs textarea{ width:100%;}
-</style>
-
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/triage.css" >
 {% endblock extra_css %}
 
 
@@ -38,8 +24,9 @@
 
 
 {% block main %}
-    <div class="grid_12 center" id="title_box">
-        <h4>Voicemail from (617) 297-1249 <span>- January 14th, 2011</span></h4>
+    <div class="grid_12 " id="title_box">
+        <h1 class="center">Voicemail from (617) 297-1249</h1>
+        <h6>January 14th, 2011</h6>
     </div>
     
 <form>
@@ -52,6 +39,7 @@
     <div class="grid_8 triage_trans">
       <h2>Transcription</h2>
       <textarea></textarea>
+      <span>Call Summary</span><input type="text" />
     </div>  {# end .triage_content #}
 
 
@@ -64,13 +52,19 @@
 	    
 	    <div class="grid_2 suffix_1">
 	      <h2>Event</h2>
-	      <input type="text" />      
+	      <select>
+	      	<option>Hurricane</option>
+	      	<option>Earthquake</option>
+	      </select>
 	    </div> 
 	    
 	    <div class="grid_2">
 	      <h2>Urgency</h2>
-	      <input type="text" />      
-	    </div> 
+	      <select>
+	      	<option>Critical</option>
+	      	<option>High</option>
+	      </select>
+  	    </div> 
 	     
 	    
 	    
@@ -90,8 +84,8 @@
 	</div>  {# end .triage_needs #}
     
     
-    <div class="grid_4">
-      <input type="submit" value="Save Report" />
+    <div class="grid_4 submit_box">
+      <input type="submit" value=" " />
     </div>  {# end .triage_needs #}
 
 </form>
