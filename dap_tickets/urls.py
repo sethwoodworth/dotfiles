@@ -3,6 +3,7 @@ from django.views.generic.simple import direct_to_template
 import os
 import settings
 
+from registration.forms import RegistrationFormUniqueEmail
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -21,12 +22,13 @@ urlpatterns = patterns('',
     ('^$', 'triage.views.triage_voicemail', {}, 'triage-detail'),
 
     
-    ('^triage/', include('triage.urls'))
+    ('^triage/', include('triage.urls')),
 
     (r'^accounts/register/$',
             'registration.views.register',
             {'form_class':RegistrationFormUniqueEmail},
     ),
+
     (r'accounts/', include('registration.urls')), 
 
 )
