@@ -5,19 +5,27 @@
 
 {% block extra_css %}
   <link rel="stylesheet" href="{{MEDIA_URL}}css/triage.css" >
+  
+  <style>
+  	
+  </style>
 {% endblock extra_css %}
 
 
 
 
 {% block extra_js %}
+<script src="{{MEDIA_URL}}js/jquery.media.js"></script>
+
 
 <script type="text/javascript">
-/*
+
   $(function(){
+
+	$('a.media').media( { width: 280, height: 20 } );
     
   });
-*/
+
 </script>
 {% endblock extra_js %}
 
@@ -32,7 +40,8 @@
 <form>
     
     <div class="grid_4 triage_video">
-      video here
+      <h2>Message</h2>
+      <div id="audio-box"><a class="media" href="/static/files/1.wav"></a> </div>
     </div>  {# end .wish_content #}
     
         
