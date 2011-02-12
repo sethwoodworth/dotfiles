@@ -15,6 +15,7 @@ logging.debug('Starting gmail_to_db pull script')
 # Global (constant) variables
 save_directory = os.getcwd()
 lock_dir = os.path.join(os.getcwd(), 'gmail_to_db.lck')
+config_file = 
 user = 'daphotline'
 password = base64.b64decode('ZmViMTEyMDEx')
 
@@ -22,7 +23,9 @@ password = base64.b64decode('ZmViMTEyMDEx')
 try:
     os.mkdir(lock_dir)
 except OSError:
-    logging.error('Could not get a lock on the lock file')
+    logging.error('Could not get a lock on the lock file. If there are no ',
+                  'instances of this script running, delete the lock ',
+                  'directory: {dir}'.format(dir=lock_dir))
     sys.exit()
 
 # We've got the lock!
