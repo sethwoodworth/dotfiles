@@ -7,6 +7,21 @@ from django.template import RequestContext
 from forms import VoicemailForm
 from models import Voicemail
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
+
+from django.views.decorators.csrf import csrf_exempt
+
+@csrf_exempt
+def triage_create(request):
+    if request.method == 'POST' and request.POST['audio_file']:
+        vmail = Voicemail(audio_file = request.POST['audio_file'], phone_number = request.POST['phone_number'] )
+        vmail.save()
+         
+    return HttpResponseRedirect('/')
+
+
+
+
 
 @login_required
 # Need to make this pull a form for a yet to be done call

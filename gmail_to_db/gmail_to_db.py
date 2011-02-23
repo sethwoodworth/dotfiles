@@ -1,14 +1,15 @@
-''' Retrieves gmail messages and saves them to disk.
-'''
 from __future__ import with_statement
+import MultipartPostHandler
 import base64
 import configobj
+import cookielib
 import email.parser
 import imaplib
 import logging
 import os
 import re
 import sys
+import urllib2
 
 # Set up logging
 logging.basicConfig(filename='gmail_to_db.log', level=logging.DEBUG,
@@ -16,12 +17,14 @@ logging.basicConfig(filename='gmail_to_db.log', level=logging.DEBUG,
 logging.debug('Starting gmail_to_db pull script')
 
 # Global (constant) variables
-save_directory = os.getcwd()
+save_directory = os.path.abspath(os.path.join(os.path.dirname(__file__),"../dap_tickets/static/files"))
+
 lock_dir = os.path.join(os.getcwd(), 'gmail_to_db.lck')
 config_filename = 'gmail_to_db.cfg'
 config_file = configobj.ConfigObj(config_filename)
 user = config_file['gmail_username']
 password = base64.b64decode(config_file['gmail_encrypted_password'])
+upload_url = "http://127.0.0.1:8000/triage/create/"
 
 # Check if anyone has the file lock already
 try:
@@ -29,7 +32,7 @@ try:
 except OSError:
     logging.error('Could not get a lock on the lock file. If there are no ',
                   'instances of this script running, delete the lock ',
-                  'directory: {dir}'.format(dir=lock_dir))
+                  'directory: %s', lock_dir)
     sys.exit()
 
 # We've got the lock!
@@ -43,31 +46,25 @@ try:
     # Download the email ids
     ok_response, item_string = gmail.search(None, "ALL")
     if (ok_response != 'OK'):
-        logging.error('gmail.search returned error: {err}'.format(
-            err=ok_response))
+        logging.error('gmail.search returned error: %s', ok_response)
         sys.exit()
     email_ids = map(int, item_string[0].split())
 
     # Figure out which was the last ID sucessfully processed
     try:
-        # DEBUG(topher): using a dummy start value so we don't pull the entire
-        # gmail account every run. fix on production server
-        last_id_processed = 150
-        # last_id_processed = int(config_file['last_id'])
+        last_id = int(config_file['last_id'])
     except KeyError:
         logging.error('config_file could not be read')
         sys.exit()
-    logging.debug('Found {email_count} email ids, starting at {last_id}'.format(
-        email_count=email_ids[-1], last_id=last_id_processed))
+    logging.debug('Found %s email ids, starting at %s', email_ids[-1], last_id)
 
     # Check each email after our last id to see if it's a message we want
-    for email_id in email_ids[last_id_processed:]:
-        logging.debug("processing email_id: {id}".format(id=email_id))
+    for email_id in email_ids[last_id:]:
+        logging.debug("processing email_id: %s", email_id)
         # fetching the mail, "`(RFC822)`" means "get the whole stuff"
         ok_response, data = gmail.fetch(email_id, "(RFC822)") 
         if (ok_response != 'OK'):
-            logging.error('gmail.fetch for id {id} returned error: {err}'.
-                         format(id=email_id, err=ok_response))
+            logging.error('gmail.fetch for id %s returned error: %s', email_id, ok_response)
             continue
 
         # getting the mail content
@@ -118,10 +115,20 @@ try:
             file.write(part.get_payload(decode=True))
 
         # Record that we now have sucessfully processed this ID
-        config_file['last_id_processed'] = email_id
+        config_file['last_id'] = email_id
         config_file.write()
-        logging.info('Finished processing phonepeople email #{email}'.format(
-            email=email_id))
+        logging.info('Finished processing phonepeople email #%s', email_id)
+
+        # Send the wav to the database with POST
+        cookies = cookielib.CookieJar()
+        opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
+                                      MultipartPostHandler.MultipartPostHandler)
+        params = {"audio_file" : part.get_filename(), "phone_number" : message['phone_number'] }
+        try:
+          opener.open(upload_url, params)
+          
+        except urllib2.HTTPError, error:
+          logging.fatal(error.read())
 finally:
     # Don't forget to release our lock file
     os.rmdir(lock_dir)

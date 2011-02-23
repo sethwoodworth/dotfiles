@@ -38,12 +38,12 @@
         <h6>{{voicemail.date|date:'F d, Y'}}</h6>
     </div>
     
-<form action="{% url triage-create voicemail.id %}" method="POST">
+<form action="{% url triage-update voicemail.id %}" method="POST">
     {% csrf_token %}
     
     <div class="grid_4 triage_video">
       <h2>Message</h2>
-      <div id="audio-box"><a class="media" href="/static/files/1.wav"></a> </div>
+      <div id="audio-box"><a class="media" href="/static/files/{{voicemail.audio_file}}"></a> </div>
     </div>  {# end .wish_content #}
     
         
