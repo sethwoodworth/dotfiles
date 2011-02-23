@@ -50,7 +50,10 @@ try:
 
     # Figure out which was the last ID sucessfully processed
     try:
-        last_id_processed = int(config_file['last_id'])
+        # DEBUG(topher): using a dummy start value so we don't pull the entire
+        # gmail account every run. fix on production server
+        last_id_processed = 150
+        # last_id_processed = int(config_file['last_id'])
     except KeyError:
         logging.error('config_file could not be read')
         sys.exit()
