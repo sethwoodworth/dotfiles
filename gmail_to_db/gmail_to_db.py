@@ -110,12 +110,11 @@ try:
           'Phone Company Location: *(.*)\n', message_body).group(1).strip()
 
         # Save the file
-        # TODO(topher): make this add to database instead of disk
         wav_filename = os.path.join(save_directory, part.get_filename())
         with open(wav_filename, 'wb') as file:
             file.write(part.get_payload(decode=True))
 
-        # Send the wav to the database with POST
+        # Send the new email info to Django using POST
         cookies = cookielib.CookieJar()
         opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
                                       MultipartPostHandler.MultipartPostHandler)

@@ -1,7 +1,5 @@
 gmail_to_db.py
-Script for retrieving gmail messages and saving them to disk.
-
-Will eventually be used to push the messages to a database using POST.
+Script for retrieving gmail messages, then loading them into the web app.
 
 = Requirements = 
 config file gmail_to_db.cfg in this dir with the following elements:
@@ -9,6 +7,7 @@ config file gmail_to_db.cfg in this dir with the following elements:
       downloaded and saved
   - gmail_username
   - gmail_encrypted_password: password, encrypted with base64.b64encode(1)
+  - upload_url: the POST url for the database
 
 = Usage =
   Just run the script with python:
@@ -24,5 +23,6 @@ config file gmail_to_db.cfg in this dir with the following elements:
       - Skips to the next one if not
     - Parses the relevent information from message body
     - Saves the .wav attachment to disk
+    - Sends the information on the message to the web server
     - Updates the last_id in the config file
   - Releases the lck directory
