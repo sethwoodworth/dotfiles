@@ -115,11 +115,6 @@ try:
         with open(wav_filename, 'wb') as file:
             file.write(part.get_payload(decode=True))
 
-        # Record that we now have sucessfully processed this ID
-        config_file['last_id'] = email_id
-        config_file.write()
-        logging.info('Finished processing phonepeople email #%s', email_id)
-
         # Send the wav to the database with POST
         cookies = cookielib.CookieJar()
         opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
@@ -127,10 +122,17 @@ try:
         params = {"audio_file" : part.get_filename(),
                   "phone_number" : message['phone_number'] }
         try:
-          opener.open(upload_url, params)
-          
+            # perform the send
+            opener.open(upload_url, params)
         except urllib2.HTTPError, error:
-          logging.fatal(error.read())
+            logging.fatal("POSTing to database failed. Error message:")
+            logging.fatal(error.read())
+            continue
+
+        # Record that we now have sucessfully processed this ID
+        config_file['last_id'] = email_id
+        config_file.write()
+        logging.info('Finished processing phonepeople email #%s', email_id)
 finally:
     # Don't forget to release our lock file
     os.rmdir(lock_dir)
