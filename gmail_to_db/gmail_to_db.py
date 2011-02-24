@@ -24,7 +24,7 @@ config_filename = 'gmail_to_db.cfg'
 config_file = configobj.ConfigObj(config_filename)
 user = config_file['gmail_username']
 password = base64.b64decode(config_file['gmail_encrypted_password'])
-upload_url = "http://127.0.0.1:8000/triage/create/"
+upload_url = config_file['upload_url']
 
 # Check if anyone has the file lock already
 try:
