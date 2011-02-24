@@ -17,8 +17,8 @@ logging.basicConfig(filename='gmail_to_db.log', level=logging.DEBUG,
 logging.debug('Starting gmail_to_db pull script')
 
 # Global (constant) variables
-save_directory = os.path.abspath(os.path.join(os.path.dirname(__file__),"../dap_tickets/static/files"))
-
+save_directory = os.path.abspath(os.path.join(
+        os.path.dirname(__file__),"../dap_tickets/static/files"))
 lock_dir = os.path.join(os.getcwd(), 'gmail_to_db.lck')
 config_filename = 'gmail_to_db.cfg'
 config_file = configobj.ConfigObj(config_filename)
@@ -64,7 +64,8 @@ try:
         # fetching the mail, "`(RFC822)`" means "get the whole stuff"
         ok_response, data = gmail.fetch(email_id, "(RFC822)") 
         if (ok_response != 'OK'):
-            logging.error('gmail.fetch for id %s returned error: %s', email_id, ok_response)
+            logging.error('gmail.fetch for id %s returned error: %s',
+                          email_id, ok_response)
             continue
 
         # getting the mail content
@@ -123,7 +124,8 @@ try:
         cookies = cookielib.CookieJar()
         opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cookies),
                                       MultipartPostHandler.MultipartPostHandler)
-        params = {"audio_file" : part.get_filename(), "phone_number" : message['phone_number'] }
+        params = {"audio_file" : part.get_filename(),
+                  "phone_number" : message['phone_number'] }
         try:
           opener.open(upload_url, params)
           
