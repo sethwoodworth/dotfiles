@@ -1,0 +1,68 @@
+#main h2{ margin:0; padding:0; color:#0088de; font-size: 26px; }
+
+#title_box{text-align:center;}
+	#title_box h1{color:#27AAE1; text-shadow: 0 1px 0 #112233; font-weight: bold; font-size:32pt; margin:0;}
+	#title_box h6{color:#999;}
+
+form input[type="text"], select, textarea{
+	border:1px #0088de solid; 
+	padding:3px 5px; 
+	
+    background-color: #FFFFFF;
+    background-image: url("/static/img/header_vbg.png");
+    background-position: center bottom;
+    background-repeat: repeat-x;
+    width: 98%;
+    font-family: "Helvetica";
+	font-size: 12pt;
+	
+	-moz-border-radius:5px; 
+	-webkit-border-radius:5px; 
+	border-radius:5px;
+	
+	
+	}
+	
+	form input[type="text"]{	
+	    width: 96%;
+	}
+
+
+
+
+#audio-box{ 
+	background-color:#DCECFC; 
+	border:1px #0088de solid; 
+	text-align:center;
+	padding: 30px 10px;
+	-moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;
+}
+
+.triage_trans{margin-bottom:30px;}
+	.triage_trans textarea{margin-bottom:10px; height:73px;}
+	.triage_trans span{font-size:1.5em; margin-right: 5px; font-weight:bold; color:#0088de; }
+	.triage_trans input[type="text"]{width:493px;}
+	
+
+.triage_extra_info{margin-bottom:40px;}
+.triage_extra_info div {margin:0;}
+
+
+.triage_tags{  }
+	.triage_tags input{ font-size:11pt; }
+
+
+.triage_needs {}
+	.triage_needs textarea{ height:70px; }
+
+
+.submit_box input{
+	background:url('/static/img/save.png') no-repeat; 
+    height: 82px;
+    margin-top: 39px;
+    width: 300px;
+    border:none;
+}
+
+
+#site_info{text-align:center; font-size:10pt; margin-top:20px; padding:5px 0;}

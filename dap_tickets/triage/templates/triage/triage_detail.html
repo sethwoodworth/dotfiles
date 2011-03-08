@@ -1,0 +1,106 @@
+{% extends "base/base.html" %}
+
+
+{% block title %} Voicemail Triage {% endblock title %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/triage.css" >
+  
+  <style>
+  	
+  </style>
+{% endblock extra_css %}
+
+
+
+
+{% block extra_js %}
+<script src="{{MEDIA_URL}}js/jquery.media.js"></script>
+
+
+<script type="text/javascript">
+
+  $(function(){
+
+	$('a.media').media( { width: 280, height: 20 } );
+    
+  });
+
+</script>
+{% endblock extra_js %}
+
+
+
+{% block main %}
+{% if form %}
+    <div class="grid_12 " id="title_box">
+        <h1 class="center">Voicemail from {{voicemail.phone_number}}</h1>
+        <h6>{{voicemail.date|date:'F d, Y'}}</h6>
+    </div>
+    
+<form action="{% url triage-update voicemail.id %}" method="POST">
+    {% csrf_token %}
+    
+    <div class="grid_4 triage_video">
+      <h2>Message</h2>
+      <div id="audio-box"><a class="media" href="/static/files/{{voicemail.audio_file}}"></a> </div>
+    </div>  {# end .wish_content #}
+    
+        
+    <div class="grid_8 triage_trans">
+    	
+    	
+      <h2>{{form.transcription.label}}</h2>
+	  {{form.transcription}}
+	  
+      <span>{{form.call_summary.label}}</span>{{form.call_summary}}
+    </div>  {# end .triage_content #}
+
+
+
+    <div class="grid_8 triage_extra_info">
+	    <div class="grid_2 suffix_1">
+	      <h2>{{form.location.label}}</h2>
+			  {{form.location}}
+	    </div> 
+	    
+	    <div class="grid_2 suffix_1">
+	      <h2>{{form.event.label}}</h2>
+	      {{form.event}}
+	    </div> 
+	    
+	    <div class="grid_2">
+	      <h2>{{form.urgency.label}}</h2>
+	      {{form.urgency}}
+  	    </div> 
+	     
+	    
+	    
+    </div>  {# end .triage_extra_info #}
+
+
+    <div class="grid_4 triage_tags">
+		<h2>{{form.tags.label}}</h2>
+		{{form.tags}}
+    </div>  {# end .triage_tags #}
+
+
+
+	<div class="grid_8 triage_needs">
+      <h2>What is the need?</h2>
+      {{form.need}}
+	</div>  {# end .triage_needs #}
+    
+    
+    <div class="grid_4 submit_box">
+      <input type="submit" value=" " />
+    </div>  {# end .triage_needs #}
+
+</form>
+
+{% else %}
+    <div class="grid_12 " id="title_box">
+        <h1 class="center">No voicemails left for review. Thanks!</h1>
+    </div>
+{% endif %}
+{% endblock main %}

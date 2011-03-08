@@ -1,0 +1,113 @@
+
+<!doctype html>  
+
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  {% block meta %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  {% endblock meta %}
+  
+  <title>DAP - {% block title %}{% endblock title %}</title>
+
+{% block css %}
+
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/reset.css" >
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/text.css" >
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/960.css" >
+  <link rel="stylesheet" href="{{MEDIA_URL}}css/main.css" >
+  <!--> <link rel="stylesheet" href="{{MEDIA_URL}}css/layout.css" > <!-->
+
+  {% block extra_css %}{% endblock extra_css %}
+{% endblock css %}
+
+  <script src="{{MEDIA_URL}}js/libs/modernizr-1.6.min.js"></script>
+
+{% block extra_head %}{% endblock extra_head %}
+</head>
+
+<body>
+{% block body %}
+  <div id="container" class="container_12 rounded">
+
+    
+    {% block container %}
+    <header>
+      {% block header %}
+        <div class="grid_7 logo_box">
+          <a href="#"><img src="{{MEDIA_URL}}img/logo.png" /></a>
+        </div>
+        <div class="grid_3 prefix_2 center login_box">
+          {% if user.is_authenticated %}
+              <p>Hey, {{user}}! - <a href="{% url auth_logout %}">Logout</a></p>
+          {% else %}
+              <p>Hey you! <a style="font-size:14pt;" href="{% url registration_register %}">Sign-up now</a></p>
+          {% endif %}
+        </div>
+        <div class="clear"></div>            
+      {% endblock header %}
+    </header>
+    
+    <div id="main">
+      {% block main %}
+      {% endblock main %}
+      <div class="clear"></div>
+    </div>
+    
+    <footer>
+      {% block footer %}
+        <div class="grid_12 center" id="site_info">
+            <span>Copyright 2011 - dapproject.org</span>
+        </div>
+        <div class="clear"></div>
+
+      {% endblock footer %}
+    </footer>
+    {% endblock container %}
+
+  <div class="clear"></div>
+  </div> <!-- end of #container -->
+
+  {% block js %}
+    <script src="{{MEDIA_URL}}js/libs/jquery-1.4.2.min.js"></script>
+    
+    
+    <!-- scripts concatenated and minified via ant build script-->
+    <script src="{{MEDIA_URL}}js/plugins.js"></script>
+    <script src="{{MEDIA_URL}}js/script.js"></script>
+    <!-- end concatenated and minified scripts-->
+    
+    
+    <!--[if lt IE 7 ]>
+      <script src="{{MEDIA_URL}}js/libs/dd_belatedpng.js"></script>
+      <script> DD_belatedPNG.fix('img, .png_bg'); </script>
+    <![endif]-->
+  
+  
+    <!-- change the UA-XXXXX-X to be your site's ID -->
+    <script>
+     var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+     (function(d, t) {
+      var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      g.async = true;
+      g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g, s);
+     })(document, 'script');
+    </script>
+  
+    {% block extra_js %}{% endblock extra_js %}
+  {% endblock js %}
+
+{% endblock body %}
+</body>
+</html>
