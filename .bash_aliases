@@ -11,7 +11,8 @@ alias ....="cd ../../.."
 alias _='cd -'
 # GOTO dir(s)
 alias code='cd ~/code'
-alias music='cd ~/music'
+alias doc='cd ~/Documents'
+alias music='cd ~/Music'
 
 ## Packages ##
 # apt aliases
