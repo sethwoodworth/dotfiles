@@ -13,6 +13,7 @@ alias _='cd -'
 alias code='cd ~/code'
 alias doc='cd ~/Documents'
 alias music='cd ~/Music'
+alias proj='cd ~/Documents/projects/ ; ls'
 
 ## Packages ##
 # apt aliases
