@@ -6,9 +6,9 @@
 # ?TODO: add more standard folders?
 # TODO: Start checking daily notes into git repo on private machine and pull {shallow?} copies to all machines
 # ssh setup and publication
-if [ ! -f ~/.ssh/gen_rsa ]; then
-    ssh-keygen -b 2525 -f ~/.ssh/gen_rsa
-    chmod 700 ~/.ssh/gen_rsa*
+if [ ! -f ~/.ssh/id_rsa ]; then
+    ssh-keygen -b 2525 -f ~/.ssh/id_rsa
+    chmod 700 ~/.ssh/id_rsa*
     chmod 700 ~/.ssh/known_hosts
     ssh-add ~/.ssh/*
 fi
