@@ -53,6 +53,9 @@ alias ack='ack-grep -H'
 alias sx='screen -x'
 # ssh tunneling
 alias sshtun="ssh -D 1080 toast"
+# tmux
+alias tmux="tmux -2"
+alias tx="tmux attach"
 
 ## Obsolete
 # pulseaudio sucks
