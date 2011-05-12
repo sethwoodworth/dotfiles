@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/django"]
 	path = .vim/bundle/django
 	url = http://github.com/vim-scripts/django.vim.git
+[submodule ".vim/bundle/pyflakes-vim"]
+	path = .vim/bundle/pyflakes-vim
+	url = https://github.com/kevinw/pyflakes-vim.git
