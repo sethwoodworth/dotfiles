@@ -99,6 +99,8 @@ nnoremap <leader>a :Ack
 nnoremap <leader>v V`]
 " " edit vimrc in a virtical split
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
+" " set current file as a django template
+nnoremap <leader>h :setfiletype htmldjango
 " " open new v split and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 " rainbows!
