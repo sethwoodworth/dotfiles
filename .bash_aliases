@@ -34,14 +34,13 @@ alias gd='git diff '
 
 ## Vim extras
 # shortcuts
-alias v="vim"
-alias vi="vim"
-# commands to call from vim
-alias adate="date +'%Y-%m-%d %H:%M:%S %z'"
+alias vim="vim_wrapper"
+alias v="vim_wrapper"
+alias vi="vim_wrapper"
 
 ## MISC
 # General Spelling mistakes
-alias cim='vim'
+alias cim='vim_wrapper'
 alias sl='ls'
 alias shh='ssh'
 # Music

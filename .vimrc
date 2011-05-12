@@ -8,6 +8,11 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 set nocompatible "Unset because no one needs vi compatiblity
 
 " Gvim settings
@@ -101,6 +106,8 @@ nnoremap <leader>v V`]
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr>
 " " set current file as a django template
 nnoremap <leader>h :setfiletype htmldjango
+" " use ctrl + space as omni-complete
+"inoremap <C-space> <C-x><C-o>
 " " open new v split and switch to it
 nnoremap <leader>w <C-w>v<C-w>l
 " rainbows!

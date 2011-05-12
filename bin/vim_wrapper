@@ -1,0 +1,5 @@
+#!/bin/bash
+export PROJECT=`python -c "import os; print os.path.basename(os.getcwd())"`
+export PYTHONPATH="/path/to/your/projects/parent/directory/"
+export DJANGO_SETTINGS_MODULE=$PROJECT.settings vim
+$
