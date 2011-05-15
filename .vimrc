@@ -24,6 +24,8 @@ au FocusLost * :wa " tabing away from Vim = save file
 set hidden
 set history=1000
 set title "rewrite the teriminal title
+set number "ruler
+nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
 
 " Tab settings
