@@ -7,3 +7,6 @@
 [submodule ".vim/bundle/supertab"]
 	path = .vim/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule ".vim/bundle/python-vim"]
+	path = .vim/bundle/python-vim
+	url = https://github.com/vim-scripts/python.vim--Vasiliev.git
