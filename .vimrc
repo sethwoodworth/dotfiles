@@ -76,7 +76,7 @@ inoremap <F1> <ESC> "who uses the F1 help, srsly?
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 " " Toggles
-nnoremap <F2> :set nonumber!<CR> "toggle ruler
+nnoremap <F2> :set nonumber!<CR>
 nnoremap <F3> :call ToggleColumnColor()<CR>
 " " Leader key behavior and mappings
 let mapleader = " "
@@ -91,6 +91,7 @@ nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
 nnoremap <leader>sa zg
 nnoremap <leader>s? z=
+
 
 " Load filetype if markdown
 augroup markdown
