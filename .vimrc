@@ -83,7 +83,7 @@ let mapleader = " "
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> "kills whitespace
 nnoremap <leader>v V`] "reselect text just pasted
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> "open vimrc for editing
-nnoremap <leader>h :setfiletype htmldjango "current file == django template
+nnoremap <leader>h :setfiletype htmldjango<cr>
 nnoremap <leader>w <C-w>v<C-w>l "open v-split and switch to it
 " " Spell Check
 nnoremap <leader>s :setlocal spell!<cr>
@@ -97,6 +97,13 @@ nnoremap <leader>s? z=
 augroup markdown
     au! BufRead,BufNewFile *.mkd   setfiletype markdown
 augroup END
+
+augroup htmldjango
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+augroup END
+
 
 " Functions
 function! ToggleColumnColor()
