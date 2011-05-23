@@ -2,8 +2,6 @@
 
 " Generic 'turning-on' of vim
 syn on
-set nocompatible "Unset because no one needs vi compatiblity
-set hidden
 
 " Pathogen Plugin manager's configs
 filetype off
@@ -12,21 +10,14 @@ call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
 " Vim Features
-au FocusLost * :wa " tabing away from Vim = save file
 set history=1000 "minimum sane history recording
 set paste " srsly, don't indent what I copypasta
-
-
-" Behavior
+set hidden " enable hidden buffers
+set nocompatible "Unset because no one needs vi compatiblity
 set backspace=indent,eol,start " erase autoindents, join lines, and make backspace work past insert location
-" " OmniComplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-" " Smarter tab-completion above the statusbar
-set wildmenu
-set wildmode=list:longest
+set wildmenu                " colon tab-completion = on
+set wildmode=list:longest   " colon tab-completion options
+
 " " Search behavior
 " " Python style search
 nnoremap / /\v
@@ -37,10 +28,16 @@ set incsearch
 set showmatch
 set gdefault " s/foo/bar/ defaults to s/foo/bar/g
 
+" " OmniComplete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
 
 " Visual setup
 set wrap
-set textwidth=79
+set textwidth=80
 set formatoptions=qn2 "format comments gq, reconize numbered lists , Don't break a line after a one-letter word
 set title "rewrite the teriminal title
 set number "ruler
@@ -93,7 +90,8 @@ nnoremap <leader>sa zg
 nnoremap <leader>s? z=
 
 
-" Load filetype if markdown
+" Autogroups
+au FocusLost * :wa " tabing away from Vim = save file
 augroup markdown
     au! BufRead,BufNewFile *.mkd   setfiletype markdown
 augroup END

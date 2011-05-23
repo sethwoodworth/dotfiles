@@ -21,6 +21,8 @@ alias apt='sudo aptitude install'
 alias search='apt-cache search'
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude safe-upgrade'
+# Share pubkey
+alias pubkey='cat ~/.ssh/id_rsa.pub'
 
 ## DVCS ##
 # Git
