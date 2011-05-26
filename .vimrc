@@ -75,6 +75,7 @@ vnoremap <F1> <ESC>
 " " Toggles
 nnoremap <F2> :set nonumber!<CR>
 nnoremap <F3> :call ToggleColumnColor()<CR>
+nnoremap <F4> :call ToggleConceal()<CR>
 " " Leader key behavior and mappings
 let mapleader = " "
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> "kills whitespace
@@ -111,5 +112,17 @@ function! ToggleColumnColor()
   else
     set colorcolumn=80
     echo "ColorColumn highlighting on"
+  endif
+endfunction
+
+function! ToggleConceal()
+  if &conceallevel != '0'
+    set conceallevel=0
+    set nonumber
+    echo "ConcealLevel off"
+  else
+    set conceallevel=2
+    set number
+    echo "ConcealLevel on"
   endif
 endfunction

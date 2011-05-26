@@ -10,3 +10,6 @@
 [submodule ".vim/bundle/zenburn"]
 	path = .vim/bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
+[submodule ".vim/bundle/vim-cute-python"]
+	path = .vim/bundle/vim-cute-python
+	url = https://github.com/ehamberg/vim-cute-python
