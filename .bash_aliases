@@ -2,6 +2,8 @@
 # lists
 alias l='ls'
 alias ll='ls -lhA'
+# less
+alais less='less -r' # this makes less display color
 # Extended listing
 alias dush='du -sh'
 # General directory changing shortcuts
@@ -39,6 +41,7 @@ alias gd='git diff '
 alias vim="vim_wrapper"
 alias v="vim_wrapper"
 alias vi="vim_wrapper"
+alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
 
 ## MISC
 # General Spelling mistakes
@@ -49,7 +52,7 @@ alias shh='ssh'
 alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
 # grep
-alias ack='ack-grep -H'
+alias ack='ack-grep -H --color'
 # screen
 alias sx='screen -x'
 # ssh tunneling
