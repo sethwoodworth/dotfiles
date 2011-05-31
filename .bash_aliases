@@ -3,7 +3,7 @@
 alias l='ls'
 alias ll='ls -lhA'
 # less
-alais less='less -r' # this makes less display color
+alias less='less -r' # this makes less display color
 # Extended listing
 alias dush='du -sh'
 # General directory changing shortcuts
