@@ -34,6 +34,8 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
+let g:SuperTabDefaultCompletionType = "context"
+
 
 " Visual setup
 set wrap
@@ -78,8 +80,8 @@ nnoremap <F3> :call ToggleColumnColor()<CR>
 nnoremap <F4> :call ToggleConceal()<CR>
 " " Leader key behavior and mappings
 let mapleader = " "
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR> "kills whitespace
-nnoremap <leader>v V`] "reselect text just pasted
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>v V`]
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> "open vimrc for editing
 nnoremap <leader>h :setfiletype htmldjango<cr>
 nnoremap <leader>w <C-w>v<C-w>l "open v-split and switch to it

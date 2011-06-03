@@ -13,3 +13,9 @@
 [submodule ".vim/bundle/vim-cute-python"]
 	path = .vim/bundle/vim-cute-python
 	url = https://github.com/ehamberg/vim-cute-python
+[submodule ".vim/bundle/snipmate.vim"]
+	path = .vim/bundle/snipmate.vim
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule ".vim/bundle/vim-markdown"]
+	path = .vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
