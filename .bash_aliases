@@ -35,6 +35,7 @@ alias g?='git status'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
 alias gd='git diff '
+alias gls='git ls-files '
 
 ## Vim extras
 # shortcuts
