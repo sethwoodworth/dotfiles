@@ -68,3 +68,8 @@ alias restartpulse='sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &'
 # xmonad
 alias pullthestring='killall metacity; xmonad &'
 alias dotawesome='killall metacity; awesome-start &'
+
+## Fun
+# XKCD style, four random word password
+alias xkcdpw="echo $(grep \'^[^\']\{3,5\}$\' /usr/share/dict/words|shuf -n4)"
+
