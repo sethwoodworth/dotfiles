@@ -39,9 +39,7 @@ alias gls='git ls-files '
 
 ## Vim extras
 # shortcuts
-alias vim="vim_wrapper"
-alias v="vim_wrapper"
-alias vi="vim_wrapper"
+alias v="vim"
 alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
 
 ## MISC
