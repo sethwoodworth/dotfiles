@@ -51,7 +51,7 @@ alias shh='ssh'
 alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
 # grep
-alias ack='ack-grep -H --color'
+#alias ack='ack-grep -H --color'
 # screen
 alias sx='screen -x'
 # ssh tunneling
@@ -66,3 +66,6 @@ alias restartpulse='sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &'
 # xmonad
 alias pullthestring='killall metacity; xmonad &'
 alias dotawesome='killall metacity; awesome-start &'
+
+# Fedora specific aliases
+alias pip='pip-python'
