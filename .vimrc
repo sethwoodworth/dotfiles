@@ -53,11 +53,13 @@ set encoding=utf-8 "allow more characters, honestly better in the long run
 set scrolloff=2 "keep context lines between the cursor and the edge of the window
 " " Tab settings
 set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
 set autoindent " smart auto indenting
+set softtabstop=4
+" Settings for softtabs
+"set smarttab
+"set expandtab
+" Settings for hardtabs
+set shiftwidth=4
 " " Color settings
 set t_Co=256 " use full color
 colorscheme zenburn
@@ -66,6 +68,7 @@ hi ColorColumn ctermbg=238
 " " Gvim settings
 set guioptions+=LlRrb
 set guioptions-=LlRrb
+set list listchars=tab:ᵔ\ ,trail:•
 
 
 " Keybindings
