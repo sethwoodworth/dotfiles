@@ -184,4 +184,4 @@ function set_prompt() {
 export PROMPT_COMMAND=set_prompt
 PAGER="vim -"
 MANPAGER="vim -c '%!col -b' -c 'set ft=man nomod nolist' -c 'set nomodifiable' -"
-export PATH=$PATH:/var/lib/gems/1.8/bin:/home/sethish/code/android-sdk-linux_x86/platform-tools
+export PYTHONPATH=/home/seth/code/buzzient
