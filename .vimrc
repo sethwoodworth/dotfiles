@@ -62,6 +62,7 @@ set softtabstop=4
 set shiftwidth=4
 " " Color settings
 set t_Co=256 " use full color
+let g:zenburn_high_Contrast=1
 colorscheme zenburn
 " " Colorscheme overrides
 hi ColorColumn ctermbg=238
