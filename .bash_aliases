@@ -16,11 +16,13 @@ alias code='cd ~/code'
 alias doc='cd ~/Documents'
 alias music='cd ~/Music'
 alias proj='cd ~/Documents/projects/ ; ls'
+alias buzz='cd ~/code/buzzient/ ; ls'
 
 ## Packages ##
 # apt aliases
 alias apt='sudo aptitude install'
-alias search='apt-cache search'
+#alias search='apt-cache search'
+alias search='yum search '
 alias update='sudo aptitude update'
 alias upgrade='sudo aptitude safe-upgrade'
 # Share pubkey
@@ -52,6 +54,7 @@ alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
 # grep
 #alias ack='ack-grep -H --color'
+alias ackpy='ack --python'
 # screen
 alias sx='screen -x'
 # ssh tunneling
