@@ -69,7 +69,7 @@ hi ColorColumn ctermbg=238
 " " Gvim settings
 set guioptions+=LlRrb
 set guioptions-=LlRrb
-set list listchars=tab:\ \ ,trail:•
+set list listchars=tab:·\ ,trail:•
 
 
 " Keybindings
