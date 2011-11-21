@@ -37,12 +37,14 @@ alias g1='git log --pretty=oneline'
 alias gd='git diff '
 alias gls='git ls-files '
 
-## Vim extras
-# shortcuts
-alias vim="vim_wrapper"
-alias v="vim_wrapper"
-alias vi="vim_wrapper"
+## editor extras
+# vim shortcuts
+#alias vim="vim_wrapper"
+#alias v="vim_wrapper"
+#alias vi="vim_wrapper"
 alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
+# Cloud9 IDE shortcuts
+alias clide="node ~/code/cloud9/bin/cloud9.js -w ./"
 
 ## MISC
 # General Spelling mistakes
