@@ -8,3 +8,6 @@
     ui = true
 [apply]
   whitespace = fix
+[alias]
+  gl = log -16 --color=always --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+  co = checkout

@@ -107,9 +107,9 @@ export EMAIL='seth@isforinsects.com'
 RED='\[\033[31m\]'
 GREEN='\[\033[32m\]'
 YELLOW='\[\033[33m\]'
-BLUE='\[\033[34m\]'
+BLUE='\[\033[1;34m\]'
 PURPLE='\[\033[35m\]'
-CYAN='\[\033[36m\]'
+CYAN='\[\033[1;36m\]'
 WHITE='\[\033[37m\]'
 NIL='\[\033[00m\]'
 
@@ -184,7 +184,7 @@ function set_prompt() {
 export PROMPT_COMMAND=set_prompt
 
 # Buzzient specific configs
-export PYTHONPATH=/home/seth/code/buzzient
+export PYTHONPATH=/home/seth/code/buzzient/
 # Amazon EC2 and ami-tools config
 export JAVA_HOME=/usr/
 export EC2_HOME=/opt/ec2-api-tools-1.4.4.2
