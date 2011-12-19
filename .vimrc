@@ -53,13 +53,14 @@ set encoding=utf-8 "allow more characters, honestly better in the long run
 set scrolloff=2 "keep context lines between the cursor and the edge of the window
 " " Tab settings
 set tabstop=4
+set shiftwidth=4
 set autoindent " smart auto indenting
-set softtabstop=4
+"set softtabstop=4
 " Settings for softtabs
 "set smarttab
 "set expandtab
 " Settings for hardtabs
-set shiftwidth=4
+"set shiftwidth=4
 " " Color settings
 set t_Co=256 " use full color
 let g:zenburn_high_Contrast=1
@@ -104,9 +105,10 @@ augroup markdown
 augroup END
 
 augroup htmldjango
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
+    autocmd!
+    autocmd Filetype html set tabstop=2
+    autocmd Filetype html set softtabstop=2
+    autocmd Filetype html set shiftwidth=2
 augroup END
 
 
