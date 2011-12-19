@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "Restarting mysql and nginx services"
-sudo service mysql restart
+sudo service mysqld restart
 sudo service nginx restart
 echo "! ... Done"
 
