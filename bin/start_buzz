@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Restarting mysql and nginx services"
+sudo service mysql restart
+sudo service nginx restart
+echo "! ... Done"
+
+echo "starting buzzient server"
+cd ~/code/buzzient/buzzient/
+./WSGIHandler.py --server=werkzeug
+echo "! ... Done"
