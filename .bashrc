@@ -184,4 +184,15 @@ function set_prompt() {
 export PROMPT_COMMAND=set_prompt
 PAGER="vim -"
 MANPAGER="vim -c '%!col -b' -c 'set ft=man nomod nolist' -c 'set nomodifiable' -"
-export PATH=$PATH:/var/lib/gems/1.8/bin:/home/sethish/code/android-sdk-linux_x86/platform-tools
+export PATH=$PATH:$HOME/code/google_appengine/
+export PATH=$HOME/local/node/bin:$PATH
+
+# # finalsclub
+#export NODE_PATH=$HOME/code/fc/FinalsClub/:$HOME/.node_libraries/:$HOME/local/node:$HOME/local/node/lib/node_modules
+export MONGO_HOST_URI=mongodb://localhost/fc
+export MONGO_HOST=localhost
+## TODO: change once we swap with live server
+## export SERVER_HOST=ec2-184-72-20-15.us-west-1.compute.amazonaws.com
+export SERVER_HOST=localhost
+export SERVER_PORT=8000
+export NODE_ENV=development
