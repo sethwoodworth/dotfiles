@@ -17,6 +17,48 @@ set nocompatible "Unset because no one needs vi compatiblity
 set backspace=indent,eol,start " erase autoindents, join lines, and make backspace work past insert location
 set wildmenu                " colon tab-completion = on
 set wildmode=list:longest   " colon tab-completion options
+set laststatus=2 "Always have filenames, but eats a screenline
+set undofile " Hell, lets start saving edit history
+set showmatch " flash to the matching paren
+set matchtime=3 " for this amount of time (default 5)
+set showbreak=↪ " start of lines that have been wrapped
+set fillchars=diff:⣿ " show that in diff mode for del chars
+set title " let vim set the title of the terminal
+set dictionary=/usr/share/dict/words "i ctrl_x ctrl_k completion
+
+" " Backups
+set undodir=~/.vim/tmp/undo//       " undo files
+set backupdir=~/.vim/tmp/backup//   " backups
+"set directory=~/.vim/tmp/swap//     " swap files
+set backup                          " enable backups
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+set statusline=%f    " Path.
+set statusline+=%m   " Modified flag.
+set statusline+=%r   " Readonly flag.
+set statusline+=%w   " Preview window flag.
+
+set statusline+=\    " Space.
+
+set statusline+=%#redbar#                " Highlight the following as a warning.
+"set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors. 
+" ^ broken
+set statusline+=%*                           " Reset highlighting.
+
+set statusline+=%=   " Right align.
+
+" File format, encoding and type.  Ex: "(unix/utf-8/python)"
+set statusline+=(
+set statusline+=%{&ff}                        " Format (unix/DOS).
+set statusline+=/
+set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+set statusline+=/
+set statusline+=%{&ft}                        " Type (python).
+set statusline+=)
+
+" Line and column position and counts.
+set statusline+=\ (line\ %l\/%L,\ col\ %03c)
 
 " " Search behavior
 " " Python style search
@@ -34,7 +76,7 @@ autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
-let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabLongestHighlight = 1
 
 
 " Visual setup
@@ -66,6 +108,8 @@ hi ColorColumn ctermbg=238
 " " Gvim settings
 set guioptions+=LlRrb
 set guioptions-=LlRrb
+" " Pretty unicode
+set list listchars=tab:▸⋅,trail:⋅,nbsp:⋅,extends:❯,precedes:❮
 
 
 " Keybindings
@@ -78,35 +122,61 @@ vnoremap <F1> <ESC>
 nnoremap <F2> :set nonumber!<CR>
 nnoremap <F3> :call ToggleColumnColor()<CR>
 nnoremap <F4> :call ToggleConceal()<CR>
+nnoremap <F5> :set list!<CR>
 " " Leader key behavior and mappings
 let mapleader = " "
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>v V`]
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> "open vimrc for editing
 nnoremap <leader>h :setfiletype htmldjango<cr>
-nnoremap <leader>w <C-w>v<C-w>l "open v-split and switch to it
+nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>2 :call TStwo()<CR>
+nnoremap <leader>4 :call TSfour()<CR>
 " " Spell Check
 nnoremap <leader>s :setlocal spell!<cr>
 nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
 nnoremap <leader>sa zg
 nnoremap <leader>s? z=
+" Easier to type, and I never use the default behavior.
+"       move to far left
+noremap H ^
+"       move to far right
+noremap L g_
+" Less chording
+nnoremap ; :
 
 
 " Autogroups
 au FocusLost * :wa " tabing away from Vim = save file
-augroup markdown
-    au! BufRead,BufNewFile *.mkd   setfiletype markdown
+
+augroup ft_markdown
+    au!
+
+    " Very possibly over reaching
+    au BufNewFile,BufRead *.m*d setlocal filetype=markdown
+
+    " Use <localleader>1/2/3 to add headings.
+    au Filetype markdown nnoremap <buffer> <localleader>1 yypVr=
+    au Filetype markdown nnoremap <buffer> <localleader>2 yypVr-
+    au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
 augroup END
 
-augroup htmldjango
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-augroup END
 
 
 " Functions
+function! TStwo()
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+endfunction
+
+function! TSfour()
+    set tabstop=4
+    set softtabstop=4
+    set shiftwidth=4
+endfunction
+
 function! ToggleColumnColor()
   if &colorcolumn != '0'
     set colorcolumn=0
@@ -128,3 +198,119 @@ function! ToggleConceal()
     echo "ConcealLevel on"
   endif
 endfunction
+" Nyan! ------------------------------------------------------------------- {{{
+
+function! NyanMe() " {{{
+    hi NyanFur             guifg=#BBBBBB
+    hi NyanPoptartEdge     guifg=#ffd0ac
+    hi NyanPoptartFrosting guifg=#fd3699 guibg=#fe98ff
+    hi NyanRainbow1        guifg=#6831f8
+    hi NyanRainbow2        guifg=#0099fc
+    hi NyanRainbow3        guifg=#3cfa04
+    hi NyanRainbow4        guifg=#fdfe00
+    hi NyanRainbow5        guifg=#fc9d00
+    hi NyanRainbow6        guifg=#fe0000
+
+
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl None
+    echo ""
+
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl NyanFur
+    echon "╰"
+    echohl NyanPoptartEdge
+    echon "⟨"
+    echohl NyanPoptartFrosting
+    echon "⣮⣯⡿"
+    echohl NyanPoptartEdge
+    echon "⟩"
+    echohl NyanFur
+    echon "⩾^ω^⩽"
+    echohl None
+    echo ""
+
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl NyanRainbow1
+    echon "≈"
+    echohl NyanRainbow2
+    echon "≋"
+    echohl NyanRainbow3
+    echon "≈"
+    echohl NyanRainbow4
+    echon "≋"
+    echohl NyanRainbow5
+    echon "≈"
+    echohl NyanRainbow6
+    echon "≋"
+    echohl None
+    echon " "
+    echohl NyanFur
+    echon "”   ‟"
+    echohl None
+
+    sleep 1
+    redraw
+    echo " "
+    echo " "
+    echo "Noms?"
+    redraw
+endfunction " }}}
+command! NyanMe call NyanMe()
