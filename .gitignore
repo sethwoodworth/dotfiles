@@ -23,6 +23,7 @@ keep.kdb
 !.ssh/config
 
 # Misc
+.viminfo
 .ICEauthority
 .Xauthority
 .bash_history
