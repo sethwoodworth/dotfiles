@@ -12,7 +12,7 @@ export HISTCONTROL=ignoreboth
 # histsize should be biiiiiig
 export HISTSIZE=10240
 # HOLY CRAP I CAN STORE HISTORY TIMESTAMPS !!!!!
-export HISTTIMEFORMAT='%F %T'
+export HISTTIMEFORMAT='%F %T '
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -136,6 +136,9 @@ esac
 
 # Prompt function because PROMPT_COMMAND is awesome
 function set_prompt() {
+    # Before setting the prompt, start logging the full history, and if there was a success or fail
+    echo "$? $(hostname) $PWD $(history 1)" >> ~/.full_history
+
     # If logged in as another user, not gonna have all this firing anyway.
     # So let's just show the host only and be done with it.
     host="${UC}${HD}${NIL}"
@@ -182,17 +185,5 @@ function set_prompt() {
     export PS1="${host}:${path}${venv}${branch} ${end}"
 }
 export PROMPT_COMMAND=set_prompt
-PAGER="vim -"
-MANPAGER="vim -c '%!col -b' -c 'set ft=man nomod nolist' -c 'set nomodifiable' -"
-export PATH=$PATH:$HOME/code/google_appengine/
-export PATH=$HOME/local/node/bin:$PATH
-
-# # finalsclub
-#export NODE_PATH=$HOME/code/fc/FinalsClub/:$HOME/.node_libraries/:$HOME/local/node:$HOME/local/node/lib/node_modules
-export MONGO_HOST_URI=mongodb://localhost/fc
-export MONGO_HOST=localhost
-## TODO: change once we swap with live server
-## export SERVER_HOST=ec2-184-72-20-15.us-west-1.compute.amazonaws.com
-export SERVER_HOST=localhost
-export SERVER_PORT=8000
-export NODE_ENV=development
+#export PATH=$PATH:$HOME/code/google_appengine/
+#export PATH=$HOME/local/node/bin:$PATH
