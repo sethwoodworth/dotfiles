@@ -42,7 +42,10 @@ alias gls='git ls-files '
 ## Vim extras
 # shortcuts
 alias v="vim"
+
+## Searching
 alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
+alias cleanpyc="find . -type f -name "*.pyc" -exec rm {} \;"
 
 ## MISC
 # General Spelling mistakes
