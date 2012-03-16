@@ -49,7 +49,7 @@ alias cleanpyc="find . -type f -name "*.pyc" -exec rm {} \;"
 
 ## MISC
 # General Spelling mistakes
-alias cim='vim_wrapper'
+alias cim='vim'
 alias sl='ls'
 alias shh='ssh'
 # Music
@@ -61,12 +61,12 @@ alias ackpy='ack --python'
 # screen
 alias sx='screen -x'
 # ssh tunneling
-alias sshtun="ssh -D 1080 toast"
 # tmux
 alias tmux="tmux -2"
 alias tx="tmux attach"
 
 ## Obsolete
+alias sshtun="ssh -D 1080 toast"
 # pulseaudio sucks
 alias restartpulse='sudo killall -9 pulseaudio; pulseaudio >/dev/null 2>&1 &'
 # xmonad
