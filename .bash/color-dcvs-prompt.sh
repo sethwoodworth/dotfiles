@@ -68,15 +68,15 @@ function set_prompt() {
 		if git update-index -q --refresh 2>/dev/null; git diff-index --quiet --cached HEAD --ignore-submodules -- 2>/dev/null && git diff-files --quiet --ignore-submodules 2>/dev/null
 			then dirty=""
 		else
-			dirty="${RED}*${NIL}"
+			dirty="${RED}${NIL}"
 		fi
 		_branch=$(git symbolic-ref HEAD 2>/dev/null)
 		_branch=${_branch#refs/heads/} # apparently faster than sed
 		branch="" # need this to clear it when we leave a repo
 		if [[ -n $_branch && $dirty == '' ]]; then
-			branch=" ${NIL}[${PURPLE}${_branch}${dirty}${NIL}]"
+			branch=" ${NIL}[${PURPLE}${dirty}${_branch}${dirty}${NIL}]"
 		else
-			branch=" ${NIL}${RED}[${NIL}${PURPLE}${_branch}${dirty}${NIL}${RED}]${NIL}"
+			branch=" ${NIL}${RED}[ ${NIL}${PURPLE}${_branch}${dirty}${NIL}${RED} ]${NIL}"
 		fi
 		end="${LC}±${NIL} "
 		# Feels kind of like cheating...but works so well!
