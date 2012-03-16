@@ -105,10 +105,3 @@ fi
 
 # Buzzient specific configs
 export PYTHONPATH=/home/seth/code/buzzient/
-# Amazon EC2 and ami-tools config
-export JAVA_HOME=/usr/
-export EC2_HOME=/opt/ec2-api-tools-1.4.4.2
-export PATH=$PATH:$EC2_HOME/bin
-export EC2_PRIVATE_KEY=~/.ec2/pk-BWHICIOZJ6OREBKYZQT64EBWKGA6LMBS.pem
-export EC2_CERT=~/.ec2/cert-BWHICIOZJ6OREBKYZQT64EBWKGA6LMBS.pem
-export EC2_URL=https://ec2.us-east-1.amazonaws.com
