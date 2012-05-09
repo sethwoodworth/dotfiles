@@ -1,0 +1,40 @@
+# Synergy server config file
+#         +---+
+#  +-----+| D |+-----+
+#  |salim|| 0 || D1  |
+#  +-----++---++-----+
+#           +----+
+#           |air |
+#           +----+
+# Where D == maturin, my desk at work, as the synergy server
+
+section: screens
+	# Three hosts named hsalim, maturin, yAir
+	hsalim:
+	maturin:
+	yAir:
+end
+
+section: links
+	# hsalim is to the left of maturin
+	# yAir is below it
+	maturin:
+		left = hsalim
+		down = yAir
+
+	hsalim:
+		right = maturin
+
+	yAir:
+		up = maturin
+end
+
+section: aliases
+	# The buzzient office IPs for my synergy machines
+	hsalim:
+		192.168.2.175
+	maturin:
+		192.168.2.131
+	yAir:
+		192.168.2.168
+end
