@@ -46,6 +46,9 @@ alias v="vim"
 ## Searching
 alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
 alias cleanpyc="find . -type f -name "*.pyc" -exec rm {} \;"
+alias rmpyc="find . -name '*.pyc' | xargs rm"
+# TODO: add a ls and prompt for delete before rm'ing
+alias rmsql="rm ./*.sqlite"
 
 ## MISC
 # General Spelling mistakes

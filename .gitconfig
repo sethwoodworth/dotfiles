@@ -1,6 +1,8 @@
 [user]
 	name = Seth Woodworth
 	email = swoodworth@buzzient.com
+[help]
+	autocorrect = 25
 [color]
 	diff = auto
 	status = auto
