@@ -36,7 +36,8 @@ alias gp='git push origin master'
 alias g?='git status'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
-alias gd='git diff '
+alias gd='git diff --word-diff '
+alias gdl='git diff '
 alias gls='git ls-files '
 
 ## Vim extras
