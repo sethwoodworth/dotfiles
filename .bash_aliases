@@ -31,10 +31,11 @@ alias pubkey='cat ~/.ssh/id_rsa.pub'
 alias ga='git add'
 alias gcm='git commit -m'
 alias gp='git push origin master'
-alias g?='git status'
+alias g?='git status -uno'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
-alias gd='git diff '
+alias gd='git diff --word-diff '
+alias gdl='git diff '
 alias gls='git ls-files '
 
 ## editor extras
@@ -45,10 +46,12 @@ alias gls='git ls-files '
 alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
 # Cloud9 IDE shortcuts
 alias clide="node ~/code/cloud9/bin/cloud9.js -w ./"
+# Kill extra pyc files
+alias rmpyc="find . -name '*.pyc' | xargs rm"
 
 ## MISC
 # General Spelling mistakes
-alias cim='vim_wrapper'
+alias cim='vim'
 alias sl='ls'
 alias shh='ssh'
 # Music
@@ -56,6 +59,7 @@ alias m.='mplayer ./*'
 alias m1.='mplayer -channels 1 ./*'
 # grep
 alias ack='ack-grep -H --color'
+alias ackpy='ack --python'
 # screen
 alias sx='screen -x'
 # ssh tunneling
@@ -75,3 +79,5 @@ alias dotawesome='killall metacity; awesome-start &'
 # XKCD style, four random word password
 alias xkcdpw="echo $(grep \'^[^\']\{3,5\}$\' /usr/share/dict/words|shuf -n4)"
 
+# Temp navigation jump
+alias dj='cd ~seth/code/djKarma'
