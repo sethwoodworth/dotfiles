@@ -1,0 +1,8 @@
+vim-markdown from tpope
+https://github.com/tpope/vim-markdown.git
+
+vim-cute-python from my fork of ehamburg's repo
+git@github.com:sethwoodworth/vim-cute-python.git
+
+syntastic
+git clone https://github.com/scrooloose/syntastic.git
