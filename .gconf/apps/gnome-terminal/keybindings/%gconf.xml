@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="paste" mtime="1343848991" type="string">
+		<stringvalue>&lt;Super&gt;v</stringvalue>
+	</entry>
+	<entry name="prev_tab" mtime="1343848564" type="string">
+		<stringvalue>&lt;Ctrl&gt;&lt;Shift&gt;Tab</stringvalue>
+	</entry>
+	<entry name="next_tab" mtime="1343848542" type="string">
+		<stringvalue>&lt;Control&gt;Tab</stringvalue>
+	</entry>
+	<entry name="move_tab_left" mtime="1343848532" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+	<entry name="help" mtime="1343848511" type="string">
+		<stringvalue></stringvalue>
+	</entry>
+	<entry name="full_screen" mtime="1343848503" type="string">
+		<stringvalue>&lt;Super&gt;f</stringvalue>
+	</entry>
+	<entry name="copy" mtime="1343848482" type="string">
+		<stringvalue>&lt;Super&gt;c</stringvalue>
+	</entry>
+	<entry name="close_tab" mtime="1343848452" type="string">
+		<stringvalue>&lt;Super&gt;t</stringvalue>
+	</entry>
+</gconf>
