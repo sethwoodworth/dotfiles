@@ -110,7 +110,11 @@ colorscheme solarized
 set guioptions+=LlRrb
 set guioptions-=LlRrb
 " " Pretty unicode
-set list listchars=tab:·\ ,trail:•,nbsp:•
+"set list listchars=tab:·\ ,trail:↜,nbsp:•
+"set list listchars=tab:·\ ,trail:խ,nbsp:•
+set list listchars=tab:·\ ,trail:ᚗ,nbsp:•
+
+set fillchars=vert:│
 
 
 " Syntastic error checker settings
@@ -122,6 +126,12 @@ let g:syntastic_enable_signs=0 "no left of linenum signs
 let g:syntastic_auto_jump=0 " Do not jump to first error on save/open
 let g:syntastic_stl_format = '[%E{⦻: #%e l%fe}%B{, }%W{⚠: #%w %fw}]'
 "let g:syntastic_stl_format='Syntax: line:%F (%t)'
+let g:syntastic_python_checker='pylint'
+let g:syntastic_python_checker_args='-d C0301,E1101'
+"let g:syntastic_python_checker_args='--max-complexity=10 --ignore=E501,E221,E126'
+" E501 line too long
+" E221 too much space before = (aligning ='s)
+" E126 too many tabs after a continuation `\`
 
 " " Tagbar conf
 let g:tagbar_compact = 1    " compact vertically
@@ -129,6 +139,7 @@ let g:tagbar_width = 30     " take less horizontal space default 40
 let g:tagbar_autofocus = 1  " when opening, switch focus to tagbar
 
 " Keybindings
+map Y y$ " Y yanks to end of line
 imap ii <esc> " ii escapes insertmode
 " " Unmap some keys that get in the way
 inoremap <F1> <ESC> "who uses the F1 help, srsly?
@@ -168,6 +179,11 @@ noremap H ^
 noremap L g_
 " Less chording
 nnoremap ; :
+" Switch windows with ctrl + hjkl
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
 
 " Autogroups
 au FocusLost * :wa " tabing away from Vim = save file
@@ -232,3 +248,9 @@ function! ToggleConceal()
     echo "ConcealLevel on"
   endif
 endfunction
+
+" Rope
+"let PYTHONPATH
+"source /home/seth/.vim/bundle/ropevim/ropevim.vim
+let g:pymode_rope_auto_project = 1
+let g:pymode_rope_autoimport_generate = 1
