@@ -1,0 +1,21 @@
+[user]
+	name = Seth Woodworth
+	email = seth@sethish.com
+	editor = vim
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	ui = auto
+	pager = true
+[apply]
+	whitespace = fix
+[help]
+	autocorrect = 25
+[alias]
+	gl = log -16 --color=always --all --graph --topo-order --pretty='format: %Cgreen%h%Creset %s%Cred%d%Creset%n'
+	co = checkout
+	cm = commit -m 
+	pom = pull origin master
+	diff = diff --color-words
+	s  = status
