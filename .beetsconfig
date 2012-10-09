@@ -1,0 +1,11 @@
+[beets]
+directory: /run/media/seth/HOERS/Music
+import_move: yes
+import_log: ~/.beets/import.log
+color: yes
+plugins: bpd web scrub
+
+[bpd]
+host: 127.0.0.1
+port: 6600
+password: asdf
