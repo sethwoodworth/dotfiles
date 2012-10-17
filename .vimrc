@@ -113,8 +113,8 @@ set guioptions-=LlRrb
 "set list listchars=tab:·\ ,trail:↜,nbsp:•
 "set list listchars=tab:·\ ,trail:խ,nbsp:•
 set list listchars=tab:·\ ,trail:ᚗ,nbsp:•
-
 set fillchars=vert:│
+set cpo+=J " if using two-spaces after periods, this lets me yank full sentences correctly.
 
 
 " Syntastic error checker settings
