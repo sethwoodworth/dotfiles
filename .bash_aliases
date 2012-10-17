@@ -1,3 +1,4 @@
+alias vim='vimx'
 ## Shortcuts
 # lists
 alias l='ls'
@@ -27,7 +28,7 @@ alias ga='git add'
 alias g+='git add'
 alias gcm='git commit -m'
 alias gp='git push origin master'
-alias g?='git status -uno'
+alias gs='git status -uno'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
 alias gd='git diff --word-diff '
@@ -38,7 +39,7 @@ alias gls='git ls-files '
 # Share pubkey
 alias pubkey='cat ~/.ssh/id_rsa.pub'
 ## Searching
-alias v?="find ./* -name *.swp" # find all swp files unsaved from here up the tree
+alias vv="find ./* -name *.swp" # find all swp files unsaved from here up the tree
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 # TODO: add a ls and prompt for delete before rm'ing
 alias rmsql="rm ./*.sqlite"
