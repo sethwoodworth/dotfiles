@@ -6,6 +6,7 @@ git@github.com:sethwoodworth/vim-cute-python.git
 
 syntastic
 git clone https://github.com/scrooloose/syntastic.git
+sudo pip install pylint
 
 tagbar
 git clone git://github.com/majutsushi/tagbar
@@ -16,3 +17,5 @@ https://github.com/altercation/vim-colors-solarized.git
 # TODO
 rope.vim
 https://github.com/klen/rope-vim.git
+
+
