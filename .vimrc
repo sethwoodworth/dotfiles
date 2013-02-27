@@ -8,8 +8,9 @@ syn on
 
 " Vim Features
 set history=1000 "minimum sane history recording
-set paste " srsly, don't indent what I copypasta
-set hidden " enable hidden buffers
+set tabpagemax=50 "allow opening of multiple files via `vim -p file file file`
+"set paste " srsly, don't indent what I copypasta
+"set hidden " enable hidden buffers
 set nocompatible "Unset because no one needs vi compatiblity
 set backspace=indent,eol,start " erase autoindents, join lines, and make backspace work past insert location
 set wildmenu                " colon tab-completion = on
@@ -17,8 +18,9 @@ set wildmode=list:longest   " colon tab-completion options
 set laststatus=2 "Always have filenames, but eats a screenline
 set undofile " Hell, lets start saving edit history
 set showbreak=↪ " start of lines that have been wrapped
+set showcmd " show (partial) command in status line
 set showmatch " flash to the matching paren
-set matchtime=3 " for this amount of time (default 5)
+set matchtime=2 " for this amount of time (default 5)
 set title " let vim set the title of the terminal
 set dictionary=/usr/share/dict/words "i ctrl_x ctrl_k completion
 "
@@ -159,6 +161,8 @@ nnoremap <leader>h :setfiletype htmldjango<cr>
 nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>2 :call TStwo()<CR>
 nnoremap <leader>4 :call TSfour()<CR>
+" toggle set paste, this disables auto-tabing
+nnoremap <leader>p :set paste!<CR>
 " Syntastic error box
 nnoremap <leader>e :lw<CR>
 nnoremap <leader>E :lcl<CR>
