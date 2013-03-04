@@ -182,7 +182,9 @@ noremap H ^
 "       move to far right
 noremap L g_
 " Less chording
-nnoremap ; :
+"nnoremap ; :  "disabled because ; is for repeat line search
+"`f(;;` means go forward in the line to the next ( then repeat that movement
+
 " Switch windows with ctrl + hjkl
 map <C-h> <C-w>h
 map <C-j> <C-w>j
