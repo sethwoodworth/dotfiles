@@ -23,3 +23,5 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 source ~/.bash_aliases
 
+bindkey '^R' history-incremental-search-backward
+export PATH=$PATH:/usr/local/go/bin
