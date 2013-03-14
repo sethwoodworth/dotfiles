@@ -24,4 +24,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.bash_aliases
 
 bindkey '^R' history-incremental-search-backward
+
 export PATH=$PATH:/usr/local/go/bin
+export GPGKEY=CA70C079
