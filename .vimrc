@@ -1,7 +1,10 @@
 " " @Sethish: Seth Woodworth's vimrc config.
 
-" Pathogen Plugin manager's configs
-call pathogen#infect()
+" setup vundle
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
 " Generic 'turning-on' of vim
 syn on
@@ -22,6 +25,7 @@ set showcmd " show (partial) command in status line
 set showmatch " flash to the matching paren
 set matchtime=2 " for this amount of time (default 5)
 set title " let vim set the title of the terminal
+
 set dictionary=/usr/share/dict/words "i ctrl_x ctrl_k completion
 "
 "
@@ -68,10 +72,13 @@ set showmatch
 set gdefault " s/foo/bar/ defaults to s/foo/bar/g
 
 " " OmniComplete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript setlocal sw=2 ts=2 sts=2
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType html setlocal sw=2 ts=2 sts=2
+autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType css setlocal sw=2 ts=2 sts=2
 
 " Visual setup
 set wrap
@@ -101,6 +108,9 @@ set autoindent " smart auto indenting
 set t_Co=256 " use full color
 " " Colorscheme overrides
 set background=dark
+
+
+Bundle 'altercation/vim-colors-solarized'
 "let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 let g:solarized_visibility='low'
@@ -119,12 +129,13 @@ set fillchars=vert:│
 set cpo+=J " if using two-spaces after periods, this lets me yank full sentences correctly.
 
 
+Bundle 'scrooloose/syntastic'
 " Syntastic error checker settings
 let g:syntastic_check_on_open=1
 let g:syntastic_echo_current_error=1 " set this to 0 to get rid of error buffers
-let g:syntastic_enable_signs=0 "no left of linenum signs
-"let g:syntastic_error_symbol='✗'
-"let g:syntastic_warning_symbol='⚠'
+"let g:syntastic_enable_signs=0 "no left of linenum signs
+let g:syntastic_error_symbol='☠'
+let g:syntastic_warning_symbol='‽'
 let g:syntastic_auto_jump=0 " Do not jump to first error on save/open
 let g:syntastic_stl_format = '[%E{⦻: #%e l%fe}%B{, }%W{⚠: #%w %fw}]'
 "let g:syntastic_stl_format='Syntax: line:%F (%t)'
@@ -136,9 +147,20 @@ let g:syntastic_python_checker_args='-d C0301,E1101'
 " E126 too many tabs after a continuation `\`
 
 " " Tagbar conf
+Bundle 'majutsushi/tagbar'
+Bundle 'vim-scripts/AutoTag'
 let g:tagbar_compact = 1    " compact vertically
 let g:tagbar_width = 30     " take less horizontal space default 40
 let g:tagbar_autofocus = 1  " when opening, switch focus to tagbar
+
+" " Showmarks bundle config
+Bundle 'sethwoodworth/vim-showmarks'
+let g:showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let g:showmarks_textlower="§\t" " needs to have a doublewidth character
+let g:showmarks_prefix="§" " if I use a doublewidth unicode char, do so here
+"" clear the signs column of the gray highlight
+highlight clear SignColumn
+
 
 " Keybindings
 map Y y$ " Y yanks to end of line
@@ -152,6 +174,8 @@ nnoremap <F2> :set nonumber!<CR>
 nnoremap <F3> :call ToggleColumnColor()<CR>
 nnoremap <F4> :call ToggleConceal()<CR>
 nnoremap <F5> :set list!<CR>
+" tab tab switches between vim panes
+map <Tab><Tab> <C-W>w
 " " Leader key behavior and mappings
 let mapleader = " "
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -165,13 +189,15 @@ nnoremap <leader>4 :call TSfour()<CR>
 nnoremap <leader>p :set paste!<CR>
 " Syntastic error box
 nnoremap <leader>e :lw<CR>
+nnoremap <leader>s :let g:syntastic_enable_signs=1<CR>
+nnoremap <leader>S :let g:syntastic_enable_signs=0<CR>
 nnoremap <leader>E :lcl<CR>
 " Tagbar
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
 map <C-\> :vsp <CR><C-w><C-w>:exec("tag ".expand("<cword>"))<CR>
 " " Spell Check
-nnoremap <leader>s :setlocal spell!<cr>
+"nnoremap <leader>s :setlocal spell!<cr>
 nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
 nnoremap <leader>sa zg
@@ -192,6 +218,7 @@ map <C-l> <C-w>l
 " Autogroups
 au FocusLost * :wa " tabing away from Vim = save file
 
+Bundle 'tpope/vim-markdown'
 augroup ft_markdown
     au!
 
@@ -220,15 +247,11 @@ augroup END
 
 " Functions
 function! TStwo()
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
+    setlocal tabstop=2 softtabstop=2 shiftwidth=2
 endfunction
 
 function! TSfour()
-    set tabstop=4
-    set softtabstop=4
-    set shiftwidth=4
+    setlocal tabstop=4 softtabstop=4 shiftwidth=4
 endfunction
 
 function! ToggleColumnColor()
@@ -253,8 +276,11 @@ function! ToggleConceal()
   endif
 endfunction
 
+Bundle 'klen/rope-vim'
 " Rope
 "let PYTHONPATH
 "source /home/seth/.vim/bundle/ropevim/ropevim.vim
 let g:pymode_rope_auto_project = 1
 let g:pymode_rope_autoimport_generate = 1
+
+Bundle 'davidhalter/jedi-vim'
