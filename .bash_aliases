@@ -29,6 +29,7 @@ alias g+='git add'
 alias gcm='git commit -m'
 alias gp='git push origin master'
 alias gs='git status -uno'
+alias gsu='git status'
 alias gc='git log --check'
 alias g1='git log --pretty=oneline'
 alias gd='git diff --word-diff '
@@ -36,6 +37,8 @@ alias gdl='git diff '
 alias gls='git ls-files '
 
 ## Pseudo scripts
+# Share files in the current directory as my IP:8080
+alias share='python -m SimpleHTTPServer 8080'
 # Share pubkey
 alias pubkey='cat ~/.ssh/id_rsa.pub'
 ## Searching
