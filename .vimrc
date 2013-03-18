@@ -286,3 +286,8 @@ let g:pymode_rope_auto_project = 1
 let g:pymode_rope_autoimport_generate = 1
 
 Bundle 'davidhalter/jedi-vim'
+
+" Handle new html5 tags and properties
+Bundle 'othree/html5.vim.git'
+" Autoclose html and xml tags
+Bundle 'vim-scripts/HTML-AutoCloseTag'
