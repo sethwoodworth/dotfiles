@@ -5,6 +5,7 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
+" :BundleInstall to install new things
 
 " Generic 'turning-on' of vim
 syn on
@@ -128,6 +129,11 @@ set list listchars=tab:·\ ,trail:ᚗ,nbsp:•
 set fillchars=vert:│
 set cpo+=J " if using two-spaces after periods, this lets me yank full sentences correctly.
 
+Bundle 'scrooloose/nerdcommenter'
+filetype plugin on
+" <leader>c to toggle selected lines
+imap <C-c> <plug>NERDCommenterInsert
+
 
 Bundle 'scrooloose/syntastic'
 " Syntastic error checker settings
@@ -152,6 +158,14 @@ Bundle 'vim-scripts/AutoTag'
 let g:tagbar_compact = 1    " compact vertically
 let g:tagbar_width = 30     " take less horizontal space default 40
 let g:tagbar_autofocus = 1  " when opening, switch focus to tagbar
+let g:tagbar_type_css = {
+\ 'ctagstype' : 'Css',
+\ 'kinds'     : [
+    \ 'c:classes',
+    \ 's:selectors',
+    \ 'i:identities'
+\ ]
+\ }
 
 " " Showmarks bundle config
 Bundle 'sethwoodworth/vim-showmarks'
@@ -160,6 +174,7 @@ let g:showmarks_textlower="§\t" " needs to have a doublewidth character
 let g:showmarks_prefix="§" " if I use a doublewidth unicode char, do so here
 "" clear the signs column of the gray highlight
 highlight clear SignColumn
+
 
 
 " Keybindings
@@ -175,14 +190,13 @@ nnoremap <F3> :call ToggleColumnColor()<CR>
 nnoremap <F4> :call ToggleConceal()<CR>
 nnoremap <F5> :set list!<CR>
 " tab tab switches between vim panes
-map <Tab><Tab> <C-W>w
+map <Tab><Tab> <C-X><C-O>
 " " Leader key behavior and mappings
 let mapleader = " "
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>v V`]
 nnoremap <leader>ev <C-w><C-v><C-l>:e $MYVIMRC<cr> "open vimrc for editing
 nnoremap <leader>h :setfiletype htmldjango<cr>
-nnoremap <leader>w <C-w>v<C-w>l
 nnoremap <leader>2 :call TStwo()<CR>
 nnoremap <leader>4 :call TSfour()<CR>
 " toggle set paste, this disables auto-tabing
@@ -202,14 +216,33 @@ nnoremap <leader>sn ]s
 nnoremap <leader>sp [s
 nnoremap <leader>sa zg
 nnoremap <leader>s? z=
+
+
+
+" " Configure how splits are opened
+set splitbelow
+set splitright
+" TODO: make vim automatically switch to newly opened tab
+nnoremap <leader>w <C-w>v<C-w>l
+" To max out the height of the current split
+" C-w + _
+" To max out the width
+" C-w + |
+" To normalize (useful for resizing windows)
+" C-w + =
+" Break current window into new tab
+" C-w + T
+
+
+
 " Easier to type, and I never use the default behavior.
 "       move to far left
 noremap H ^
 "       move to far right
 noremap L g_
-" Less chording
-"nnoremap ; :  "disabled because ; is for repeat line search
-"`f(;;` means go forward in the line to the next ( then repeat that movement
+
+
+
 
 " Switch windows with ctrl + hjkl
 map <C-h> <C-w>h
@@ -238,6 +271,10 @@ augroup html
     autocmd Filetype html set tabstop=2
     autocmd Filetype html set softtabstop=2
     autocmd Filetype html set shiftwidth=2
+    " add vertical gutters for indent level
+    " <leader>ig
+    Bundle "nathanaelkane/vim-indent-guides"
+
 augroup END
 
 augroup htmldjango
@@ -287,7 +324,34 @@ let g:pymode_rope_autoimport_generate = 1
 
 Bundle 'davidhalter/jedi-vim'
 
-" Handle new html5 tags and properties
 Bundle 'othree/html5.vim.git'
-" Autoclose html and xml tags
-Bundle 'vim-scripts/HTML-AutoCloseTag'
+" Handle new html5 tags and properties
+
+Bundle 'tpope/vim-surround'
+" surround things in brackets or tags
+" ds(   -- deletes surrounding '{'s
+" cs'"  -- changes surrounding ' with "
+" cs}]  -- replaces surrounding {@} with [@]
+" cs}[  -- replaces surrounding {@} with [ @ ]
+" yss<p>  - |yanks| current line (ignoring leading |space|) |surrounding| it
+" "         with '<p>'
+
+" Snipmate by garbas
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
+" snippit expand is set to
+" .<tab>   " expands to selector, then tabs into the {}s
+" d:n<tab>      display:none
+" list:n<tab> d:i<tab> list-style: none, display:inline
+" tt:u<tab> text-transform: uppercase
+
+Bundle "hail2u/vim-css3-syntax"
+" Add CSS3 syntax highlighting
+"
+Bundle "vim-scripts/loremipsum"
+" lorem ipsum insert
+nnoremap <leader>l :Loremipsum 
+nnoremap <leader>li :Loremipsum! 1<CR>
+
