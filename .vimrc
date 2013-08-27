@@ -7,63 +7,63 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 " :BundleInstall to install new things
 
-" Generic 'turning-on' of vim
-syn on
 
+" " " " " " " "
 " Vim Features
+" " " " " " " "
+syn on
 set history=1000 "minimum sane history recording
+set nocompatible " vi compatiblity, not needed
+set title " let vim set the title of the terminal
 set tabpagemax=50 "allow opening of multiple files via `vim -p file file file`
-"set paste " srsly, don't indent what I copypasta
-"set hidden " enable hidden buffers
-set nocompatible "Unset because no one needs vi compatiblity
-set backspace=indent,eol,start " erase autoindents, join lines, and make backspace work past insert location
-set wildmenu                " colon tab-completion = on
-set wildmode=list:longest   " colon tab-completion options
 set laststatus=2 "Always have filenames, but eats a screenline
-set undofile " Hell, lets start saving edit history
-set showbreak=↪ " start of lines that have been wrapped
 set showcmd " show (partial) command in status line
 set showmatch " flash to the matching paren
 set matchtime=2 " for this amount of time (default 5)
-set title " let vim set the title of the terminal
+
 
 set dictionary=/usr/share/dict/words "i ctrl_x ctrl_k completion
-"
-"
-" " Backups
+
+" Save undo and backups in .vim/tmp
+set undofile " Hell, lets start saving edit history
 set undodir=~/.vim/tmp/undo//       " undo files
-set backupdir=~/.vim/tmp/backup//   " backups
 set backup                          " enable backups
-"
-"
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-set statusline=%f    " Path.
-set statusline+=%m   " Modified flag.
-set statusline+=%r   " Readonly flag.
-set statusline+=%w   " Preview window flag.
-set statusline+=\    " Space.
+set backupdir=~/.vim/tmp/backup//   " backups
 
-set statusline+=%{tagbar#currenttag('[%s]','','f')}
-set statusline+=%*   " Reset highlighting.
 
-set statusline+=%#warningmsg#   " Syntastic warnings
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*   " Reset highlighting.
-set statusline+=%=   " Right align.
-" File format, encoding and type.  Ex: "(unix/utf-8/python)"
-set statusline+=(
-set statusline+=%{&ff} " Format (unix/DOS).
-set statusline+=/
-set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-set statusline+=/
-set statusline+=%{&ft} " Type (python).
-set statusline+=)
-" Line and column position and counts.
-set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+"" Highlight VCS conflict markers
+"match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+"set statusline=%f    " Path.
+"set statusline+=%m   " Modified flag.
+"set statusline+=%r   " Readonly flag.
+"set statusline+=%w   " Preview window flag.
+"set statusline+=\    " Space.
 
+"set statusline+=%{tagbar#currenttag('[%s]','','f')}
+"set statusline+=%*   " Reset highlighting.
+
+"set statusline+=%#warningmsg#   " Syntastic warnings
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*   " Reset highlighting.
+"set statusline+=%=   " Right align.
+"" File format, encoding and type.  Ex: "(unix/utf-8/python)"
+"set statusline+=(
+"set statusline+=%{&ff} " Format (unix/DOS).
+"set statusline+=/
+"set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
+"set statusline+=/
+"set statusline+=%{&ft} " Type (python).
+"set statusline+=)
+"" Line and column position and counts.
+"set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+
+" " " " " " " "
+" Key behavior
+" " " " " " " "
+set backspace=indent,eol,start " erase autoindents, join lines, and make backspace work past insert location
+set wildmenu                " colon tab-completion = on
+set wildmode=list:longest   " colon tab-completion options
 " " Search behavior
-" " Python style search
 nnoremap / /\v
 vnoremap / /\v
 set ignorecase
@@ -72,7 +72,7 @@ set incsearch
 set showmatch
 set gdefault " s/foo/bar/ defaults to s/foo/bar/g
 
-" " OmniComplete
+
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript setlocal sw=2 ts=2 sts=2
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -88,13 +88,23 @@ set formatoptions=qn2 "format comments gq, reconize numbered lists , Don't break
 set title "rewrite the teriminal title
 set number "ruler
 set visualbell " Use screen flash instead of system terminal bell (I use this in bash anyway)
-set cursorline " underline the line the cursor is on
+augroup CursorLine
+    " Highlight cursor line.
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+    au WinLeave * setlocal nocursorline
+    au WinLeave * setlocal nocursorcolumn
+augroup END
 set ttyfast " faster tty screen refresh (Maybe not for remote machines?)
 set ruler " report the location of the cursor via x,y in the bottom right
 set showmatch " When typing a closing bracket, flash the cursor to the matching opening bracket
 " " Functional/visual
 set encoding=utf-8 "allow more characters, honestly better in the long run
 set scrolloff=2 "keep context lines between the cursor and the edge of the window
+" " Color settings
+"set t_Co=16 " use terminal colors
+set t_Co=256 " use full color
 
 
 " " Tab settings
@@ -104,29 +114,21 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent " smart auto indenting
-" " Color settings
-"set t_Co=16 " use terminal colors
-set t_Co=256 " use full color
-" " Colorscheme overrides
-set background=dark
 
 
 Bundle 'altercation/vim-colors-solarized'
-"let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_visibility='low'
-let g:solarized_contrast='normal'
 colorscheme solarized
+let g:solarized_termtrans=1
+"let g:solarized_visibility='high'
+"let g:solarized_contrast='normal'
+set background=dark
 "hi ColorColumn ctermbg=238
-" " Gvim settings
-"let g:zenburn_high_Contrast=1
-set guioptions+=LlRrb
-set guioptions-=LlRrb
+
+
 " " Pretty unicode
-"set list listchars=tab:·\ ,trail:↜,nbsp:•
-"set list listchars=tab:·\ ,trail:խ,nbsp:•
-set list listchars=tab:·\ ,trail:ᚗ,nbsp:•
+set list listchars=tab:·\ ,trail:≁,nbsp:∝
 set fillchars=vert:│
+set showbreak=↪ " start of lines that have been wrapped
 set cpo+=J " if using two-spaces after periods, this lets me yank full sentences correctly.
 
 Bundle 'scrooloose/nerdcommenter'
@@ -143,9 +145,9 @@ let g:syntastic_echo_current_error=1 " set this to 0 to get rid of error buffers
 let g:syntastic_error_symbol='☠'
 let g:syntastic_warning_symbol='‽'
 let g:syntastic_auto_jump=0 " Do not jump to first error on save/open
-let g:syntastic_stl_format = '[%E{⦻: #%e l%fe}%B{, }%W{⚠: #%w %fw}]'
+let g:syntastic_stl_format = '[%E{☠: #%e l%fe}%B{, }%W{‽: #%w %fw}]'
 "let g:syntastic_stl_format='Syntax: line:%F (%t)'
-let g:syntastic_python_checker='pylint'
+"let g:syntastic_python_checker='pylint'
 let g:syntastic_python_checker_args='-d C0301,E1101'
 "let g:syntastic_python_checker_args='--max-complexity=10 --ignore=E501,E221,E126'
 " E501 line too long
@@ -166,6 +168,21 @@ let g:tagbar_type_css = {
     \ 'i:identities'
 \ ]
 \ }
+if executable('coffeetags')
+  let g:tagbar_type_coffee = {
+        \ 'ctagsbin' : 'coffeetags',
+        \ 'ctagsargs' : '',
+        \ 'kinds' : [
+        \ 'f:functions',
+        \ 'o:object',
+        \ ],
+        \ 'sro' : ".",
+        \ 'kind2scope' : {
+        \ 'f' : 'object',
+        \ 'o' : 'object',
+        \ }
+        \ }
+endif
 
 " " Showmarks bundle config
 Bundle 'sethwoodworth/vim-showmarks'
@@ -266,6 +283,12 @@ augroup ft_markdown
     au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
 augroup END
 
+augroup ruby
+    autocmd Filetype ruby set tabstop=2
+    autocmd Filetype ruby set softtabstop=2
+    autocmd Filetype ruby set shiftwidth=2
+augroup end
+
 augroup html
     autocmd!
     autocmd Filetype html set tabstop=2
@@ -274,7 +297,11 @@ augroup html
     " add vertical gutters for indent level
     " <leader>ig
     Bundle "nathanaelkane/vim-indent-guides"
-
+    let g:indent_guides_auto_colors = 0
+    let g:indent_guides_guide_size = 1
+    "let g:indent_guides_start_level = 2
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=none
+    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgray
 augroup END
 
 augroup htmldjango
@@ -315,17 +342,19 @@ function! ToggleConceal()
   endif
 endfunction
 
-Bundle 'klen/rope-vim'
+"Bundle 'klen/rope-vim'
 " Rope
 "let PYTHONPATH
 "source /home/seth/.vim/bundle/ropevim/ropevim.vim
-let g:pymode_rope_auto_project = 1
-let g:pymode_rope_autoimport_generate = 1
+"let g:pymode_rope_auto_project = 1
+"let g:pymode_rope_autoimport_generate = 1
 
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 
 Bundle 'othree/html5.vim.git'
 " Handle new html5 tags and properties
+Bundle "hail2u/vim-css3-syntax"
+" Add CSS3 syntax highlighting
 
 Bundle 'tpope/vim-surround'
 " surround things in brackets or tags
@@ -339,7 +368,7 @@ Bundle 'tpope/vim-surround'
 " Snipmate by garbas
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
+Bundle "honza/vim-snippets"
 Bundle "garbas/vim-snipmate"
 " snippit expand is set to
 " .<tab>   " expands to selector, then tabs into the {}s
@@ -347,11 +376,56 @@ Bundle "garbas/vim-snipmate"
 " list:n<tab> d:i<tab> list-style: none, display:inline
 " tt:u<tab> text-transform: uppercase
 
-Bundle "hail2u/vim-css3-syntax"
-" Add CSS3 syntax highlighting
-"
-Bundle "vim-scripts/loremipsum"
-" lorem ipsum insert
-nnoremap <leader>l :Loremipsum 
-nnoremap <leader>li :Loremipsum! 1<CR>
+Bundle "scrooloose/nerdtree"
+map <C-t> :NERDTreeToggle<CR>
 
+
+" git +- signs for sign column
+Bundle 'airblade/vim-gitgutter'
+" off by default
+let g:gitgutter_enabled = 0
+let g:gitgutter_eager = 0
+nnoremap <leader>g :GitGutterToggle<CR>
+nnoremap <leader>gh :GitGutterLineHighlightsToggle<CR>
+
+" Gundo
+Bundle 'sjl/gundo.vim'
+nnoremap <C-u> :GundoToggle<CR>
+
+" Easymotion
+Bundle 'Lokaltog/vim-easymotion'
+" <leader><leader>$Motion
+" $Motions: w, f, j, k C-b
+hi EasyMotionTarget ctermbg=green ctermfg=red
+hi EasyMotionShade ctermbg=blue ctermfg=black
+
+" Coffeescript
+Bundle 'kchmck/vim-coffee-script'
+autocmd BufWritePost *.coffee silent CoffeeMake! -b | cwindow
+au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 filetype=coffee
+
+"
+Bundle 'powerline/powerline'
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+" color scheming
+"Bundle 'Rykka/colorv.vim'
+" needed for fetching schemes online.
+"Bundle 'mattn/webapi-vim'
+
+" Ack integration
+Bundle 'mileszs/ack.vim'
+nnoremap <leader>a :Ack 
+" o    to open (same as enter)
+" go   to preview file (open but maintain focus on ack.vim results)
+" t    to open in new tab
+" T    to open in new tab silently
+" h    to open in horizontal split
+" H    to open in horizontal split silently
+" v    to open in vertical split
+" gv   to open in vertical split silently
+" q    to close the quickfix window
+
+Bundle 'cakebaker/scss-syntax.vim'
