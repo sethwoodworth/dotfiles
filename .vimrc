@@ -297,11 +297,11 @@ augroup html
     " add vertical gutters for indent level
     " <leader>ig
     Bundle "nathanaelkane/vim-indent-guides"
-    let g:indent_guides_auto_colors = 0
-    let g:indent_guides_guide_size = 1
-    "let g:indent_guides_start_level = 2
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=none
-    autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgray
+    "let g:indent_guides_auto_colors = 0
+    "let g:indent_guides_guide_size = 1
+    let g:indent_guides_start_level = 2
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=none
+    "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=darkgray
 augroup END
 
 augroup htmldjango
@@ -376,6 +376,7 @@ Bundle "garbas/vim-snipmate"
 " list:n<tab> d:i<tab> list-style: none, display:inline
 " tt:u<tab> text-transform: uppercase
 
+
 Bundle "scrooloose/nerdtree"
 map <C-t> :NERDTreeToggle<CR>
 
@@ -396,28 +397,34 @@ nnoremap <C-u> :GundoToggle<CR>
 Bundle 'Lokaltog/vim-easymotion'
 " <leader><leader>$Motion
 " $Motions: w, f, j, k C-b
-hi EasyMotionTarget ctermbg=green ctermfg=red
-hi EasyMotionShade ctermbg=blue ctermfg=black
+hi EasyMotionTarget ctermbg=black ctermfg=red
 
 " Coffeescript
 Bundle 'kchmck/vim-coffee-script'
 autocmd BufWritePost *.coffee silent CoffeeMake! -b | cwindow
 au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 filetype=coffee
 
-"
-Bundle 'powerline/powerline'
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+Bundle 'bling/vim-airline'
+" when only one tab is open, show all of the open buffers
+let g:airline#extensions#tabline#enabled = 1
+" user powerline patched fonts
+let g:airline_powerline_fonts = 1
+" dict of configurably unicode symbols. mmmmmmmmmm
+let g:airline_symbols = {}
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.whitespace = 'Ξ'
 
-" color scheming
-"Bundle 'Rykka/colorv.vim'
-" needed for fetching schemes online.
-"Bundle 'mattn/webapi-vim'
+
+"Bundle 'powerline/powerline'
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
 
 " Ack integration
 Bundle 'mileszs/ack.vim'
-nnoremap <leader>a :Ack 
+nnoremap <leader>a :Ack
+nnoremap <leader>ap :Ack --python
 " o    to open (same as enter)
 " go   to preview file (open but maintain focus on ack.vim results)
 " t    to open in new tab
@@ -429,3 +436,6 @@ nnoremap <leader>a :Ack
 " q    to close the quickfix window
 
 Bundle 'cakebaker/scss-syntax.vim'
+
+Bundle 'christoomey/vim-tmux-navigator'
+" this lets me use <C-h>&<C-l> to move around in TMUX as well as vim. HOT
