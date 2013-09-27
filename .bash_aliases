@@ -1,4 +1,4 @@
-alias vim='vimx'
+
 ## Shortcuts
 # lists
 alias l='ls'
