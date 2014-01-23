@@ -58,3 +58,6 @@ alias less='less -r' # this makes less display color
 alias cim='vim'
 alias sl='ls'
 alias shh='ssh'
+
+## OSX shortcuts
+alias updatedb='sudo /usr/libexec/locate.updatedb'
