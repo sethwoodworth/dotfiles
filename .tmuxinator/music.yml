@@ -1,0 +1,7 @@
+# ~/.tmuxinator/music.yml
+
+name: music
+root: ~/Music/
+
+windows:
+  - player: tree -dC
