@@ -32,30 +32,7 @@ set backupdir=~/.vim/tmp/backup//   " backups
 
 
 "" Highlight VCS conflict markers
-"match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
-"set statusline=%f    " Path.
-"set statusline+=%m   " Modified flag.
-"set statusline+=%r   " Readonly flag.
-"set statusline+=%w   " Preview window flag.
-"set statusline+=\    " Space.
-
-"set statusline+=%{tagbar#currenttag('[%s]','','f')}
-"set statusline+=%*   " Reset highlighting.
-
-"set statusline+=%#warningmsg#   " Syntastic warnings
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*   " Reset highlighting.
-"set statusline+=%=   " Right align.
-"" File format, encoding and type.  Ex: "(unix/utf-8/python)"
-"set statusline+=(
-"set statusline+=%{&ff} " Format (unix/DOS).
-"set statusline+=/
-"set statusline+=%{strlen(&fenc)?&fenc:&enc}   " Encoding (utf-8).
-"set statusline+=/
-"set statusline+=%{&ft} " Type (python).
-"set statusline+=)
-"" Line and column position and counts.
-"set statusline+=\ (line\ %l\/%L,\ col\ %03c)
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 " " " " " " " "
 " Key behavior
