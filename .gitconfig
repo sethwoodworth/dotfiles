@@ -19,3 +19,5 @@
 	pom = pull origin master
 	diff = diff --color-words
 	s  = status
+[core]
+	editor = /usr/bin/vim
