@@ -50,14 +50,6 @@ set showmatch
 set gdefault " s/foo/bar/ defaults to s/foo/bar/g
 
 
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType javascript setlocal sw=2 ts=2 sts=2
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType html setlocal sw=2 ts=2 sts=2
-autocmd FileType htmldjango setlocal sw=2 ts=2 sts=2
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-autocmd FileType css setlocal sw=2 ts=2 sts=2
-
 " Visual setup
 set wrap
 set textwidth=80
