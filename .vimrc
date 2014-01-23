@@ -57,23 +57,20 @@ set formatoptions=qn2 "format comments gq, reconize numbered lists , Don't break
 set title "rewrite the teriminal title
 set number "ruler
 set visualbell " Use screen flash instead of system terminal bell (I use this in bash anyway)
-augroup CursorLine
-    " Highlight cursor line.
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
-    au WinLeave * setlocal nocursorline
-    au WinLeave * setlocal nocursorcolumn
-augroup END
+"augroup CursorLine
+    "" Highlight cursor line.
+    "au!
+    "au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    "au VimEnter,WinEnter,BufWinEnter * setlocal cursorcolumn
+    "au WinLeave * setlocal nocursorline
+    "au WinLeave * setlocal nocursorcolumn
+"augroup END
 set ttyfast " faster tty screen refresh (Maybe not for remote machines?)
 set ruler " report the location of the cursor via x,y in the bottom right
 set showmatch " When typing a closing bracket, flash the cursor to the matching opening bracket
 " " Functional/visual
 set encoding=utf-8 "allow more characters, honestly better in the long run
 set scrolloff=2 "keep context lines between the cursor and the edge of the window
-" " Color settings
-"set t_Co=16 " use terminal colors
-set t_Co=256 " use full color
 
 
 " " Tab settings
@@ -85,20 +82,23 @@ set smarttab
 set autoindent " smart auto indenting
 
 
-Bundle 'altercation/vim-colors-solarized'
-colorscheme solarized
-let g:solarized_termtrans=1
-"let g:solarized_visibility='high'
-"let g:solarized_contrast='normal'
-set background=dark
-"hi ColorColumn ctermbg=238
 
+" " Color settings
+"set t_Co=16 " use terminal colors
+Bundle 'altercation/vim-colors-solarized'
+"colorscheme solarized
+set background=dark
+
+set t_Co=256
+Bundle 'sjl/badwolf'
+colorscheme badwolf
 
 " " Pretty unicode
 set list listchars=tab:·\ ,trail:≁,nbsp:∝
 set fillchars=vert:│
 set showbreak=↪ " start of lines that have been wrapped
 set cpo+=J " if using two-spaces after periods, this lets me yank full sentences correctly.
+
 
 Bundle 'scrooloose/nerdcommenter'
 filetype plugin on
@@ -196,20 +196,13 @@ nnoremap <leader>E :lcl<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
 map <C-\> :vsp <CR><C-w><C-w>:exec("tag ".expand("<cword>"))<CR>
-" " Spell Check
-"nnoremap <leader>s :setlocal spell!<cr>
-nnoremap <leader>sn ]s
-nnoremap <leader>sp [s
-nnoremap <leader>sa zg
-nnoremap <leader>s? z=
-
 
 
 " " Configure how splits are opened
 set splitbelow
 set splitright
-" TODO: make vim automatically switch to newly opened tab
 nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>- <C-w>s
 " To max out the height of the current split
 " C-w + _
 " To max out the width
@@ -239,6 +232,9 @@ map <C-l> <C-w>l
 " Autogroups
 au FocusLost * :wa " tabing away from Vim = save file
 
+autocmd FileType javascript setlocal sw=2 ts=2 sts=2
+autocmd FileType css setlocal sw=2 ts=2 sts=2
+
 Bundle 'tpope/vim-markdown'
 augroup ft_markdown
     au!
@@ -252,21 +248,14 @@ augroup ft_markdown
     au Filetype markdown nnoremap <buffer> <localleader>3 I### <ESC>
 augroup END
 
-augroup ruby
-    autocmd Filetype ruby set tabstop=2
-    autocmd Filetype ruby set softtabstop=2
-    autocmd Filetype ruby set shiftwidth=2
-augroup end
-
 augroup html
     autocmd!
-    autocmd Filetype html set tabstop=2
-    autocmd Filetype html set softtabstop=2
-    autocmd Filetype html set shiftwidth=2
+    autocmd Filetype html setlocal tabstop=2
+    autocmd Filetype html setlocal softtabstop=2
+    autocmd Filetype html setlocal shiftwidth=2
     " add vertical gutters for indent level
     " <leader>ig
     Bundle "nathanaelkane/vim-indent-guides"
-    "let g:indent_guides_auto_colors = 0
     "let g:indent_guides_guide_size = 1
     let g:indent_guides_start_level = 2
     "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  ctermbg=none
@@ -275,9 +264,9 @@ augroup END
 
 augroup htmldjango
     autocmd!
-    autocmd Filetype html set tabstop=2
-    autocmd Filetype html set softtabstop=2
-    autocmd Filetype html set shiftwidth=2
+    autocmd Filetype html setlocal tabstop=2
+    autocmd Filetype html setlocal softtabstop=2
+    autocmd Filetype html setlocal shiftwidth=2
 augroup END
 
 " Functions
@@ -287,16 +276,6 @@ endfunction
 
 function! TSfour()
     setlocal tabstop=4 softtabstop=4 shiftwidth=4
-endfunction
-
-function! ToggleColumnColor()
-  if &colorcolumn != '0'
-    set colorcolumn=0
-    echo "ColorColumn highlighting off"
-  else
-    set colorcolumn=80
-    echo "ColorColumn highlighting on"
-  endif
 endfunction
 
 function! ToggleConceal()
@@ -311,14 +290,6 @@ function! ToggleConceal()
   endif
 endfunction
 
-"Bundle 'klen/rope-vim'
-" Rope
-"let PYTHONPATH
-"source /home/seth/.vim/bundle/ropevim/ropevim.vim
-"let g:pymode_rope_auto_project = 1
-"let g:pymode_rope_autoimport_generate = 1
-
-"Bundle 'davidhalter/jedi-vim'
 
 Bundle 'othree/html5.vim.git'
 " Handle new html5 tags and properties
@@ -384,12 +355,6 @@ let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
 
-
-"Bundle 'powerline/powerline'
-"python from powerline.vim import setup as powerline_setup
-"python powerline_setup()
-"python del powerline_setup
-
 " Ack integration
 Bundle 'mileszs/ack.vim'
 nnoremap <leader>a :Ack
@@ -408,3 +373,15 @@ Bundle 'cakebaker/scss-syntax.vim'
 
 Bundle 'christoomey/vim-tmux-navigator'
 " this lets me use <C-h>&<C-l> to move around in TMUX as well as vim. HOT
+
+" possibly better python syntax
+"Bundle 'hdima/python-syntax'
+
+"Bundle 'davidhalter/jedi-vim'
+"
+
+Bundle 'vim-scripts/openscad.vim'
+
+Bundle 'mikewest/vimroom'
+"vim room for text editing
+" leader V toggles
