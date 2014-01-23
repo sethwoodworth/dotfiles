@@ -16,14 +16,26 @@ DISABLE_AUTO_UPDATE="true"
 # Red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(django extract git pip vi-mode virtualenvwrapper zsh-syntax-highlighting)
+plugins=(django extract git pip vi-mode virtualenvwrapper zsh-syntax-highlighting tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 source ~/.bash_aliases
+source /Library/Ruby/Gems/2.0.0/gems/tmuxinator-0.6.6/completion/tmuxinator.zsh
 
 bindkey '^R' history-incremental-search-backward
 
-export PATH=$PATH:/usr/local/go/bin
+export EDITOR=vim
 export GPGKEY=CA70C079
+
+export PATH="/usr/local:/usr/local/bin:$PATH"
+
+export PERL_LOCAL_LIB_ROOT="/Users/seth/perl5:$PERL_LOCAL_LIB_ROOT";
+export PERL_MB_OPT="--install_base "/Users/seth/perl5"";
+export PERL_MM_OPT="INSTALL_BASE=/Users/seth/perl5";
+export PERL5LIB="/Users/seth/perl5/lib/perl5:$PERL5LIB";
+#export PATH="/Users/seth/perl5/bin:$PATH";
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
