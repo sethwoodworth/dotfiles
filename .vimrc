@@ -39,7 +39,8 @@ set backupdir=~/.vim/tmp/backup/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Visual Behaviors
 set number                                              " Line # by default
-set ruler                                               " put cursor coords in status
+"FIXME: ruler doesn't work with airline
+"set ruler                                               " put cursor coords in status
 set showcmd                                             " show command in status line
 set splitbelow                                          " new hoz splits go below
 set splitright                                          " new vert splits go right
