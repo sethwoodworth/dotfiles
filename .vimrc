@@ -173,18 +173,9 @@ let g:syntastic_python_checker_args='-d C0301,E1101'
                             " E221 too much space before = (aligning ='s)
                             " E126 too many tabs after a continuation `\`
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Tagbar tag browser
-NeoBundle 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
-NeoBundle 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
-                                        " open tagbar, switch to it
-nnoremap <leader>t :TagbarToggle<CR>
-                                        " open tagbar, close when done
-nnoremap <leader>T :TagbarOpenAutoClose<CR>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Tagbar tag browser
+" ~> Indentation gutters for HTML
 NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload' : {'filetypes' : ['html'] } }
 let g:indent_guides_start_level = 2                     " Show vert gutters in html files
 
@@ -205,7 +196,7 @@ NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'cs
 " ~> Airline
 NeoBundle 'bling/vim-airline'
 " when only one tab is open, show all of the open buffers
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " user powerline patched fonts
 let g:airline_powerline_fonts = 1
 " dict of configurably unicode symbols. mmmmmmmmmm
@@ -213,6 +204,16 @@ let g:airline_symbols = {}
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~> Tagbar tag browser
+NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
+NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
+                                        " open tagbar, switch to it
+nnoremap <leader>t :TagbarToggle<CR>
+                                        " open tagbar, close when done
+nnoremap <leader>T :TagbarOpenAutoClose<CR>
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
