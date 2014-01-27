@@ -195,7 +195,6 @@ NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'cs
 " ~> Airline
 NeoBundle 'bling/vim-airline'
 " when only one tab is open, show all of the open buffers
-"let g:airline#extensions#tabline#enabled = 1
 " user powerline patched fonts
 let g:airline_powerline_fonts = 1
 " dict of configurably unicode symbols. mmmmmmmmmm
@@ -213,6 +212,11 @@ nnoremap <leader>t :TagbarToggle<CR>
                                         " open tagbar, close when done
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
 
+if (exists(":TagbarToggle"))
+    " if tagbar is loaded
+    " enable tagbar etension for airline
+    let g:airline#extensions#tabline#enabled = 1
+en
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
