@@ -163,7 +163,7 @@ nnoremap <leader>e :lw<CR>
 nnoremap <leader>E :lcl<CR>
 let g:syntastic_check_on_open=1         " Don't check for errors until save
 "let g:syntastic_enable_signs=0         "no left of linenum signs
-let g:syntastic_error_symbol='⧰'
+let g:syntastic_error_symbol=' ⧰'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_jump=0 " Do not jump to first error on save/open
 let g:syntastic_stl_format = '[%E{⧰: #%e l%fe}%B{, }%W{⚠: #%w %fw}]'
