@@ -69,7 +69,6 @@ vnoremap / /\v
 set ignorecase
 set smartcase                                           " insensitive until you are
 set incsearch
-set showmatch                                           " highlight search matches
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
