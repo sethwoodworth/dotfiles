@@ -156,7 +156,7 @@ NeoBundle 'scrooloose/nerdcommenter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntastic error highlighting
-NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['python', 'javascript'] } }
+NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript'] } }
                                         " Show syntastic error box
 nnoremap <leader>e :lw<CR>
                                         " Hide syntastic error box
@@ -205,8 +205,8 @@ let g:airline_symbols.whitespace = 'Ξ'
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Tagbar tag browser
-NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
-NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'javascript', 'css'] } }
+NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
+NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
                                         " open tagbar, switch to it
 nnoremap <leader>t :TagbarToggle<CR>
                                         " open tagbar, close when done
