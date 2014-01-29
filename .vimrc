@@ -218,6 +218,10 @@ if (exists(":TagbarToggle"))
     let g:airline#extensions#tabline#enabled = 1
 en
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~> Ruby style settings
+au FileType ruby setl sw=2 ts=2 sts=2 et sta autoindent
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntax bundles
