@@ -39,3 +39,5 @@ export PERL5LIB="/Users/seth/perl5/lib/perl5:$PERL5LIB";
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+source .zsh/motd.zsh
