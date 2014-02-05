@@ -41,7 +41,15 @@ export PERL5LIB="/Users/seth/perl5/lib/perl5:$PERL5LIB";
 export PATH="/usr/local/heroku/bin:$PATH"
 
 
-DIRSTACKFILE="$HOME/.cache/zsh/dirs"
+# ------
+# Directory history stack
+#
+# Creates a history stack of every dir you have visited in this terminal. 
+#     cd -<tab>
+# will list the previous folders
+# ------
+#
+DIRSTACKFILE="$HOME/.cache/zsh/dirs" 
 if [[ -f $DIRSTACKFILE ]] && [[ $#dirstack -eq 0 ]]; then
   dirstack=( ${(f)"$(< $DIRSTACKFILE)"} )
   [[ -d $dirstack[1] ]] && cd $dirstack[1]
@@ -59,5 +67,8 @@ setopt pushdignoredups
 
 ## This reverts the +/- operators.
 setopt pushdminus
+
+#  Dir stack end ^^^^^^^^^
+#  -------------------------
 
 source ~/.zsh/motd.zsh
