@@ -126,7 +126,7 @@ nnoremap <leader>4 :call TSfour()<CR>
                                         " toggle set paste
 nnoremap <leader>p :set paste!<CR>
                                         " new hoz split
-nnoremap <leader>w <C-w>v<C-w>l
+nnoremap <leader>w <C-w>v
                                         " new vert split
 nnoremap <leader>- <C-w>s
 
