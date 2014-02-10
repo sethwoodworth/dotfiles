@@ -91,6 +91,7 @@ set cpo+=J                                              " Yank by sentence (2-sp
 
 NeoBundle 'sjl/badwolf'
 colorscheme badwolf
+NeoBundle 'altercation/vim-colors-solarized'
 
 set fillchars=vert:│
 
