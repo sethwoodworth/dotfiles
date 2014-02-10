@@ -149,11 +149,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Nerd commenter
-NeoBundle 'scrooloose/nerdcommenter'
-"FIXME: does the following line do Ctrl-c or <leader>c ?
-"imap <C-c> <plug>NERDCommenterInsert
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntastic error highlighting
@@ -235,6 +230,14 @@ NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload' : {'filetypes' : ['scss']
 NeoBundleLazy 'mikewest/vimroom', {'autoload' : {'filetypes' : ['markdown'] } }
 " leader V toggles
 
+" ~> Nerd commenter
+NeoBundle 'scrooloose/nerdcommenter'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~> Documentation of the day
+"  > Try to learn a new vim tool
+nnoremap <leader>h <C-w>v:e ~/.vim/bundle/vim-snippets/snippets/python.snippets<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
