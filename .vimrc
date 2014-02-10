@@ -152,7 +152,7 @@ map <C-l> <C-w>l
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntastic error highlighting
-NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript'] } }
+NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['ruby', 'javascript'] } }
                                         " Show syntastic error box
 nnoremap <leader>e :lw<CR>
                                         " Hide syntastic error box
