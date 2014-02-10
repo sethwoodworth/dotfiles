@@ -220,6 +220,40 @@ au FileType ruby setl sw=2 ts=2 sts=2 et sta autoindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~> Python
+"NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
+NeoBundleLazy 'klen/python-mode', {'autoload' : {'filetypes' : ['python'] } }
+
+" Configuration for Python-mode
+let g:pymode_quickfix_minheight = 5
+let g:pymode_quickfix_maxheight = 12
+let g:pymode_folding = 0
+let g:pymode_breakpoint_bind = '<leader>b'
+"let g:pymode_breakpoint_cmd = '' " blank for auto detect?
+nnoremap <leader>l :PymodeLint<cr>
+let g:pymode_lint_ignore = "E501,E221"
+" error signs
+let g:pymode_lint_todo_symbol = '⚔'
+"let g:pymode_lint_error_symbol = '⚠'
+let g:pymode_lint_error_symbol = '‼‼'
+let g:pymode_lint_comment_symbol = '♲'
+let g:pymode_rope_show_doc_bind = '<leader>d'
+let g:pymode_rope_goto_definition_bind = '<leader>g'
+"let g:pymode_rope_organize_imports_bind = '<C-c>ro' "default
+
+" Movement
+" [[,]] prev|next class/func
+" [M,]M prv|next class/method
+" aC Select a class. Ex: vaC, daC, yaC, caC
+" iC Select inner class. Ex: viC, diC, yiC, ciC
+" aM Select a function or method. Ex: vaM, daM, yaM, caM
+" iM Select inner function or method. Ex: viM, diM, yiM, ciM
+
+" TODO let g:pymode_virtualenv_path = $VIRTUAL_ENV
+
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntax bundles
 " Handle new html5 tags and properties
 NeoBundleLazy 'othree/html5.vim.git', {'autoload' : {'filetypes' : ['html'] } }
