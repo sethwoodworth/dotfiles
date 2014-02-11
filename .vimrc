@@ -267,6 +267,11 @@ NeoBundleLazy 'mikewest/vimroom', {'autoload' : {'filetypes' : ['markdown'] } }
 " ~> Nerd commenter
 NeoBundle 'scrooloose/nerdcommenter'
 
+" ~> Crosshairs for the vim cursor
+NeoBundle 'mtth/cursorcross.vim'
+let g:cursorcross_dynamic = 'lw'
+set cursorcolumn
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Documentation of the day
