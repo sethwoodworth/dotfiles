@@ -7,6 +7,7 @@ alias ll='ls -lhA'
 alias dush='du -sh'
 # shortcuts
 alias v="vim"
+alias vag="vagrant"
 # Yum
 alias search='yum search '
 alias install='sudo yum install '
