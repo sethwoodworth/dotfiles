@@ -67,3 +67,5 @@ alias updatedb='sudo /usr/libexec/locate.updatedb'
 alias pgstart="pg_ctl -D /usr/local/var/postgres -l /var/log/postgresql/psql.log start"
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
 
+# store raw vim character input into a file for analysis later
+alias vim='vim -w ~/.vimlog "$@"'
