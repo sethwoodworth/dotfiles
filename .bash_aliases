@@ -58,7 +58,12 @@ alias less='less -r' # this makes less display color
 ## Spelling mistakes
 alias cim='vim'
 alias sl='ls'
-alias shh='ssh'
+alias shh='echo "no you shush";ssh'
 
 ## OSX shortcuts
 alias updatedb='sudo /usr/libexec/locate.updatedb'
+
+# Start and stop postgres
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /var/log/postgresql/psql.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
+
