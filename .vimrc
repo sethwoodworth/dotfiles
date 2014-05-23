@@ -123,7 +123,7 @@ noremap H ^
 noremap L g_
 
 " blackhole
-inoremap <F1> <ESC> "who uses the F1 help, srsly?
+inoremap <F1> <ESC>
 nnoremap <F1> <ESC>
 vnoremap <F1> <ESC>
 
@@ -158,15 +158,6 @@ endfunction
 function! TSfour()
     setlocal tabstop=4 softtabstop=4 shiftwidth=4
 endfunction
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Tmux & vim movements
-NeoBundle 'christoomey/vim-tmux-navigator'
-                                                " Switch panes with ctrl + hjkl
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
