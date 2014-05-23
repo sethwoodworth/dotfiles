@@ -39,11 +39,9 @@ set backupdir=~/.vim/tmp/backup/
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Visual Behaviors
 set number                                              " Line # by default
-"FIXME: ruler doesn't work with airline
-"set ruler                                               " put cursor coords in status
 set showcmd                                             " show command in status line
-set splitbelow                                          " new hoz splits go below
-set splitright                                          " new vert splits go right
+
+set lazyredraw                                          " redraw a/ macros or registers
 set visualbell                                          " Flash screen not bell
 set showmatch                                           " flash to the matching paren
 set matchtime=2                                         " for 2 seconds (default 5)
@@ -72,7 +70,7 @@ set incsearch
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Tab settings
+" ~> Tab behaviors
 set tabstop=4                                           " 4 space tabs
 set softtabstop=4
 set shiftwidth=4
@@ -82,11 +80,32 @@ set autoindent                                          " smart auto indenting
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ~> Split behaviors
+set splitbelow                                          " new hoz splits go below
+set splitright                                          " new vert splits go right
+
+NeoBundle 'christoomey/vim-tmux-navigator'
+                                                " Switch panes with ctrl + hjkl
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"NeoBundle 'spolu/dwm.vim'
+"let g:dwm_map_keys=1                                    " don't let dwm.vim map my keys
+"nnoremap <leader>n :DWM_New<CR>
+
+" Let me go on record now that this is a terrible idea
+"set mouse=a
+"set ttymouse=xterm2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Style
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'        " Highlight merge conflicts
 set list listchars=tab:·\ ,trail:≁,nbsp:∝               " Highlight special characters
 set showbreak=↪                                         " Mark lines that have been wrapped
+" cpotions: aABceFs -- defaults
 set cpo+=J                                              " Yank by sentence (2-space a/ period)
 
 NeoBundle 'sjl/badwolf'
