@@ -200,15 +200,20 @@ NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'cs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Airline
 NeoBundle 'bling/vim-airline'
+let g:airline#extensions#tabline#enabled = 1
 " when only one tab is open, show all of the open buffers
-" user powerline patched fonts
-let g:airline_powerline_fonts = 1
+" user powerline patched fonts = no
+let g:airline_powerline_fonts = 0
+let g:airline#extensions#tabline#left_alt_sep = '|'
 " dict of configurably unicode symbols. mmmmmmmmmm
-let g:airline_symbols = {}
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
 let g:airline_symbols.branch = '⎇'
 let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.whitespace = 'Ξ'
-"
+let g:airline = 1
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Tagbar tag browser
 NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
