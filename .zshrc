@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="gallifrey"
+ZSH_THEME="sethish"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -16,7 +16,7 @@ DISABLE_AUTO_UPDATE="true"
 # Red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(django extract git pip vi-mode virtualenvwrapper zsh-syntax-highlighting tmuxinator)
+plugins=(django extract git pip vi-mode zsh-syntax-highlighting tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -29,16 +29,21 @@ bindkey '^R' history-incremental-search-backward
 export EDITOR=vim
 export GPGKEY=CA70C079
 
-export PATH="/usr/local:/usr/local/bin:$PATH"
+export PATH=";/usr/local:/usr/local/bin:/usr/local/sbin:$PATH"
 
-export PERL_LOCAL_LIB_ROOT="/Users/seth/perl5:$PERL_LOCAL_LIB_ROOT";
-export PERL_MB_OPT="--install_base "/Users/seth/perl5"";
-export PERL_MM_OPT="INSTALL_BASE=/Users/seth/perl5";
-export PERL5LIB="/Users/seth/perl5/lib/perl5:$PERL5LIB";
+
+
+#go, why cant this be simpler
+export PATH="/usr/local/go/bin:$PATH:$HOME/.go/bin"
+export GOPATH="$HOME/.go"
+export GOBIN=$GOPATH/bin
+
+#export PERL_LOCAL_LIB_ROOT="/Users/seth/perl5:$PERL_LOCAL_LIB_ROOT";
+#export PERL_MB_OPT="--install_base "/Users/seth/perl5"";
+#export PERL_MM_OPT="INSTALL_BASE=/Users/seth/perl5";
+#export PERL5LIB="/Users/seth/perl5/lib/perl5:$PERL5LIB";
 #export PATH="/Users/seth/perl5/bin:$PATH";
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
 
 
 # ------
@@ -72,3 +77,8 @@ setopt pushdminus
 #  -------------------------
 
 source ~/.zsh/motd.zsh
+
+#export RBENV_ROOT=~/.rbenv
+#export PATH="$HOME/.rbenv/bin:$PATH"
+#eval "$(rbenv init -)"
+#export PATH="/usr/local/heroku/bin:$PATH"
