@@ -60,7 +60,6 @@ set gdefault                                            " s/foo/bar/ => s/foo/ba
 set backspace=indent,eol,start                          " erase autoindents, join lines
 set wildmenu                                            " vim internal tab-completion
 set wildmode=list:longest
-
                                                         " Search behavior
 nnoremap / /\v
 vnoremap / /\v
@@ -85,34 +84,26 @@ set splitbelow                                          " new hoz splits go belo
 set splitright                                          " new vert splits go right
 
 NeoBundle 'christoomey/vim-tmux-navigator'
-                                                " Switch panes with ctrl + hjkl
+" Keybindings                                           " Switch panes with ctrl + hjkl
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"NeoBundle 'spolu/dwm.vim'
-"let g:dwm_map_keys=1                                    " don't let dwm.vim map my keys
-"nnoremap <leader>n :DWM_New<CR>
-
-" Let me go on record now that this is a terrible idea
-"set mouse=a
-"set ttymouse=xterm2
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Style
+" ~> Presentation
 
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'        " Highlight merge conflicts
-set list listchars=tab:·\ ,trail:≁,nbsp:∝               " Highlight special characters
+set list listchars=tab:·\ ,trail:≁,nbsp:∝               " Highlight special characters with unicode
+set fillchars=vert:│
 set showbreak=↪                                         " Mark lines that have been wrapped
 " cpotions: aABceFs -- defaults
 set cpo+=J                                              " Yank by sentence (2-space a/ period)
 
+" ~> colorschemes
+NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'sjl/badwolf'
 colorscheme badwolf
-NeoBundle 'altercation/vim-colors-solarized'
-
-set fillchars=vert:│
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Keybindings
