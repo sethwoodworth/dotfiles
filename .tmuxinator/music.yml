@@ -2,6 +2,7 @@
 
 name: music
 root: ~/Music/
+pre_window: cd ~/Music/
 
 windows:
-  - player: tree -dC
+  - player: ranger
