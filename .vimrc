@@ -15,8 +15,32 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))             " NeoBundle, required
 NeoBundleFetch 'Shougo/neobundle.vim'                   " NeoBundle, required
-"NeoBundle
-
+NeoBundle 'Shougo/vimproc.vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'sjl/badwolf'
+"NeoBundle 'altercation/vim-colors-solarized'
+NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['ruby', 'javascript'] } }
+NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload' : {'filetypes' : ['html'] } }
+"NeoBundleLazy 'MarcWeber/vim-addon-mw-utils', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
+"NeoBundleLazy 'tomtom/tlib_vim', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
+"NeoBundleLazy 'honza/vim-snippets', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
+"NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
+"NeoBundle 'bling/vim-airline'
+NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
+NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
+NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
+NeoBundleLazy 'klen/python-mode', {'autoload' : {'filetypes' : ['python'] } }
+" Handle new html5 tags and properties
+NeoBundleLazy 'othree/html5.vim.git', {'autoload' : {'filetypes' : ['html'] } }
+" Add CSS3 syntax highlighting
+NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload' : {'filetypes' : ['css'] } }
+" Highlight scss
+NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload' : {'filetypes' : ['scss'] } }
+"NeoBundleLazy 'mikewest/vimroom', {'autoload' : {'filetypes' : ['markdown'] } }
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'mtth/cursorcross.vim'
+call neobundle#end()
+filetype plugin indent on                               " NeoBundle, required
 NeoBundleCheck                                          " NeoBundle, required
 
 
@@ -84,7 +108,6 @@ set autoindent                                          " smart auto indenting
 set splitbelow                                          " new hoz splits go below
 set splitright                                          " new vert splits go right
 
-NeoBundle 'christoomey/vim-tmux-navigator'
                                                 " Switch panes with ctrl + hjkl
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -101,9 +124,7 @@ set showbreak=↪                                         " Mark lines that have
 " cpotions: aABceFs -- defaults
 set cpo+=J                                              " Yank by sentence (2-space a/ period)
 
-NeoBundle 'sjl/badwolf'
 colorscheme badwolf
-NeoBundle 'altercation/vim-colors-solarized'
 
 set fillchars=vert:│
 
@@ -155,7 +176,6 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntastic error highlighting
-NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['ruby', 'javascript'] } }
                                         " Show syntastic error box
 nnoremap <leader>e :lw<CR>
                                         " Hide syntastic error box
@@ -174,16 +194,11 @@ let g:syntastic_python_checker_args='-d C0301,E1101'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Indentation gutters for HTML
-NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload' : {'filetypes' : ['html'] } }
 let g:indent_guides_start_level = 2                     " Show vert gutters in html files
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Snipmate
-NeoBundleLazy 'MarcWeber/vim-addon-mw-utils', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
-NeoBundleLazy 'tomtom/tlib_vim', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
-NeoBundleLazy 'honza/vim-snippets', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
-NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
             " snippit expand is set to
             " .<tab>   " expands to selector, then tabs into the {}s
             " d:n<tab>      display:none
@@ -192,7 +207,6 @@ NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'cs
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Airline
-NeoBundle 'bling/vim-airline'
 let g:airline#extensions#tabline#enabled = 1
 " when only one tab is open, show all of the open buffers
 " user powerline patched fonts = no
@@ -209,8 +223,6 @@ let g:airline = 1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Tagbar tag browser
-NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
-NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
                                         " open tagbar, switch to it
 nnoremap <leader>t :TagbarToggle<CR>
                                         " open tagbar, close when done
@@ -229,8 +241,6 @@ au FileType ruby setl sw=2 ts=2 sts=2 et sta autoindent
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Python
-"NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
-NeoBundleLazy 'klen/python-mode', {'autoload' : {'filetypes' : ['python'] } }
 
 " Configuration for Python-mode
 let g:pymode_quickfix_minheight = 5
@@ -263,20 +273,11 @@ let g:pymode_rope_goto_definition_bind = '<leader>g'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Syntax bundles
-" Handle new html5 tags and properties
-NeoBundleLazy 'othree/html5.vim.git', {'autoload' : {'filetypes' : ['html'] } }
-" Add CSS3 syntax highlighting
-NeoBundleLazy 'hail2u/vim-css3-syntax', {'autoload' : {'filetypes' : ['css'] } }
-" Highlight scss
-NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload' : {'filetypes' : ['scss'] } }
-NeoBundleLazy 'mikewest/vimroom', {'autoload' : {'filetypes' : ['markdown'] } }
 " leader V toggles
 
 " ~> Nerd commenter
-NeoBundle 'scrooloose/nerdcommenter'
 
 " ~> Crosshairs for the vim cursor
-NeoBundle 'mtth/cursorcross.vim'
 let g:cursorcross_dynamic = 'lw'
 set cursorcolumn
 
@@ -289,5 +290,3 @@ nnoremap <leader>h <C-w>v:e ~/.vim/bundle/vim-snippets/snippets/python.snippets<
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Configuration complete
-call neobundle#end()
-filetype plugin indent on                               " NeoBundle, required
