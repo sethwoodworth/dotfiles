@@ -13,10 +13,10 @@ if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/       " NeoBundle, required
 endif
 
-call neobundle#rc(expand('~/.vim/bundle/'))             " NeoBundle, required
+call neobundle#begin(expand('~/.vim/bundle/'))             " NeoBundle, required
 NeoBundleFetch 'Shougo/neobundle.vim'                   " NeoBundle, required
+"NeoBundle
 
-filetype plugin indent on                               " NeoBundle, required
 NeoBundleCheck                                          " NeoBundle, required
 
 
@@ -91,13 +91,6 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"NeoBundle 'spolu/dwm.vim'
-"let g:dwm_map_keys=1                                    " don't let dwm.vim map my keys
-"nnoremap <leader>n :DWM_New<CR>
-
-" Let me go on record now that this is a terrible idea
-"set mouse=a
-"set ttymouse=xterm2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Style
@@ -296,3 +289,5 @@ nnoremap <leader>h <C-w>v:e ~/.vim/bundle/vim-snippets/snippets/python.snippets<
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Configuration complete
+call neobundle#end()
+filetype plugin indent on                               " NeoBundle, required
