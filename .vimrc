@@ -25,7 +25,7 @@ NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload' : {'filetypes' : ['
 "NeoBundleLazy 'tomtom/tlib_vim', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
 "NeoBundleLazy 'honza/vim-snippets', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
 "NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
-"NeoBundle 'bling/vim-airline'
+NeoBundle 'bling/vim-airline'
 NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
 NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
 NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
@@ -39,6 +39,7 @@ NeoBundleLazy 'cakebaker/scss-syntax.vim', {'autoload' : {'filetypes' : ['scss']
 "NeoBundleLazy 'mikewest/vimroom', {'autoload' : {'filetypes' : ['markdown'] } }
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'mtth/cursorcross.vim'
+NeoBundle 'gcavallanti/vim-noscrollbar'
 call neobundle#end()
 filetype plugin indent on                               " NeoBundle, required
 NeoBundleCheck                                          " NeoBundle, required
@@ -64,7 +65,6 @@ set backupdir=~/.vim/tmp/backup/
 " ~> Visual Behaviors
 set number                                              " Line # by default
 set showcmd                                             " show command in status line
-
 set lazyredraw                                          " redraw a/ macros or registers
 set visualbell                                          " Flash screen not bell
 set showmatch                                           " flash to the matching paren
@@ -80,11 +80,9 @@ set formatoptions=qn2                                   " Format comments gq
 " ~> Behaviors
 
 set gdefault                                            " s/foo/bar/ => s/foo/bar/g
-
 set backspace=indent,eol,start                          " erase autoindents, join lines
 set wildmenu                                            " vim internal tab-completion
 set wildmode=list:longest
-
                                                         " Search behavior
 nnoremap / /\v
 vnoremap / /\v
@@ -207,6 +205,15 @@ let g:indent_guides_start_level = 2                     " Show vert gutters in h
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Airline
+
+let g:airline_left_sep='⟫'
+let g:airline_right_sep='⟪'
+
+function! Noscrollbar(...)
+    let w:airline_section_z = '%{noscrollbar#statusline()}'
+endfunction
+call airline#add_statusline_func('Noscrollbar')
+
 let g:airline#extensions#tabline#enabled = 1
 " when only one tab is open, show all of the open buffers
 " user powerline patched fonts = no
