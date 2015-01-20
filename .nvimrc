@@ -14,7 +14,13 @@ Plug 'garbas/vim-snipmate', {'for' : ['python', 'ruby', 'html', 'css']}
 
 call plug#end()
 
+" Unicode by default
+set encoding=utf-8
+scriptencoding utf-8
+
+" Colorscheme
 colorscheme badwolf
+set background=dark
 
 " Visual behaviors
 set number
