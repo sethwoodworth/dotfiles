@@ -48,25 +48,24 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-" Y yanks from cursor to $
+" Yank, all left, all right
 map Y y$
-" move to far left
-noremap H ^
-" move to far right
-noremap L g_
-" don't open help or w/e when hitting F1
+map H ^
+map L g_
 noremap <F1> <ESC>
 
 let mapleader = " "
-" reselect last selection
-nnoremap <leader>v V`]
-nnoremap <leader>ev <C-w><C-v>:e $MYVIMRC<CR>
-nnoremap <leader>w <C-w>v
-nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>e :lwindow<CR>
+nnoremap <leader>ev <C-w><C-v>:e $MYVIMRC<CR>
 nnoremap <leader>E :lclose<CR>
+nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
+nnoremap <leader>w <C-w>v
+nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+nnoremap <leader>v V`]
+
+nnoremap <leader>sp <C-w>v :e ~/.nvim/plugged/vim-snippets/snippets/python.snippets<CR>
 
 " language settings
 set expandtab
