@@ -3,8 +3,15 @@ Plug 'tpope/vim-sensible'   " smart defaults
 Plug 'sjl/badwolf'          " colorscheme
 Plug 'nathanaelkane/vim-indent-guides', {'for': ['html', 'htmldjango']}
 Plug 'blueyed/vim-tmux-navigator'
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-Plug 'vim-scripts/AutoTag', {'for': ['python', 'javascript', 'css']}
+Plug 'vim-scripts/AutoTag', {'on': 'TagbarToggle'}
+Plug 'majutsushi/tagbar' ", {'on': 'TagbarToggle'}
+Plug 'bling/vim-airline'
+
+Plug 'MarcWeber/vim-addon-mw-utils', {'for' : ['python', 'ruby', 'html', 'css']}
+Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
+Plug 'honza/vim-snippets', {'for' : ['python', 'ruby', 'html', 'css']}
+Plug 'garbas/vim-snipmate', {'for' : ['python', 'ruby', 'html', 'css']}
+
 call plug#end()
 
 colorscheme badwolf
