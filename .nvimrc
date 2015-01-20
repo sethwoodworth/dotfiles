@@ -23,14 +23,22 @@ colorscheme badwolf
 set background=dark
 
 " Visual behaviors
-set number
+" Fixes
 set lazyredraw
 set visualbell
-set showmatch
-set matchtime=2
-set wildmode=list:longest
-set smartcase
 
+" Visual configuration
+set number
+set list listchars=tab:·\ ,trail:≁,nbsp:∝
+set wildmode=list:longest
+set showmatch matchtime=2
+
+" Search behavior
+set smartcase
+nnoremap / /\v
+vnoremap / /\v
+
+" split behavior
 set splitbelow
 set splitright
 
