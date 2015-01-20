@@ -1,7 +1,7 @@
 call plug#begin('~/.nvim/plugged')
 Plug 'tpope/vim-sensible'   " smart defaults
 Plug 'sjl/badwolf'          " colorscheme
-Plug 'nathanaelkane/vim-indent-guides', {'for': 'html'} " html lines for indents
+Plug 'nathanaelkane/vim-indent-guides', {'for': ['html', 'htmldjango']}
 Plug 'blueyed/vim-tmux-navigator'
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 Plug 'vim-scripts/AutoTag', {'for': ['python', 'javascript', 'css']}
