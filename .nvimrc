@@ -67,8 +67,8 @@ nnoremap <leader>v V`]
 
 nnoremap <leader>sp <C-w>v :e ~/.nvim/plugged/vim-snippets/snippets/python.snippets<CR>
 
-" language settings
-set expandtab
+" Tab settings
+set expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
 autocmd Filetype html setlocal shiftwidth=2 softtabstop=2
 autocmd Filetype javascript setlocal shiftwidth=2 softtabstop=2
