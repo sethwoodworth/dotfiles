@@ -82,5 +82,4 @@ let g:pymode_folding = 0
 " vaC, vaM -- select class, method
 " <leader>b insert breakpoint
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX: breakpoint'
-"let g:pymode_lint_checkers = ['pyflakes', 'pep257', 'pep8', 'mccabe']
 let g:pymode_lint_ignore = "E501,E221"
