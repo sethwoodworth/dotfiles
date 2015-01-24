@@ -19,17 +19,20 @@ NeoBundle 'Shougo/vimproc.vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 NeoBundle 'sjl/badwolf'
 "NeoBundle 'altercation/vim-colors-solarized'
-NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['ruby', 'javascript'] } }
+"NeoBundleLazy 'scrooloose/syntastic', {'autoload' : {'filetypes' : ['ruby', 'javascript'] } }
 NeoBundleLazy 'nathanaelkane/vim-indent-guides', {'autoload' : {'filetypes' : ['html'] } }
 "NeoBundleLazy 'MarcWeber/vim-addon-mw-utils', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
 "NeoBundleLazy 'tomtom/tlib_vim', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
 "NeoBundleLazy 'honza/vim-snippets', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
 "NeoBundleLazy 'garbas/vim-snipmate', {'autoload' : {'filetypes' : ['python', 'css', 'html'] } }
+NeoBundle 'SirVer/ultisnips'
+NeoBundleLazy 'honza/vim-snippets', {'autoload' : {'filetypes' : ['python', 'ruby', 'html', 'css'] } }
 NeoBundle 'bling/vim-airline'
 NeoBundleLazy 'majutsushi/tagbar',      {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
 NeoBundleLazy 'vim-scripts/AutoTag',    {'autoload' : {'filetypes' : ['python', 'ruby', 'javascript', 'css'] } }
-NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
+"NeoBundleLazy 'ehamberg/vim-cute-python', {'autoload' : {'filetypes' : ['python'] } }
 NeoBundleLazy 'klen/python-mode', {'autoload' : {'filetypes' : ['python'] } }
+NeoBundleLazy 'alfredodeza/coveragepy.vim', {'autoload' : {'filetypes' : ['python'] }}
 " Handle new html5 tags and properties
 NeoBundleLazy 'othree/html5.vim.git', {'autoload' : {'filetypes' : ['html'] } }
 " Add CSS3 syntax highlighting
@@ -52,6 +55,7 @@ set history=1000                                        " minimum history record
 set title                                               " vim sets terminal title
 set tabpagemax=50                                       " `vim -p file file file` ...
 set encoding=utf-8                                      " Unicode by default
+scriptencoding utf-8
 set dictionary=/usr/share/dict/words                    " i ctrl_x ctrl_k completion
 
 set undofile                                            " save central undo files
@@ -72,6 +76,7 @@ set matchtime=2                                         " for 2 seconds (default
 set wrap                                                " Wrap long lines
 set textwidth=80                                        " consider PEP8 by default
 set scrolloff=2                                         " keep 2 lines between cursor and edge
+
 set formatoptions=qn2                                   " Format comments gq
                                                         "   reconize numbered lists
                                                         "   No break lines after 1 letter word
@@ -196,19 +201,15 @@ let g:indent_guides_start_level = 2                     " Show vert gutters in h
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ~> Snipmate
-            " snippit expand is set to
-            " .<tab>   " expands to selector, then tabs into the {}s
-            " d:n<tab>      display:none
-            " list:n<tab> d:i<tab> list-style: none, display:inline
-            " tt:u<tab> text-transform: uppercase
+" ~> Utilisnip
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Airline
 
-let g:airline_left_sep='⟫'
-let g:airline_right_sep='⟪'
-
+let g:airline_left_sep='⎬'
+let g:airline_right_sep='⎨'
+" ⎠   ⎡   ⎢   ⎣   ⎤   ⎥   ⎦   ⎧   ⎨   ⎩   ⎪   ⎫   ⎬   ⎭   ⎮   ⎯
 function! Noscrollbar(...)
     let w:airline_section_z = '%{noscrollbar#statusline()}'
 endfunction
@@ -243,7 +244,9 @@ en
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~> Ruby style settings
-au FileType ruby setl sw=2 ts=2 sts=2 et sta autoindent
+augroup Filetype ruby setlocal sw=2 ts=2 sts=2 et sta autoindent
+autocmd Filetype html setlocal ts=2 sts=2 sw=2 et autoindent
+autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 et autoindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
