@@ -12,6 +12,8 @@ Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'honza/vim-snippets', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'garbas/vim-snipmate', {'for' : ['python', 'ruby', 'html', 'css']}
 
+Plug 'klen/python-mode', {'for' : 'python'}
+
 call plug#end()
 
 " Unicode by default
@@ -58,6 +60,8 @@ let mapleader = " "
 nnoremap <leader>e :lwindow<CR>
 nnoremap <leader>ev <C-w><C-v>:e $MYVIMRC<CR>
 nnoremap <leader>E :lclose<CR>
+nnoremap <leader>F :PymodeLintToggle<CR>:PymodeLintAuto<CR>:PymodeLint<CR>
+nnoremap <leader>l :PymodeLint<cr>
 nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
@@ -72,3 +76,11 @@ set expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
 autocmd Filetype html setlocal shiftwidth=2 softtabstop=2
 autocmd Filetype javascript setlocal shiftwidth=2 softtabstop=2
+
+" Python-mode settings
+let g:pymode_folding = 0
+" vaC, vaM -- select class, method
+" <leader>b insert breakpoint
+let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX: breakpoint'
+"let g:pymode_lint_checkers = ['pyflakes', 'pep257', 'pep8', 'mccabe']
+let g:pymode_lint_ignore = "E501,E221"
