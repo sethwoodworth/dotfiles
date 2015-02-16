@@ -6,7 +6,7 @@ DISABLE_AUTO_UPDATE="true"
 # Red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
 
-plugins=(extract git vi-mode zsh-syntax-highlighting)
+plugins=(extract git vi-mode zsh-syntax-highlighting rbenv)
 
 ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -37,3 +37,4 @@ export PATH=$PATH:$ANDROID_HOME/bin
 
 # enable the karma chrome test runner to find/use chromium for npm test
 export CHROME_BIN=/usr/bin/chromium
+eval "$(rbenv init -)"
