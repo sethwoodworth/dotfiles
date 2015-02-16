@@ -71,14 +71,16 @@ nnoremap <leader>ev <C-w><C-v>:e $MYVIMRC<CR>
 nnoremap <leader>E :lclose<CR>
 nnoremap <leader>F :PymodeLintToggle<CR>:PymodeLintAuto<CR>:PymodeLint<CR>
 nnoremap <leader>l :PymodeLint<cr>
+nnoremap <leader>m :make<cr>
 nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>t :TagbarToggle<CR>
 nnoremap <leader>T :TagbarOpenAutoClose<CR>
 nnoremap <leader>w <C-w>v
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 nnoremap <leader>v V`]
-
 nnoremap <leader>sp <C-w>v :e ~/.nvim/plugged/vim-snippets/snippets/python.snippets<CR>
+nnoremap <leader>o :NERDTreeToggle<CR>
+nnoremap <leader>a :Ack
 
 " Tab settings
 set expandtab shiftwidth=2 softtabstop=2
