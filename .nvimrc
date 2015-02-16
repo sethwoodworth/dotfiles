@@ -1,3 +1,4 @@
+" A neovim configuration using vim-plugged
 call plug#begin('~/.nvim/plugged')
 Plug 'tpope/vim-sensible'   " smart defaults
 Plug 'sjl/badwolf'          " colorscheme
@@ -11,8 +12,16 @@ Plug 'MarcWeber/vim-addon-mw-utils', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'honza/vim-snippets', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'garbas/vim-snipmate', {'for' : ['python', 'ruby', 'html', 'css']}
-
 Plug 'klen/python-mode', {'for' : 'python'}
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'tpope/vim-commentary'
+
+Plug 'mileszs/ack.vim'
+
+Plug 'dahu/vimple', {'for' : 'asciidoc'}
+Plug 'dahu/Asif', {'for' : 'asciidoc'}
+Plug 'vim-scripts/SyntaxRange', {'for' : 'asciidoc'}
+Plug 'dahu/vim-asciidoc', {'for' : 'asciidoc'}
 
 call plug#end()
 
