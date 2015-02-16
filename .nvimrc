@@ -94,3 +94,12 @@ let g:pymode_folding = 0
 " <leader>b insert breakpoint
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX: breakpoint'
 let g:pymode_lint_ignore = "E501,E221"
+let g:pymode_virtualenv = 0
+
+let NERDTreeIgnore=['\.pyc']
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=0
+
+
+let vimple_init_vn = 0
+let g:ackprg = 'ag --vimgrep'
