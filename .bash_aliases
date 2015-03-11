@@ -74,3 +74,6 @@ alias vim="nvim"
 # python3.4
 alias p3='python3.4 '
 alias pyvenv='pyvenv-3.4'
+
+# debian
+alias whatprovides='dpkg -S '
