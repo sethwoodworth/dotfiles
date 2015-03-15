@@ -28,7 +28,6 @@ Plug 'dahu/vim-asciidoc', {'for' : 'asciidoc'}
 call plug#end()
 
 " Unicode by default
-set encoding=utf-8
 scriptencoding utf-8
 
 " Colorscheme
