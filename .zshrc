@@ -16,6 +16,7 @@ source ~/.bash_aliases
 bindkey '^R' history-incremental-search-backward
 
 export EDITOR=vim
+export PAGER="most"
 export GPGKEY=CA70C079
 
 source ~/.zsh/motd.zsh
