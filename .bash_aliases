@@ -27,6 +27,7 @@ alias tx="tmux attach"
 # Git
 alias ga='git add'
 alias g+='git add'
+alias gba='git branch --all'
 alias gcm='git commit -m'
 alias gp='git push origin master'
 alias gs='git status -uno'
@@ -68,12 +69,19 @@ alias pgstart="pg_ctl -D /usr/local/var/postgres -l /var/log/postgresql/psql.log
 alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
 
 # store raw vim character input into a file for analysis later
-alias vim='vim -w ~/.vimlog "$@"'
+#alias vim='vim -w ~/.vimlog "$@"'
 alias vim="nvim"
+alias vimdiff='nvim -d'
 
 # python3.4
 alias p3='python3.4 '
 alias pyvenv='pyvenv-3.4'
+alias vs='source venv/bin/activate'
+alias mkv='virtualenv venv'
+alias cdv='cd venv/lib/python*/site-packages'
 
 # debian
 alias whatprovides='dpkg -S '
+alias provieswhat='dpkg -L'
+
+alias yapf='python /usr/local/lib/python2.7/dist-packages/yapf'
