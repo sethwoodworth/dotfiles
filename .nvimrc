@@ -25,13 +25,18 @@ Plug 'dahu/Asif', {'for' : 'asciidoc'}
 Plug 'vim-scripts/SyntaxRange', {'for' : 'asciidoc'}
 Plug 'dahu/vim-asciidoc', {'for' : 'asciidoc'}
 
+Plug 'jamessan/vim-gnupg'
+Plug 'chriskempson/base16-vim'
+
 call plug#end()
 
 " Unicode by default
 scriptencoding utf-8
 
 " Colorscheme
-colorscheme badwolf
+let base16colorspace=256
+colorscheme base16-paraiso
+
 set background=dark
 
 " Visual behaviors
@@ -76,14 +81,14 @@ nnoremap <leader>T :TagbarOpenAutoClose<CR>
 nnoremap <leader>w <C-w>v
 nnoremap <leader>W :%s/\s\+$//<CR>:let @/=''<CR>
 nnoremap <leader>v V`]
-nnoremap <leader>sp <C-w>v :e ~/.nvim/plugged/vim-snippets/snippets/python.snippets<CR>
+
+nnoremap <leader>s <C-w>v :e ~/.nvim/plugged/vim-snippets/snippets/python.snippets<CR>
 nnoremap <leader>o :NERDTreeToggle<CR>
 nnoremap <leader>a :Ack 
 
 " Tab settings
 set expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
-autocmd Filetype htmldjango setlocal ft=htmldjango
 
 " Python-mode settings
 let g:pymode_folding = 0
