@@ -70,7 +70,7 @@ alias pgstop="pg_ctl -D /usr/local/var/postgres stop"
 
 # store raw vim character input into a file for analysis later
 #alias vim='vim -w ~/.vimlog "$@"'
-alias vim="NVIM_TUI_ENABLE_TRUE_COLOR=1 nvim"
+alias vim="nvim"
 alias vimdiff='nvim -d'
 
 # python3.4
