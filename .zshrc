@@ -54,6 +54,8 @@ PERL_LOCAL_LIB_ROOT="/home/seth/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_RO
 PERL_MB_OPT="--install_base \"/home/seth/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/seth/perl5"; export PERL_MM_OPT;
 
+export TERM='screen-256color'
+
 # Base16 Shell
 BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
