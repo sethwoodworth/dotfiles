@@ -82,6 +82,6 @@ alias cdv='cd venv/lib/python*/site-packages'
 
 # debian
 alias whatprovides='dpkg -S '
-alias provieswhat='dpkg -L'
+alias provideswhat='dpkg -L'
 
 alias yapf='python /usr/local/lib/python2.7/dist-packages/yapf'
