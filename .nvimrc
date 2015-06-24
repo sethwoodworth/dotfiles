@@ -26,9 +26,12 @@ Plug 'dahu/vimple', {'for' : 'asciidoc'}
 Plug 'dahu/Asif', {'for' : 'asciidoc'}
 Plug 'vim-scripts/SyntaxRange', {'for' : 'asciidoc'}
 Plug 'dahu/vim-asciidoc', {'for' : 'asciidoc'}
+Plug 'vim-voom/VOoM', {'for' : ['markdown', 'asciidoc']}
 
 Plug 'jamessan/vim-gnupg'
 Plug 'chriskempson/base16-vim'
+
+Plug 'kchmck/vim-coffee-script'
 
 call plug#end()
 
@@ -45,10 +48,10 @@ set background=dark
 " Visual behaviors
 set lazyredraw
 set visualbell
-set number
 set list listchars=tab:·\ ,trail:≁,nbsp:∝
 set wildmode=list:longest
 set showmatch matchtime=2
+set ttimeoutlen=10
 
 " Search behavior
 set smartcase
@@ -69,6 +72,23 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" numberwang
+set number
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+endfunc
+autocmd InsertEnter * :set number
+autocmd InsertLeave * :set relativenumber
+autocmd FocusLost * :set number
+autocmd FocusGained * :set relativenumber
+
+" if you move to another pane or window, save!
+autocmd FocusLost * silent! wa
 
 " Leader settings
 let mapleader = " " " <space> as leader
