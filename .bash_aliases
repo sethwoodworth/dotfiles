@@ -17,8 +17,8 @@ alias ..='cd ..'
 alias ...='cd .. ; cd ..'
 alias ....="cd ../../.."
 # Music
-alias m.='mplayer ./*'
-alias m1.='mplayer -channels 1 ./*'
+alias m.='mplayer -- ./*'
+alias m1.='mplayer -channels 1 -- ./*'
 # grep
 #alias ack='ack-grep -H --color' # ack comes as ack in fedora
 alias ackpy='ack --python'
