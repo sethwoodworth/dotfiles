@@ -9,8 +9,8 @@ alias dush='du -sh'
 alias v="vim"
 alias vag="vagrant"
 # Yum
-alias search='aptitude search '
-alias install='sudo aptitude install '
+alias search='apt search '
+alias install='sudo apt install '
 # General directory changing shortcuts
 alias j='autojump'
 alias ..='cd ..'
