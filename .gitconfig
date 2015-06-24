@@ -22,4 +22,6 @@
 [core]
 	editor = /usr/bin/vim
 [push]
-	default = simple
+	default = current
+[http]
+	postBuffer = 2M
