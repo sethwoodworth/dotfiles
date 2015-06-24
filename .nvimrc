@@ -10,13 +10,15 @@ Plug 'majutsushi/tagbar' ", {'on': 'TagbarToggle'}
 
 Plug 'bling/vim-airline'
 
-Plug 'MarcWeber/vim-addon-mw-utils', {'for' : ['python', 'ruby', 'html', 'css']}
+Plug 'MarcWeber/vim-addon-mw-utils'  ", {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
-Plug 'honza/vim-snippets', {'for' : ['python', 'ruby', 'html', 'htmldjango', 'css']}
-Plug 'garbas/vim-snipmate', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'klen/python-mode', {'for' : 'python'}
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
+"
+Plug 'honza/vim-snippets'  ", {'for' : ['python', 'ruby', 'html', 'htmldjango', 'css']}
+Plug 'SirVer/ultisnips'
+"Plug 'garbas/vim-snipmate'  ", {'for' : ['python', 'ruby', 'html', 'css']}
 
 Plug 'mileszs/ack.vim'
 
