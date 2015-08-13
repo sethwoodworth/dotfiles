@@ -76,7 +76,17 @@ super + @button{1-3}
 #
 # wm independent hotkeys
 #
-
+super + alt + {1-9,0}
+  D={1-9,0}; \
+  M=$(bspc query --monitors --desktop $D); \
+  if [[ $(bspc query --desktops --monitor $M | wc -l) -gt 1 ]]; then \
+    if [[ $(bspc query --desktops --desktop focused) != $D ]]; then \
+      bspc desktop $D --to-monitor focused; \
+      bspc desktop $D --focus; \
+    fi; \
+  elif [[ $(bspc query --monitors --monitor focused) != $M ]]; then \
+    bspc desktop DVI-0:focused --swap DVI-1:focused; \
+  fi
 super + Return
 	gnome-terminal
 
@@ -86,3 +96,5 @@ super + space
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
+
+
