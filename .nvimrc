@@ -10,6 +10,8 @@ Plug 'majutsushi/tagbar' ", {'on': 'TagbarToggle'}
 
 Plug 'bling/vim-airline'
 
+Plug 'scrooloose/syntastic', {'for' : ['sh', 'bash']}
+
 Plug 'MarcWeber/vim-addon-mw-utils'  ", {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'klen/python-mode', {'for' : 'python'}
