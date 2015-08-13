@@ -1,0 +1,4 @@
+alias gs='git status'
+alias gsu='git status -u'  # ignore unadded files
+alias ga='git add'
+alias gcm='git commit -m'

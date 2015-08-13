@@ -1,0 +1,4 @@
+alias ls='ls --color=auto'
+alias l='ls --color=auto'
+alias ll='ls --color=auto -lAh'
+alias lasthour='print -l ./**/**(mh-1)'

@@ -1,0 +1,11 @@
+# aliases for python 2
+
+# make a virtualenv in the current dir called venv
+alias mkv2="virtualenv2 venv"
+
+# source a local virtualenv called venv
+alias vs="source venv/bin/activate"
+
+# install requirements via pip
+# TODO: load virtualenv if not there
+alias loadreq="pip install -r requirements.txt"
