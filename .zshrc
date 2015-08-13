@@ -46,5 +46,16 @@ BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 
 bindkey '^R' history-incremental-search-backward
 
-source ~/.aliases
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^E' edit-command-line
 
+# FIXME: remove the following alises to config dir
+source ~/.aliases
+# FIXME: use XDG_CONFIG_DIR
+source ~/.config/aliases/aliases
+source ~/bin/choosetheme
+
+set_theme `cat ${DEFAULT_THEME}`
+set_bg `cat ${DEFAULT_BG}`
+
+fortune ~/.config/fortune/

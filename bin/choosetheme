@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+CURRENT_THEME=~/.config/theme/base16-theme.current
+PREV_THEME=~/.config/theme/base16-theme.prev
+DEFAULT_THEME=~/.config/theme/base16-theme.default
+
+
+function set_theme() {
+  mv ${CURRENT_THEME} ${PREV_THEME}
+  echo $1 >> ${CURRENT_THEME}
+  source /usr/share/base16-shell/base16-$1.`cat $CURRENT_BG`.sh;
+}
+
+CURRENT_BG=~/.config/theme/base16-bg.current
+PREV_BG=~/.config/theme/base16-bg.prev
+DEFAULT_BG=~/.config/theme/base16-bg.default
+
+function set_bg() {
+  mv ${CURRENT_BG} ${PREV_BG}
+  echo $1 >> ${CURRENT_BG}
+  source /usr/share/base16-shell/base16-`cat $CURRENT_THEME`.$1.sh;
+}
