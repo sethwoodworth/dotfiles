@@ -2,3 +2,4 @@ source ~/.config/aliases/python2.aliases
 source ~/.config/aliases/ls.aliases
 source ~/.config/aliases/vagrant.aliases
 source ~/.config/aliases/git.aliases
+source ~/.config/aliases/pacman.sh
