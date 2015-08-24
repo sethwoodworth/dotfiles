@@ -183,6 +183,6 @@ bar {
         binding_mode_indicator yes
         position top
         separator_symbol " | "
-        status_command i3status
+        status_command py3status -c ~/.config/i3status/config -i /usr/lib/python3.4/site-packages/py3status/modules
         workspace_buttons yes
 }
