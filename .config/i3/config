@@ -53,8 +53,11 @@ bindsym $mod+space exec dmenu_run
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec amixer -q set Master toggle
+# brightness keys go up/down 10%, Shift makes it 5%
 bindsym XF86MonBrightnessUp exec light -A 10
+bindsym Shift+XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 10
+bindsym Shift+XF86MonBrightnessDown exec light -U 5
 
 # multitouch gestures
 bindsym button10 workspace prev
