@@ -55,6 +55,10 @@ set wildmode=list:longest
 set showmatch matchtime=2
 set ttimeoutlen=10
 
+" mice are a pernicious habit, (but not literally)
+set mouse=
+
+
 " Search behavior
 set smartcase
 nnoremap / /\v
@@ -75,6 +79,17 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Allow switching from vim terminals
+tnoremap <C-h> <C-\><C-n>h
+tnoremap <C-j> <C-\><C-n>j
+tnoremap <C-k> <C-\><C-n>k
+tnoremap <C-l> <C-\><C-n>l
+
+" nvim terminal
+tnoremap <Esc> <C-\><C-n>
+
+" set g:terminal_scrollback_buffer_size=10000
+
 " numberwang
 set number
 function! NumberToggle()
@@ -91,6 +106,7 @@ autocmd FocusGained * :set relativenumber
 
 " if you move to another pane or window, save!
 autocmd FocusLost * silent! wa
+
 
 " Leader settings
 let mapleader = " " " <space> as leader
