@@ -3,3 +3,4 @@ source ~/.config/aliases/ls.aliases
 source ~/.config/aliases/vagrant.aliases
 source ~/.config/aliases/git.aliases
 source ~/.config/aliases/pacman.sh
+source ~/.config/aliases/general.sh
