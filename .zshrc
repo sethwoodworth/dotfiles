@@ -5,6 +5,9 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export BROWSER="firefox"
 export GREP_COLOR="1;35"
+# GO config
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
 
 # == Editor
 # Vim, of course
@@ -43,7 +46,7 @@ unsetopt beep
 zstyle :compinstall filename '/home/seth/.zshrc'
 zstyle ':completion:*' menu select
 
-autoload -Uz colors compinit  zmv run-help
+autoload -Uz colors compinit
 colors
 compinit
 
