@@ -60,8 +60,8 @@ bindsym XF86MonBrightnessDown exec light -U 10
 bindsym Shift+XF86MonBrightnessDown exec light -U 5
 
 # multitouch gestures
-bindsym button10 workspace prev
-bindsym button11 workspace next
+bindsym --whole-window $mod+button10 workspace prev_on_output
+bindsym --whole-window $mod+button11 workspace next_on_output
 
 # change focus
 bindsym $mod+$left focus left
