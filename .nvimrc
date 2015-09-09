@@ -138,6 +138,8 @@ let g:pymode_folding = 0
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX: breakpoint'
 let g:pymode_lint_ignore = "E501,E221,E302,E701"
 let g:pymode_virtualenv = 0
+" completion via . or C-Space
+" <C-c>g for jump to definition
 
 let NERDTreeIgnore=['\.pyc']
 let NERDTreeMinimalUI=1
