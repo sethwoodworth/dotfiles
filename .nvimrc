@@ -157,3 +157,13 @@ let NERDTreeDirArrows=0
 
 let vimple_init_vn = 0
 let g:ackprg = 'ag --vimgrep'
+
+" vim-test bindings
+nmap <silent> <leader>n :TestNearest<CR>
+" nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+" nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+let test#strategy = 'neoterm'
+let test#python#runner = 'nose'
+" let test#python#nose#executable = './venv/bin/nosetests'
