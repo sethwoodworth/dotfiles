@@ -14,13 +14,17 @@ Plug 'scrooloose/syntastic', {'for' : ['sh', 'bash']}
 
 Plug 'MarcWeber/vim-addon-mw-utils'  ", {'for' : ['python', 'ruby', 'html', 'css']}
 Plug 'tomtom/tlib_vim', {'for' : ['python', 'ruby', 'html', 'css']}
-Plug 'klen/python-mode', {'for' : 'python'}
 Plug 'scrooloose/nerdtree' ", {'on': 'NERDTreeToggle'}
 Plug 'tpope/vim-commentary'
 "
 Plug 'honza/vim-snippets'  ", {'for' : ['python', 'ruby', 'html', 'htmldjango', 'css']}
 Plug 'SirVer/ultisnips'
 "Plug 'garbas/vim-snipmate'  ", {'for' : ['python', 'ruby', 'html', 'css']}
+
+Plug 'klen/python-mode', {'for' : 'python'}
+Plug 'janko-m/vim-test'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'kassio/neoterm'
 
 Plug 'mileszs/ack.vim'
 
@@ -34,6 +38,10 @@ Plug 'jamessan/vim-gnupg'
 Plug 'chriskempson/base16-vim'
 
 Plug 'kchmck/vim-coffee-script'
+
+Plug 'godlygeek/tabular'
+
+Plug 'fatih/vim-go', {'for' : ['go']}
 
 call plug#end()
 
@@ -132,13 +140,15 @@ set expandtab shiftwidth=2 softtabstop=2
 autocmd Filetype python setlocal shiftwidth=4 softtabstop=4
 
 " Python-mode settings
+let g:python_host_prog='/usr/bin/python2'
 let g:pymode_folding = 0
 " vaC, vaM -- select class, method
 " <leader>b insert breakpoint
 let g:pymode_breakpoint_cmd = 'import ipdb; ipdb.set_trace()  # XXX: breakpoint'
+let g:pymode_complete_on_dot = 0
 let g:pymode_lint_ignore = "E501,E221,E302,E701"
 let g:pymode_virtualenv = 0
-" completion via . or C-Space
+" completion via C-Space
 " <C-c>g for jump to definition
 
 let NERDTreeIgnore=['\.pyc']
