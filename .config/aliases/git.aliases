@@ -1,6 +1,8 @@
+#!/bin/zsh
+alias ga='git add'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gd='git diff'
+alias griom='git rebase -i origin master'
 alias gs='git status'
 alias gsu='git status -u'  # ignore unadded files
-alias ga='git add'
-# alias gcm='git commit -m'
-alias gc='git commit'
-alias gd='git diff'
