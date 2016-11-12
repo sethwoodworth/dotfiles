@@ -75,3 +75,5 @@ set_theme `cat ${DEFAULT_THEME}`
 set_bg `cat ${DEFAULT_BG}`
 
 fortune ~/.config/fortune/
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
