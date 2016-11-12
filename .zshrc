@@ -50,15 +50,13 @@ autoload -Uz colors compinit
 colors
 compinit
 
-source /usr/bin/liquidprompt
+source ${XDG_CONFIG_HOME}/liquidprompt/liquidprompt
 
 typeset -U path
 path=(~/bin $path)
 
 source /usr/share/doc/pkgfile/command-not-found.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
 
 BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
