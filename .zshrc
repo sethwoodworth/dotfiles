@@ -3,11 +3,7 @@
 
 # = Assorted exports
 export XDG_CONFIG_HOME="$HOME/.config"
-export BROWSER="firefox"
 export GREP_COLOR="1;35"
-# GO config
-export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
 
 # == Editor
 # Vim, of course
@@ -41,6 +37,11 @@ bindkey '^R' history-incremental-search-backward
 setopt inc_append_history
 setopt share_history
 
+#== Adds ability to edit current line in vim
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^E' edit-command-line
+
+
 unsetopt beep
 
 zstyle :compinstall filename '/home/seth/.zshrc'
@@ -50,30 +51,29 @@ autoload -Uz colors compinit
 colors
 compinit
 
-source ${XDG_CONFIG_HOME}/liquidprompt/liquidprompt
-
 typeset -U path
 path=(~/bin $path)
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /etc/zsh_command_not_found
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^E' edit-command-line
-
-# FIXME: remove the following alises to config dir
-source ~/.aliases
 # FIXME: use XDG_CONFIG_DIR
 source ~/.config/aliases/aliases
-source ~/bin/choosetheme
 
-set_theme `cat ${DEFAULT_THEME}`
-set_bg `cat ${DEFAULT_BG}`
+#== Other programs
+# GO config
+export GOPATH=~/go
+export PATH="$PATH:$GOPATH/bin"
 
+# Load a fortune on term launch
 fortune ~/.config/fortune/
 
+# Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Powerline
+powerline-daemon -q
+source /home/seth/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
