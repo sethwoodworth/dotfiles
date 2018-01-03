@@ -75,11 +75,11 @@ fortune ~/.config/fortune/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Path settings
-PATH="/home/seth/bin:$PATH"
+PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
-PATH="/home/seth/.local/bin:$PATH"
+PATH="/home/${USER}/.local/bin:$PATH"
 export PATH
 
 # Powerline
 powerline-daemon -q
-source /home/seth/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+source /usr/share/powerline/bindings/zsh/powerline.zsh
