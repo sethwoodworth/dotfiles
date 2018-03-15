@@ -60,8 +60,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# FIXME: use XDG_CONFIG_DIR
-source ~/.config/aliases/aliases
+source "$XDG_CONFIG_HOME/aliases/aliases"
 
 #== Other programs
 # GO config
