@@ -73,12 +73,13 @@ fortune ~/.config/fortune/
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Powerline
+powerline-daemon -q
+source /usr/share/powerline/bindings/zsh/powerline.zsh
 # Path settings
 PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/heroku/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
-export PATH
 
-# Powerline
-powerline-daemon -q
-source /usr/share/powerline/bindings/zsh/powerline.zsh
+
+export PATH
