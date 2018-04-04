@@ -56,6 +56,7 @@ path=(~/bin $path)
 
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
@@ -76,10 +77,23 @@ fortune ~/.config/fortune/
 # Powerline
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
+
+# added by Anaconda3 installer
+# export PATH="/home/swoodworth/.anaconda/bin:$PATH"
+
+# Pyenv
+export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
+PATH="$XDG_CONFIG_HOME/pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+
 # Path settings
 PATH="/home/${USER}/bin:$PATH"
-PATH="/usr/local/heroku/bin:$PATH"
+PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
 
+# Source tmuxp
+# eval "$(_TMUXP_COMPLETE=source tmuxp)"
+export TMUXP_CONFIGDIR="${XDG_CONFIG_HOME}/.config/tmuxp"
 
 export PATH
