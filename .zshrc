@@ -68,9 +68,6 @@ source "$XDG_CONFIG_HOME/aliases/aliases"
 export GOPATH=~/go
 export PATH="$PATH:$GOPATH/bin"
 
-# Load a fortune on term launch
-fortune ~/.config/fortune/
-
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -92,8 +89,14 @@ PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
 
+# gcloud bin
+
+PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 # Source tmuxp
 # eval "$(_TMUXP_COMPLETE=source tmuxp)"
 export TMUXP_CONFIGDIR="${XDG_CONFIG_HOME}/.config/tmuxp"
 
+# python -c "import site; import os; print(os.path.join(site.USER_BASE, 'bin'))"
 export PATH
+# Load a fortune on term launch
+fortune ~/.config/fortune/
