@@ -100,3 +100,5 @@ export TMUXP_CONFIGDIR="${XDG_CONFIG_HOME}/.config/tmuxp"
 export PATH
 # Load a fortune on term launch
 fortune ~/.config/fortune/
+
+[ -s "/home/swoodworth/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/swoodworth/.local/share/scm_breeze/scm_breeze.sh"
