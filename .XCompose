@@ -2,6 +2,7 @@
 # from an example by David.Monniaux@ens.fr
 
 include "%L"   # import the default Compose file for your locale
+<Multi_key> <s> <h>                     : "¯\_(ツ)_/¯"
 <Multi_key> <p> <y>                     : "🐍"
 <Multi_key> <y> <colon> 		: "ŷ"   U0177 # LATIN SMALL LETTER Y WITH CIRCUMFLEX
 <Multi_key> <C> <C> <C> <P>             : "☭"   U262D # HAMMER AND SICKLE
