@@ -1,15 +1,17 @@
-# = Sethwolfwood zshrc, arch branch
+# = Sethwolfwood zshrc
 # github.com/sethwoodworth/dotfiles
 
-# = Assorted exports
 export XDG_CONFIG_HOME="$HOME/.config"
+# Source aliases
+source "$XDG_CONFIG_HOME/aliases/aliases"
+
 export GREP_COLOR="1;35"
+unsetopt beep
 
 # == Editor
-# Vim, of course
-export EDITOR="vim"
+export EDITOR="nvim"
 # because this is set, `bindkey -v` is implicit
-export VISUAL="vim"
+export VISUAL="nvim"
 
 # Less colors
 export LESS=-R
@@ -27,13 +29,12 @@ setopt completealiases # Lets me tab complete aliases
 
 # == History
 HISTFILE=~/.histfile
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=100000
+SAVEHIST=100000
 # Binds C-r to search backwards through shell history
 bindkey '^R' history-incremental-search-backward
-# These write shell history after running a command and makes history
-# available to new shells when they run history.
-# This does not make that history available to C-r
+# Write shell history after command exit
+# :Note: does not make that history available to C-r
 setopt inc_append_history
 setopt share_history
 
@@ -42,8 +43,6 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 
 
-unsetopt beep
-
 zstyle :compinstall filename '/home/seth/.zshrc'
 zstyle ':completion:*' menu select
 
@@ -51,8 +50,8 @@ autoload -Uz colors compinit
 colors
 compinit
 
-typeset -U path
-path=(~/bin $path)
+# typeset -U path
+# path=(~/bin $path)
 
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -61,22 +60,27 @@ source ~/.local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-source "$XDG_CONFIG_HOME/aliases/aliases"
 
-#== Other programs
-# GO config
+# Google junk
 export GOPATH=~/go
-export PATH="$PATH:$GOPATH/bin"
+PATH="$PATH:$GOPATH/bin"
+# gcloud bin
+PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Powerline
 powerline-daemon -q
-source /usr/share/powerline/bindings/zsh/powerline.zsh
 
-# added by Anaconda3 installer
-# export PATH="/home/swoodworth/.anaconda/bin:$PATH"
+setopt PROMPT_SUBST
+source /usr/lib/git-core/git-sh-prompt
+
+GIT_PS1_SHOWDIRTYSTATE=1
+PROMPT="
+%B%F{red}┍━━━⎧⦇ %F{white}%n%F{red} :: %F{yellow}$(__git_ps1 "%s")%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~%F{red} ]
+╘═══⎩%b%f "
+
 
 # Pyenv
 export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
@@ -89,16 +93,10 @@ PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
 
-# gcloud bin
-
-PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
-# Source tmuxp
-# eval "$(_TMUXP_COMPLETE=source tmuxp)"
-export TMUXP_CONFIGDIR="${XDG_CONFIG_HOME}/.config/tmuxp"
-
-# python -c "import site; import os; print(os.path.join(site.USER_BASE, 'bin'))"
 export PATH
 # Load a fortune on term launch
 fortune ~/.config/fortune/
 
-[ -s "/home/swoodworth/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/swoodworth/.local/share/scm_breeze/scm_breeze.sh"
+# scm_breeze git aliases
+[ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
+[ -s "/home/${USER}/.local/bin/aws_zsh_completer.sh" ] && source "/home/${USER}/.local/bin/aws_zsh_completer.sh"
