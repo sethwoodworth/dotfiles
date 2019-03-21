@@ -1,2 +1,0 @@
-alias grep='grep --color=auto'
-alias dless='dmesg --color=always | less'
