@@ -1,8 +1,4 @@
-setxkbmap -option ctrl:swapcaps
-export EDITOR="nvim"
-export VISUAL="nvim"
+$!/bin/sh
 
-PATH="/home/seth/bin:$PATH"
-PATH="/usr/local/heroku/bin:$PATH"
-PATH="/home/seth/.local/bin:$PATH"
-export PATH
+setxkbmap -option ctrl:swapcaps
+export VISUAL="nvim"
