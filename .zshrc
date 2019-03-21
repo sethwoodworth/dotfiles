@@ -2,6 +2,7 @@
 # github.com/sethwoodworth/dotfiles
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
 # Source aliases
 source "$XDG_CONFIG_HOME/aliases/aliases"
 
@@ -55,11 +56,7 @@ compinit
 
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-BASE16_SHELL=/usr/share/base16-shell/base16-paraiso.dark.sh
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Google junk
 export GOPATH=~/go
@@ -83,8 +80,8 @@ PROMPT="
 
 
 # Pyenv
-export PYENV_ROOT="$XDG_CONFIG_HOME/pyenv"
-PATH="$XDG_CONFIG_HOME/pyenv/bin:$PATH"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+PATH="$XDG_DATA_HOME/pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -92,8 +89,8 @@ eval "$(pyenv virtualenv-init -)"
 PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
-
 export PATH
+
 # Load a fortune on term launch
 fortune ~/.config/fortune/
 
