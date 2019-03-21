@@ -1,3 +1,0 @@
-#!/bin/zsh
-alias install='sudo apt install'
-alias search='apt search'
