@@ -39,7 +39,7 @@ bindkey '^R' history-incremental-search-backward
 setopt inc_append_history
 setopt share_history
 
-#== Adds ability to edit current line in vim
+#== Adds ability to edit current line in vim with C-e
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 
