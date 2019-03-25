@@ -44,7 +44,7 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 
 
-zstyle :compinstall filename '/home/seth/.zshrc'
+zstyle :compinstall filename '${HOME}/.zshrc'
 zstyle ':completion:*' menu select
 
 autoload -Uz colors compinit
@@ -56,7 +56,7 @@ compinit
 
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${XDG_DATA_HOME}/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Google junk
 export GOPATH=~/go
