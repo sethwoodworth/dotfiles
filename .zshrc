@@ -1,12 +1,9 @@
 # = Sethwolfwood zshrc
 # github.com/sethwoodworth/dotfiles
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
 # Source aliases
 source "$XDG_CONFIG_HOME/aliases/aliases"
 
-export GREP_COLOR="1;35"
 unsetopt beep
 
 # == Editor
@@ -51,18 +48,9 @@ autoload -Uz colors compinit
 colors
 compinit
 
-# typeset -U path
-# path=(~/bin $path)
-
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Google junk
-export GOPATH=~/go
-PATH="$PATH:$GOPATH/bin"
-# gcloud bin
-PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
