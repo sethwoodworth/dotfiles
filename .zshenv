@@ -22,3 +22,7 @@ PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
 export PATH
+
+export ANSIBLE_NOCOWS=1
+export NPM_PACKAGES="${HOME}/.local/share/npm_packages"
+export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
