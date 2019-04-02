@@ -71,25 +71,17 @@ PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 powerline-daemon -q
 
 setopt PROMPT_SUBST
-source /usr/lib/git-core/git-sh-prompt
 
-GIT_PS1_SHOWDIRTYSTATE=1
+source /usr/lib/git-core/git-sh-prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
 PROMPT="
 %B%F{red}┍━━━⎧⦇ %F{white}%n%F{red} :: %F{yellow}$(__git_ps1 "%s")%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~%F{red} ]
 ╘═══⎩%b%f "
 
 
 # Pyenv
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-PATH="$XDG_DATA_HOME/pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
-
-# Path settings
-PATH="/home/${USER}/bin:$PATH"
-PATH="/usr/local/bin:$PATH"
-PATH="/home/${USER}/.local/bin:$PATH"
-export PATH
 
 # Load a fortune on term launch
 fortune ~/.config/fortune/
@@ -97,3 +89,14 @@ fortune ~/.config/fortune/
 # scm_breeze git aliases
 [ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
 [ -s "/home/${USER}/.local/bin/aws_zsh_completer.sh" ] && source "/home/${USER}/.local/bin/aws_zsh_completer.sh"
+
+# pip zsh completion
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
