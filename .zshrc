@@ -1,12 +1,9 @@
 # = Sethwolfwood zshrc
 # github.com/sethwoodworth/dotfiles
 
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/.local/share"
 # Source aliases
 source "$XDG_CONFIG_HOME/aliases/aliases"
 
-export GREP_COLOR="1;35"
 unsetopt beep
 
 # == Editor
@@ -51,18 +48,8 @@ autoload -Uz colors compinit
 colors
 compinit
 
-# typeset -U path
-# path=(~/bin $path)
-
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${XDG_DATA_HOME}/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# Google junk
-export GOPATH=~/go
-PATH="$PATH:$GOPATH/bin"
-# gcloud bin
-PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -71,17 +58,15 @@ PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
 powerline-daemon -q
 
 setopt PROMPT_SUBST
-source /usr/lib/git-core/git-sh-prompt
 
-GIT_PS1_SHOWDIRTYSTATE=1
+source /usr/lib/git-core/git-sh-prompt
+export GIT_PS1_SHOWDIRTYSTATE=1
 PROMPT="
 %B%F{red}┍━━━⎧⦇ %F{white}%n%F{red} :: %F{yellow}$(__git_ps1 "%s")%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~%F{red} ]
 ╘═══⎩%b%f "
 
 
 # Pyenv
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-PATH="$XDG_DATA_HOME/pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -95,9 +80,23 @@ export PATH
 
 export MANPATH="$MANPATH:/home/${USER}/.local/dasht/man"
 
+
 # Load a fortune on term launch
 fortune ~/.config/fortune/
 
 # scm_breeze git aliases
-[ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
+# [ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
 [ -s "/home/${USER}/.local/bin/aws_zsh_completer.sh" ] && source "/home/${USER}/.local/bin/aws_zsh_completer.sh"
+
+# pip zsh completion
+function _pip_completion {
+  local words cword
+  read -Ac words
+  read -cn cword
+  reply=( $( COMP_WORDS="$words[*]" \
+             COMP_CWORD=$(( cword-1 )) \
+             PIP_AUTO_COMPLETE=1 $words[1] ) )
+}
+compctl -K _pip_completion pip
+
+for f (~/.config/zsh/zshrc.d/*) . $f
