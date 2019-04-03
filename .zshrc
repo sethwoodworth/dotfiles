@@ -50,7 +50,6 @@ compinit
 
 source /etc/zsh_command_not_found
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${XDG_DATA_HOME}/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load fzf shortcuts
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -75,7 +74,7 @@ eval "$(pyenv virtualenv-init -)"
 fortune ~/.config/fortune/
 
 # scm_breeze git aliases
-[ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
+# [ -s "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh" ] && source "/home/${USER}/.local/share/scm_breeze/scm_breeze.sh"
 [ -s "/home/${USER}/.local/bin/aws_zsh_completer.sh" ] && source "/home/${USER}/.local/bin/aws_zsh_completer.sh"
 
 # pip zsh completion
@@ -88,3 +87,5 @@ function _pip_completion {
              PIP_AUTO_COMPLETE=1 $words[1] ) )
 }
 compctl -K _pip_completion pip
+
+for f (~/.config/zsh/zshrc.d/*) . $f
