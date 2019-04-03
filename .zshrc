@@ -39,7 +39,7 @@ bindkey '^R' history-incremental-search-backward
 setopt inc_append_history
 setopt share_history
 
-#== Adds ability to edit current line in vim with C-e
+#== Adds ability to edit current line in vim
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
 
@@ -89,7 +89,11 @@ eval "$(pyenv virtualenv-init -)"
 PATH="/home/${USER}/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 PATH="/home/${USER}/.local/bin:$PATH"
+# dasht
+PATH="$PATH:/home/${USER}/.local/share/dasht/bin"
 export PATH
+
+export MANPATH="$MANPATH:/home/${USER}/.local/dasht/man"
 
 # Load a fortune on term launch
 fortune ~/.config/fortune/
