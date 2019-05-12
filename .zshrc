@@ -65,6 +65,10 @@ PROMPT="
 %B%F{red}┍━━━⎧⦇ %F{white}%n%F{red} :: %F{yellow}$(__git_ps1 "%s")%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~%F{red} ]
 ╘═══⎩%b%f "
 
+# CDPATH
+setopt autocd
+cdpath=($HOME/code)
+
 
 # Pyenv
 eval "$(pyenv init -)"
