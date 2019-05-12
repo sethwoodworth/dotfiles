@@ -1,4 +1,0 @@
-$!/bin/sh
-
-setxkbmap -option ctrl:swapcaps
-export VISUAL="nvim"
