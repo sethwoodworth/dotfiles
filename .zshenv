@@ -1,6 +1,7 @@
 # Locations
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
 # Editors
 export EDITOR="nvim"
@@ -17,26 +18,22 @@ export LESS_TERMCAP_md=$(printf '\e[1;34m')
 export LESS_TERMCAP_us=$(printf '\e[1;32m')
 export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
 
+# Highlight grep match
 export GREP_COLOR="1;35"
 
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-
-export GOPATH=~/go
-
+# config PATH
 typeset -U path
 
 # path=(
-PATH="$HOME/bin:$PATH"
-PATH="$HOME/.local/bin:$PATH"
-PATH="$PATH:$GOPATH/bin"
-PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
-PATH="$XDG_DATA_HOME/pyenv/bin:$PATH"
-# Path settings
-PATH="/home/${USER}/bin:$PATH"
+PATH="${HOME}/bin:$PATH"
+PATH="${HOME}/.local/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
-PATH="/home/${USER}/.local/bin:$PATH"
 export PATH
 
 export ANSIBLE_NOCOWS=1
 export NPM_PACKAGES="${HOME}/.local/share/npm_packages"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
+
+# export GOPATH=~/go
+# PATH="$PATH:$GOPATH/bin"
+# PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"

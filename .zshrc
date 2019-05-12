@@ -40,21 +40,6 @@ PROMPT="
 ╘═══⎩%b%f "
 
 
-# Pyenv
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# Path settings
-PATH="/home/${USER}/bin:$PATH"
-PATH="/usr/local/bin:$PATH"
-PATH="/home/${USER}/.local/bin:$PATH"
-# dasht
-PATH="$PATH:/home/${USER}/.local/share/dasht/bin"
-export PATH
-
-export MANPATH="$MANPATH:/home/${USER}/.local/dasht/man"
-
-
 # Load a fortune on term launch
 fortune ~/.config/fortune/
 
@@ -71,6 +56,5 @@ function _pip_completion {
 }
 compctl -K _pip_completion pip
 
-# Source aliases
 source "$XDG_CONFIG_HOME/aliases/aliases"
 for f (~/.config/zsh/zshrc.d/*) . $f
