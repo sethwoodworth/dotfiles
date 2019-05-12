@@ -15,7 +15,6 @@ cdpath=($HOME/code)
 HISTFILE=~/.histfile
 HISTSIZE=100000
 SAVEHIST=100000
-# Binds C-r to search backwards through shell history
 bindkey '^R' history-incremental-search-backward
 
 # Zsh autoload extensions and configs
@@ -26,18 +25,11 @@ autoload -Uz colors compinit
 colors
 compinit
 
-
 zstyle :compinstall filename '${HOME}/.zshrc'
 zstyle ':completion:*' menu select
 
-
-source /etc/zsh_command_not_found
-
-# Load fzf shortcuts
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Powerline
-powerline-daemon -q
+# powerline-daemon -q
 
 setopt PROMPT_SUBST
 
