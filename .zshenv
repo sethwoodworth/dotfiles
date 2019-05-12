@@ -1,9 +1,23 @@
+# Locations
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 
-export GREP_COLOR="1;35"
+# Editors
+export EDITOR="nvim"
+# because this is set, `bindkey -v` is implicit
+export VISUAL="nvim"
 
-export ANSIBLE_NOCOWS=1
+# Colorize less for man
+export LESS=-R
+export LESS_TERMCAP_me=$(printf '\e[0m')
+export LESS_TERMCAP_se=$(printf '\e[0m')
+export LESS_TERMCAP_ue=$(printf '\e[0m')
+export LESS_TERMCAP_mb=$(printf '\e[1;32m')
+export LESS_TERMCAP_md=$(printf '\e[1;34m')
+export LESS_TERMCAP_us=$(printf '\e[1;32m')
+export LESS_TERMCAP_so=$(printf '\e[1;44;1m')
+
+export GREP_COLOR="1;35"
 
 export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
 
