@@ -7,6 +7,9 @@ setopt autocd
 setopt completealiases # Lets me tab complete aliases
 setopt inc_append_history
 setopt share_history
+setopt PROMPT_SUBST
+setopt PROMPT_PERCENT
+setopt PROMPT_BANG
 
 # `cd` paths
 cdpath=($HOME/code)
@@ -31,12 +34,11 @@ zstyle ':completion:*' menu select
 # Powerline
 # powerline-daemon -q
 
-setopt PROMPT_SUBST
 
 source /usr/lib/git-core/git-sh-prompt
 export GIT_PS1_SHOWDIRTYSTATE=1
 PROMPT="
-%B%F{red}┍━━━⎧⦇ %F{white}%n%F{red} :: %F{yellow}$(__git_ps1 "%s")%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~%F{red} ]
+%B%F{red}┍━━━⎧⦇ %F{white}!s:%?%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~:%F{yellow}$(__git_ps1 "%s")%F{red} ]
 ╘═══⎩%b%f "
 
 
