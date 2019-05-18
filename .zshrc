@@ -1,15 +1,12 @@
 # = Sethwolfwood zshrc
 # github.com/sethwoodworth/dotfiles
-unsetopt beep
 
 # Zsh options
+unsetopt beep
 setopt autocd
 setopt completealiases # Lets me tab complete aliases
 setopt inc_append_history
 setopt share_history
-setopt PROMPT_SUBST
-setopt PROMPT_PERCENT
-setopt PROMPT_BANG
 
 # `cd` paths
 cdpath=($HOME/code)
@@ -21,7 +18,8 @@ SAVEHIST=100000
 bindkey '^R' history-incremental-search-backward
 
 # Zsh autoload extensions and configs
-autoload edit-command-line; zle -N edit-command-line
+autoload edit-command-line
+zle -N edit-command-line
 bindkey '^E' edit-command-line
 
 autoload -Uz colors compinit
@@ -31,32 +29,19 @@ compinit
 zstyle :compinstall filename '${HOME}/.zshrc'
 zstyle ':completion:*' menu select
 
-# Powerline
-# powerline-daemon -q
-
-
-source /usr/lib/git-core/git-sh-prompt
-export GIT_PS1_SHOWDIRTYSTATE=1
-PROMPT="
-%B%F{red}┍━━━⎧⦇ %F{white}!s:%?%F{red} ⦈━(%F{white}%j%F{red})━[ %F{white}%~:%F{yellow}$(__git_ps1 "%s")%F{red} ]
-╘═══⎩%b%f "
-
-
 # Load a fortune on term launch
-fortune ~/.config/fortune/
+[ command -v fortune >/dev/null 2>&1 ] && fortune ~/.config/fortune/
 
-[ -s "/home/${USER}/.local/bin/aws_zsh_completer.sh" ] && source "/home/${USER}/.local/bin/aws_zsh_completer.sh"
+# function _pip_completion {
+#   local words cword
+#   read -Ac words
+#   read -cn cword
+#   reply=( $( COMP_WORDS="$words[*]" \
+#              COMP_CWORD=$(( cword-1 )) \
+#              PIP_AUTO_COMPLETE=1 $words[1] ) )
+# }
+# compctl -K _pip_completion pip
 
-# pip zsh completion
-function _pip_completion {
-  local words cword
-  read -Ac words
-  read -cn cword
-  reply=( $( COMP_WORDS="$words[*]" \
-             COMP_CWORD=$(( cword-1 )) \
-             PIP_AUTO_COMPLETE=1 $words[1] ) )
-}
-compctl -K _pip_completion pip
-
-source "$XDG_CONFIG_HOME/aliases/aliases"
+source ${XDG_CONFIG_HOME}/zsh/prompt.zsh
+source $XDG_CONFIG_HOME/aliases/aliases
 for f (~/.config/zsh/zshrc.d/*) . $f
