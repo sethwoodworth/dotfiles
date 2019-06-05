@@ -30,6 +30,7 @@ PATH="${HOME}/.local/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 export PATH
 
+export KITTY_LISTEN_ON=/tmp/mykitty
 export ANSIBLE_NOCOWS=1
 export NPM_PACKAGES="${HOME}/.local/share/npm_packages"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
