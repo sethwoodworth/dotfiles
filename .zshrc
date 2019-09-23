@@ -32,16 +32,5 @@ zstyle ':completion:*' menu select
 # Load a fortune on term launch
 [ command -v fortune >/dev/null 2>&1 ] && fortune ~/.config/fortune/
 
-# function _pip_completion {
-#   local words cword
-#   read -Ac words
-#   read -cn cword
-#   reply=( $( COMP_WORDS="$words[*]" \
-#              COMP_CWORD=$(( cword-1 )) \
-#              PIP_AUTO_COMPLETE=1 $words[1] ) )
-# }
-# compctl -K _pip_completion pip
-
-source ${XDG_CONFIG_HOME}/zsh/prompt.zsh
 source $XDG_CONFIG_HOME/aliases/aliases
 for f (~/.config/zsh/zshrc.d/*) . $f
