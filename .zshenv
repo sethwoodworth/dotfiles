@@ -26,6 +26,7 @@ typeset -U path
 
 # path=(
 PATH="${HOME}/bin:$PATH"
+PATH="${HOME}/go/bin:$PATH"
 PATH="${HOME}/.local/bin:$PATH"
 PATH="/usr/local/bin:$PATH"
 export PATH
