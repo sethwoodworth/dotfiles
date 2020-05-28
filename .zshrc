@@ -3,7 +3,7 @@
 
 # Zsh options
 unsetopt beep
-setopt autocd
+# setopt autocd
 setopt completealiases # Lets me tab complete aliases
 setopt inc_append_history
 setopt share_history
