@@ -37,7 +37,3 @@ export NPM_PACKAGES="${HOME}/.local/share/npm_packages"
 export IPYTHONDIR="$XDG_CONFIG_HOME/ipython"
 
 export PYTHONBREAKPOINT='ipdb.set_trace'
-
-# export GOPATH=~/go
-# PATH="$PATH:$GOPATH/bin"
-# PATH="/home/${USER}/.local/share/google-cloud-sdk/bin:${PATH}"
